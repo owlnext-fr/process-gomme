@@ -1,73 +1,37 @@
-# React + TypeScript + Vite
+# process gomme
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![CI/CD](https://github.com/owlnext-fr/process-gomme/actions/workflows/deploy.yml/badge.svg)](https://github.com/owlnext-fr/process-gomme/actions/workflows/deploy.yml)
+[![Pages](https://img.shields.io/github/deployments/owlnext-fr/process-gomme/github-pages?label=pages)](https://owlnext-fr.github.io/process-gomme/)
+[![Last commit](https://img.shields.io/github/last-commit/owlnext-fr/process-gomme)](https://github.com/owlnext-fr/process-gomme/commits/main)
 
-Currently, two official plugins are available:
+![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white&style=for-the-badge)
+![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black&style=for-the-badge)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white&style=for-the-badge)
+![Tailwind](https://img.shields.io/badge/Tailwind-06B6D4?logo=tailwindcss&logoColor=white&style=for-the-badge)
+![shadcn/ui](https://img.shields.io/badge/shadcn/ui-000000?logo=shadcnui&logoColor=white&style=for-the-badge)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+> Inventaire de personnalité (logique base / phase / immeuble). Projet privé, statique,
+> contenus 100 % originaux. **[Démo →](https://owlnext-fr.github.io/process-gomme/)**
 
-## React Compiler
+## Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Vite · React · TypeScript · Tailwind v4 · shadcn/ui · Recharts · Framer Motion.
+100 % statique, aucun backend, état uniquement en mémoire navigateur.
 
-## Expanding the ESLint configuration
+## Développement
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Pré-requis : Node 24 (`nvm use`), pnpm 10.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm install        # dépendances
+pnpm dev            # serveur de dev
+pnpm test           # tests unitaires (Vitest)
+pnpm test:e2e       # tests end-to-end (Playwright)
+pnpm build          # build de production
+pnpm preview        # prévisualisation du build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Déploiement
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Push sur `main` → GitHub Actions enchaîne `test → build → deploy`.
+Rien n'est publié si un test échoue. Hébergé sur GitHub Pages.
