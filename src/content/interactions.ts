@@ -45,7 +45,7 @@ export function composeInteraction(base: TypeId, phase: TypeId): string {
   if (base === phase) {
     return (
       `Ta base et ta phase se rejoignent sur ${TYPES[base].nom} : ${CLAUSE_BASE[base]} ` +
-      `et, en ce moment, ${CLAUSE_PHASE[phase]} Cette cohérence te donne une grande clarté, ` +
+      `En ce moment, ${CLAUSE_PHASE[phase]} Cette cohérence te donne une grande clarté, ` +
       `à condition de veiller à ne pas t'enfermer dans un seul registre.`
     )
   }
