@@ -21,7 +21,7 @@ export function ResultsScreen({
 }) {
   const result = computeResult(answers)
   return (
-    <main className="mx-auto max-w-5xl p-6">
+    <main className="min-h-svh w-full p-6 md:p-10">
       <header className="flex items-center justify-between gap-4">
         <h1 className="text-3xl font-semibold tracking-tight">Tes résultats</h1>
         <Button variant="outline" onClick={onRestart}>
