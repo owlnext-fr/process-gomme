@@ -314,7 +314,7 @@ export const QUESTIONS: Question[] = [
     kind: "forced",
     prompt: "Si j'avais une matinée entière pour moi cette période, j'aimerais surtout…",
     options: [
-      { label: "approfondir un combat qui compte et défendre ce en quoi je crois.", cible: "perseverant" },
+      { label: "approfondir un combat qui compte et porter haut mes convictions.", cible: "perseverant" },
       { label: "flâner seul, l'esprit libre, à laisser vagabonder mon imaginaire.", cible: "reveur" },
       { label: "m'offrir un vrai moment de douceur avec ceux qui me sont chers.", cible: "empathique" },
       { label: "céder à une lubie du moment, juste pour m'amuser un peu.", cible: "rebelle" },
