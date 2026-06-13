@@ -45,6 +45,12 @@ pnpm install
 pnpm dev
 ```
 
+Les tests end-to-end utilisent Playwright. Installer le navigateur **une seule fois** :
+
+```bash
+pnpm exec playwright install chromium
+```
+
 ## Scripts
 
 ```bash
@@ -54,7 +60,27 @@ pnpm test:e2e       # tests end-to-end (Playwright)
 pnpm build          # build de production
 pnpm preview        # prévisualisation du build
 pnpm lint           # ESLint
+pnpm before_push    # tout vérifier avant de pousser (voir ci-dessous)
 ```
+
+## Avant de pousser
+
+Une seule commande à lancer avant chaque `git push`. Elle rejoue **exactement** ce que
+la CI vérifie : si c'est vert en local, le push passera la CI.
+
+```bash
+pnpm before_push
+```
+
+Elle enchaîne, dans l'ordre, et s'arrête à la première erreur :
+
+1. `pnpm lint` — ESLint (qualité + style du code)
+2. `pnpm test` — tests unitaires (Vitest)
+3. `pnpm build` — compilation TypeScript + build de production
+4. `pnpm test:e2e` — parcours complet du test dans un vrai navigateur (Playwright)
+
+> Si une étape échoue, corrige avant de pousser : un push qui casse la CI bloque le
+> déploiement (rien n'est publié tant que tout n'est pas vert).
 
 ## Architecture
 
