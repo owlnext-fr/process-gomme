@@ -328,7 +328,7 @@ export const QUESTIONS: Question[] = [
     prompt: "Ce qui m'a le plus manqué ces dernières semaines, c'est…",
     options: [
       {
-        label: "des repères clairs et le sentiment d'avoir mené mes choses à bien.",
+        label: "la satisfaction tranquille d'avoir bouclé mes affaires et d'y voir enfin clair.",
         cible: "travaillomane",
       },
       {
@@ -348,7 +348,7 @@ export const QUESTIONS: Question[] = [
         cible: "perseverant",
       },
       {
-        label: "ne rien décider à l'avance et me laisser porter par l'envie et le jeu.",
+        label: "me laisser totalement porter par l'envie du moment, juste pour le plaisir de souffler et de jouer.",
         cible: "rebelle",
       },
     ],
@@ -392,7 +392,7 @@ export const QUESTIONS: Question[] = [
     prompt: "Si j'avais une matinée entière pour moi cette période, j'aimerais surtout…",
     options: [
       {
-        label: "approfondir un sujet qui compte pour moi et auquel je tiens.",
+        label: "approfondir un engagement qui me tient à cœur et défendre ce en quoi je crois.",
         cible: "perseverant",
       },
       {
@@ -472,7 +472,7 @@ export const QUESTIONS: Question[] = [
     famille: "phase",
     kind: "likert",
     statement:
-      "Ces derniers temps, j'ai surtout besoin qu'on reconnaisse la qualité de ce que je fais et d'avoir des repères de temps clairs.",
+      "Ces derniers temps, j'ai surtout besoin qu'on reconnaisse la qualité de mon travail et d'avoir des échéances et des repères clairs.",
     cible: "travaillomane",
   },
   {
