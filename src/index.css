@@ -54,6 +54,9 @@
     --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/* Thème « Indigo & pastels » : accent indigo (hue 277) sur les tokens shadcn.
+   Les 6 couleurs de types (--type-1..6) sont volontairement en hex (palette fixe,
+   une couleur par type) ; consommées via TYPE_COLORS dans src/data/types.ts. */
 :root {
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);
