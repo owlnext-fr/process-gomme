@@ -271,4 +271,248 @@ export const QUESTIONS: Question[] = [
       "En général, je vais droit au but et je me sens pleinement vivant quand il y a de l'action et un enjeu.",
     cible: "promoteur",
   },
+
+  // ── Famille « phase » : 12 choix forcés ──────────────────────────────
+  {
+    id: "p-fc-01",
+    famille: "phase",
+    kind: "forced",
+    prompt: "Après une semaine bien chargée, ces derniers temps, pour récupérer j'aurais surtout envie de…",
+    options: [
+      {
+        label: "boucler enfin ce que j'ai laissé en suspens et sentir que c'est bien fait.",
+        cible: "travaillomane",
+      },
+      {
+        label: "tout lâcher, sortir et faire un truc spontané juste pour rigoler.",
+        cible: "rebelle",
+      },
+    ],
+  },
+  {
+    id: "p-fc-02",
+    famille: "phase",
+    kind: "forced",
+    prompt: "En ce moment, ce que j'aimerais le plus recevoir de mon entourage, c'est…",
+    options: [
+      {
+        label: "qu'on remarque le soin que je mets dans ce que je réalise.",
+        cible: "travaillomane",
+      },
+      {
+        label: "un peu de chaleur et d'attention pour qui je suis, simplement.",
+        cible: "empathique",
+      },
+    ],
+  },
+  {
+    id: "p-fc-03",
+    famille: "phase",
+    kind: "forced",
+    prompt: "Si une soirée se libérait cette semaine, là tout de suite j'aurais envie de…",
+    options: [
+      {
+        label: "avancer sur un projet bien cadré et cocher ce que j'avais planifié.",
+        cible: "travaillomane",
+      },
+      {
+        label: "me lancer dans quelque chose d'intense, avec un vrai enjeu à la clé.",
+        cible: "promoteur",
+      },
+    ],
+  },
+  {
+    id: "p-fc-04",
+    famille: "phase",
+    kind: "forced",
+    prompt: "Ce qui m'a le plus manqué ces dernières semaines, c'est…",
+    options: [
+      {
+        label: "des repères clairs et le sentiment d'avoir mené mes choses à bien.",
+        cible: "travaillomane",
+      },
+      {
+        label: "du temps calme rien qu'à moi pour laisser filer mes pensées.",
+        cible: "reveur",
+      },
+    ],
+  },
+  {
+    id: "p-fc-05",
+    famille: "phase",
+    kind: "forced",
+    prompt: "Pour une journée de congé qui approche, ces derniers temps j'aurais envie de…",
+    options: [
+      {
+        label: "la consacrer à une cause qui me tient à cœur et qui a du sens.",
+        cible: "perseverant",
+      },
+      {
+        label: "ne rien décider à l'avance et me laisser porter par l'envie et le jeu.",
+        cible: "rebelle",
+      },
+    ],
+  },
+  {
+    id: "p-fc-06",
+    famille: "phase",
+    kind: "forced",
+    prompt: "Ce qui me ferait du bien au travail en ce moment, ce serait…",
+    options: [
+      {
+        label: "qu'on reconnaisse l'engagement que je mets dans ce en quoi je crois.",
+        cible: "perseverant",
+      },
+      {
+        label: "des échanges plus humains, où l'on prenne le temps de se parler vraiment.",
+        cible: "empathique",
+      },
+    ],
+  },
+  {
+    id: "p-fc-07",
+    famille: "phase",
+    kind: "forced",
+    prompt: "Devant un week-end prolongé qui s'annonce, là maintenant j'aurais envie de…",
+    options: [
+      {
+        label: "m'investir dans quelque chose d'utile, fidèle à mes valeurs.",
+        cible: "perseverant",
+      },
+      {
+        label: "partir à l'aventure et vivre des moments forts, pleins d'adrénaline.",
+        cible: "promoteur",
+      },
+    ],
+  },
+  {
+    id: "p-fc-08",
+    famille: "phase",
+    kind: "forced",
+    prompt: "Si j'avais une matinée entière pour moi cette période, j'aimerais surtout…",
+    options: [
+      {
+        label: "approfondir un sujet qui compte pour moi et auquel je tiens.",
+        cible: "perseverant",
+      },
+      {
+        label: "rester au calme, seul, à rêvasser sans aucune contrainte.",
+        cible: "reveur",
+      },
+    ],
+  },
+  {
+    id: "p-fc-09",
+    famille: "phase",
+    kind: "forced",
+    prompt: "En rentrant chez moi après une journée bien remplie, ces derniers temps j'aspire à…",
+    options: [
+      {
+        label: "retrouver une présence douce et un vrai moment de connexion.",
+        cible: "empathique",
+      },
+      {
+        label: "m'isoler dans mon coin tranquille pour me ressourcer en silence.",
+        cible: "reveur",
+      },
+    ],
+  },
+  {
+    id: "p-fc-10",
+    famille: "phase",
+    kind: "forced",
+    prompt: "D'une retrouvaille avec mes proches qui se prépare, en ce moment j'attends surtout…",
+    options: [
+      {
+        label: "des moments de tendresse où je me sente reconnu pour qui je suis.",
+        cible: "empathique",
+      },
+      {
+        label: "de l'énergie, du mouvement et quelque chose qui décoiffe ensemble.",
+        cible: "promoteur",
+      },
+    ],
+  },
+  {
+    id: "p-fc-11",
+    famille: "phase",
+    kind: "forced",
+    prompt: "Quand un créneau de temps libre s'ouvre à l'improviste ces jours-ci, j'ai envie de…",
+    options: [
+      {
+        label: "m'offrir une bulle à part, seul avec mes idées et mon imaginaire.",
+        cible: "reveur",
+      },
+      {
+        label: "saisir l'occasion pour faire un truc fun et léger sur un coup de tête.",
+        cible: "rebelle",
+      },
+    ],
+  },
+  {
+    id: "p-fc-12",
+    famille: "phase",
+    kind: "forced",
+    prompt: "Ces derniers temps, pour me sentir vraiment bien, j'aurais surtout besoin de…",
+    options: [
+      {
+        label: "relever un défi avec un vrai enjeu et un peu d'adrénaline.",
+        cible: "promoteur",
+      },
+      {
+        label: "lâcher prise, rire et faire des choses juste pour le plaisir.",
+        cible: "rebelle",
+      },
+    ],
+  },
+
+  // ── Famille « phase » : 6 Likert (besoin du moment) ──────────────────
+  {
+    id: "p-lk-01",
+    famille: "phase",
+    kind: "likert",
+    statement:
+      "Ces derniers temps, j'ai surtout besoin qu'on reconnaisse la qualité de ce que je fais et d'avoir des repères de temps clairs.",
+    cible: "travaillomane",
+  },
+  {
+    id: "p-lk-02",
+    famille: "phase",
+    kind: "likert",
+    statement:
+      "En ce moment, j'ai besoin que mes convictions et mon engagement soient reconnus et respectés.",
+    cible: "perseverant",
+  },
+  {
+    id: "p-lk-03",
+    famille: "phase",
+    kind: "likert",
+    statement:
+      "Ces derniers temps, j'ai surtout besoin qu'on me reconnaisse comme personne, avec de la chaleur et de l'attention.",
+    cible: "empathique",
+  },
+  {
+    id: "p-lk-04",
+    famille: "phase",
+    kind: "likert",
+    statement:
+      "En ce moment, j'ai particulièrement besoin de moments de solitude et de calme pour laisser vivre mon imaginaire.",
+    cible: "reveur",
+  },
+  {
+    id: "p-lk-05",
+    famille: "phase",
+    kind: "likert",
+    statement:
+      "Ces derniers temps, j'ai surtout besoin de légèreté, de jeu et de contacts qui me fassent rire.",
+    cible: "rebelle",
+  },
+  {
+    id: "p-lk-06",
+    famille: "phase",
+    kind: "likert",
+    statement:
+      "En ce moment, j'ai besoin d'action, de défis et d'intensité à vivre dans l'instant.",
+    cible: "promoteur",
+  },
 ]
