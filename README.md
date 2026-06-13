@@ -18,20 +18,88 @@
 Vite · React · TypeScript · Tailwind v4 · shadcn/ui · Recharts · Framer Motion.
 100 % statique, aucun backend, état uniquement en mémoire navigateur.
 
-## Développement
+## Installation (Linux)
 
-Pré-requis : Node 24 (`nvm use`), pnpm 10.
+Tout depuis zéro (nvm → Node 24 → pnpm → dépendances) :
 
 ```bash
-pnpm install        # dépendances
+# 1. Cloner le dépôt
+git clone git@github.com:owlnext-fr/process-gomme.git
+cd process-gomme
+
+# 2. Installer nvm (Node Version Manager)
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
+# Charger nvm dans le shell courant (sinon : ouvrir un nouveau terminal)
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+# 3. Installer et activer la version de Node lue dans .nvmrc (Node 24)
+nvm install
+nvm use
+
+# 4. Activer pnpm via corepack (la version est épinglée dans package.json)
+corepack enable pnpm
+
+# 5. Installer les dépendances et lancer le serveur de dev
+pnpm install
+pnpm dev
+```
+
+## Scripts
+
+```bash
 pnpm dev            # serveur de dev
 pnpm test           # tests unitaires (Vitest)
 pnpm test:e2e       # tests end-to-end (Playwright)
 pnpm build          # build de production
 pnpm preview        # prévisualisation du build
+pnpm lint           # ESLint
 ```
+
+## Architecture
+
+Séparation nette entre **données**, **logique pure**, **contenu textuel** et **UI**. La
+logique de calcul ne dépend pas de React (donc testable en isolation) ; l'UI ne fait que
+l'afficher.
+
+```
+src/
+├── data/                 # contenu du test (Bloc 2)
+│   ├── types.ts          # les 6 types (TypeId, TYPES)
+│   └── questions.ts      # les 36 questions typées + invariants testés
+├── lib/
+│   └── scoring.ts        # moteur de scoring PUR (vecteurs base/phase, immeuble) — sans React
+├── content/              # synthèses textuelles originales
+│   ├── descriptions.ts   # 1 paragraphe base + 1 phase par type
+│   └── interactions.ts   # template paramétré base × phase + intro immeuble
+├── features/
+│   ├── intro/            # écran d'accueil
+│   ├── quiz/             # state machine (useReducer) + écran de quiz
+│   │   ├── quizReducer.ts
+│   │   ├── QuizScreen.tsx, ForcedChoice.tsx (RadioGroup), LikertScale.tsx (Slider)
+│   └── results/          # écran de résultats (split vertical)
+│       ├── Immeuble.tsx      # pyramide animée (largeur ∝ score, construction étage par étage)
+│       ├── RadarProfil.tsx   # radar Recharts des 6 scores
+│       ├── Synthese.tsx      # sections titrées (base/phase/immeuble/interactions)
+│       └── ResultsScreen.tsx # assemblage + appel du moteur de scoring
+├── components/ui/        # composants shadcn/ui
+└── App.tsx               # routeur d'écrans (intro → quiz → résultats) via useReducer
+```
+
+**Flux** : `App.tsx` tient l'état (`useReducer`) et route entre les 3 écrans. Le quiz
+accumule les réponses en mémoire ; à la fin, `computeResult()` (dans `lib/scoring.ts`)
+produit les deux vecteurs de scores, la base, la phase et l'immeuble, que l'écran de
+résultats affiche. Rien n'est persisté ni envoyé.
 
 ## Déploiement
 
 Push sur `main` → GitHub Actions enchaîne `test → build → deploy`.
 Rien n'est publié si un test échoue. Hébergé sur GitHub Pages.
+
+## Pourquoi « process gomme » ?
+
+Boutade assumée. Le modèle qui a inspiré la mécanique générale (base / phase / immeuble,
+six types de perception) est familièrement appelé « Process Com ». « process gomme » en est
+la déformation potache : on a gardé la **logique générale**, passé la **gomme** sur tout le
+reste, et **réécrit 100 % du contenu** — types décrits, questions, synthèses. Aucun lien
+officiel avec la marque, aucune reprise de matériel propriétaire : usage strictement privé.
