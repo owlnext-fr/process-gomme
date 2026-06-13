@@ -15,6 +15,7 @@ Voir aussi : `ENVIRONMENT.md` · `QUIRKS.md` · `BACKLOG.md` · `HANDOFF.md` · 
 | Bloc 3 — Quiz + scoring + synthèse | 2026-06-13 | [spec](superpowers/specs/2026-06-13-bloc3-quiz-scoring-synthese-design.md) | [plan](superpowers/plans/2026-06-13-bloc3-quiz-scoring-synthese.md) | ✅ Livré | Scoring pur testé, immeuble animé (pyramide), radar Recharts, synthèses originales étoffées |
 | Lazy-load Recharts (radar) | 2026-06-13 | — | — | ✅ Livré | Bundle initial 672→411 kB ; Recharts en chunk séparé (`ResultsScreen.tsx`) |
 | Système de mémoire projet | 2026-06-13 | — | — | ✅ Livré | `docs/` (HANDOFF/INDEX/ENVIRONMENT/QUIRKS/BACKLOG/CONVENTIONS) + bloc mémoire `CLAUDE.md` + hook `SessionStart` (`.claude/hooks/load-memory.sh`) |
+| Refonte UX — layouts pleine page 1/3-2/3 + page résultats C + thème indigo | 2026-06-14 | [spec](superpowers/specs/2026-06-13-refonte-ux-layouts-couleurs-design.md) | [plan](superpowers/plans/2026-06-13-refonte-ux-layouts-couleurs.md) | ✅ Livré | `SplitLayout` + `ProfilExplainer` ; volet 2/3 indigo (`bg-primary`) ; `TYPE_COLORS` (radar+pyramide+pastilles) ; icônes lucide sur tous les boutons ; résultats en cartes (titres+explications) ; pleine page |
 
 ## Commandes / scripts utilitaires
 

@@ -75,3 +75,23 @@ Comportements non-évidents découverts au fil du projet. Un H2 par quirk, avec 
 **Workaround** : choix assumé `--base radix` (Radix UI, mature) + preset nova (= thème par défaut). Conforme au brief « thème par défaut ».
 
 **Référence** : `components.json`, `src/index.css`
+
+## `max-md:hidden` (pas `hidden md:block`) pour masquer un volet flex en mobile (2026-06-14)
+
+**Symptôme** : on veut masquer le volet droit du `SplitLayout` en mobile MAIS le garder en conteneur flex (`flex flex-col justify-center`) en desktop pour centrer son contenu.
+
+**Cause** : `hidden md:block` force `display:block` à partir de `md`, ce qui **écrase** le `flex` du volet → plus de centrage vertical.
+
+**Workaround** : utiliser `max-md:hidden` (masque sous `md`, laisse le `flex` intact à `md`+). Le test de `SplitLayout` vérifie donc `max-md:hidden`.
+
+**Référence** : `src/components/SplitLayout.tsx`, `src/components/SplitLayout.test.tsx`
+
+## Padding horizontal de la pyramide : desktop-only (2026-06-14)
+
+**Symptôme** : `px-16` sur la pyramide (immeuble) « casse tout » en mobile (étages écrasés, illisibles).
+
+**Cause** : en mobile la carte est étroite ; un gros padding horizontal sur des étages en largeur `%` les réduit à presque rien.
+
+**Workaround** : `md:px-16` (padding seulement à partir de `md`). En mobile, la pyramide reste pleine largeur.
+
+**Référence** : `src/features/results/Immeuble.tsx`

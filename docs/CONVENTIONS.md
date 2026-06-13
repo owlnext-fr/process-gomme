@@ -75,4 +75,8 @@ export const MA_DONNEE: Record<TypeId, string> = {
 - **Français correct** dans tout le contenu UI : accents et ponctuation soignés (« é », « ê », « » si besoin).
 - **Composants shadcn** dans `src/components/ui/` : générés par la CLI, non modifiés à la main ; exemptés de la règle ESLint `react-refresh`.
 - **a11y plancher** : `aria-label` sur les contrôles/visuels, focus clavier visible, `useReducedMotion()` pour toute animation.
+- **Couleurs de types** : toujours via **`TYPE_COLORS`** (`src/data/types.ts`, → tokens `--type-1..6`). Jamais de couleur de type en dur. Source unique partagée par le radar (`RadarProfil`), la pyramide (`Immeuble`) et les pastilles du panneau (`ProfilExplainer`).
+- **Icônes sur les boutons** : tout `<Button>` porte une icône **lucide-react** (`className="size-4"`, `aria-hidden`), le label texte reste pour l'a11y.
+- **Layouts pleine page** : intro + quiz utilisent `SplitLayout` (1/3-2/3, pleine largeur, padding par volet) ; la page résultats est aussi pleine page. Pas de `mx-auto max-w-*` de cadrage global sur ces écrans.
+- **Masquer un volet flex en mobile** : `max-md:hidden` (pas `hidden md:block`, qui casse le `flex`). Voir `QUIRKS.md`.
 - **Commits gitmoji** directs sur `main`. **`pnpm before_push`** avant chaque push.

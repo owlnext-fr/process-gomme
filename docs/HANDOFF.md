@@ -6,6 +6,27 @@ Notes informelles à destination de la prochaine session (humaine ou Claude). Fo
 
 ---
 
+## 2026-06-14 — Refonte UX (layouts pleine page + page résultats + thème indigo)
+
+### Dernière chose faite
+- Refonte UX complète livrée en subagent-driven (12 tâches), `pnpm before_push` **vert** (36 tests unitaires + 1 e2e).
+- **Layouts pleine page** : nouveau `SplitLayout` (1/3-2/3, plus de `max-w`/marges) utilisé par intro + quiz ; volet 2/3 droit en **indigo** (`bg-primary`, aligné sur les boutons), panneau d'explications `ProfilExplainer` (statique, contenu original base/phase/immeuble) **centré** et cadré (`max-w-lg`), fond indigo clair.
+- **Quiz** : panneau d'explications **desktop-only** (`hideRightOnMobile` → `max-md:hidden`) ; mobile = colonne simple.
+- **Couleur** : thème indigo via tokens (`src/index.css`) + **`TYPE_COLORS`** (source unique, `--type-1..6`) → pyramide (étages colorés), radar (sommets colorés), pastilles du panneau. Icônes lucide sur **tous** les boutons.
+- **Page résultats (layout C, pleine page)** : en-tête titre « Tes résultats » + reset ↺ en haut à droite, bandeau base·phase (indigo clair), colonne sticky gauche (pyramide + radar) en **cartes titrées avec explications**, synthèse en carte. Radar agrandi (`h-80`, rayon 80 %). Pyramide resserrée en desktop (`md:px-16`, **pas** de padding en mobile sinon ça casse).
+
+### Trucs en suspens
+- Rien de bloquant. Tout est commité sur `main`, gate vert. (Pas encore poussé — à `git push` quand tu veux.)
+
+### Prochaine chose à creuser
+- Vérif visuelle mobile fine (le quiz mobile = colonne simple ; la pyramide mobile sans padding).
+- Le thème reste « clair » uniquement (le `.dark` est recoloré mais non exposé).
+
+### Notes pour future Claude
+- Beaucoup d'ajustements visuels ont été décidés **en live sur capture d'écran** avec Adrien (full-page, teinte du volet, centrage, padding pyramide). Le spec et le plan portent une section « Ajustements live (2026-06-14) » qui **prime** sur le code initial des Tasks 4/5/10.
+- Règle confirmée : **toute couleur de type passe par `TYPE_COLORS`** (jamais en dur). **Tout bouton porte une icône lucide** (`size-4`, `aria-hidden`).
+- Serveur dev lancé pendant la session (port 5174) ; artefacts de capture (`.playwright-mcp/`, `*.png`) gitignorés.
+
 ## 2026-06-13 — Bootstrap mémoire projet + fin des 3 blocs
 
 ### Dernière chose faite
