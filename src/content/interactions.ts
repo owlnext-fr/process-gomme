@@ -7,7 +7,7 @@ export const IMMEUBLE_INTRO =
   "des facettes plus discrètes à mesure qu'on monte, mais bien réelles : ce sont des ressources " +
   "que tu peux mobiliser selon les situations, même si elles te demandent un peu plus d'énergie. " +
   "Cet immeuble n'est pas un classement de valeur où le haut vaudrait mieux que le bas : c'est une " +
-  "carte de tes appuis intérieurs, qui montre dans quel registre tu puises spontanément et lesquels " +
+  "carte de tes appuis intérieurs, qui montre dans quels registres tu puises spontanément et lesquels " +
   "tu peux apprendre à solliciter. Aucun étage n'est de trop ; ensemble, ils dessinent la richesse " +
   "et la nuance de ta personnalité."
 
@@ -23,7 +23,7 @@ const CLAUSE_BASE: Record<TypeId, string> = {
   rebelle:
     "tu réagis au monde avec spontanéité, au gré de ce que tu aimes ou non, en y mêlant volontiers humour et créativité.",
   promoteur:
-    "tu repères d'instinct les opportunités et passes vite à l'action, direct et adaptable face à l'enjeu.",
+    "tu repères d'instinct les opportunités et tu passes vite à l'action, direct et adaptable face à l'enjeu.",
 }
 
 const CLAUSE_PHASE: Record<TypeId, string> = {
