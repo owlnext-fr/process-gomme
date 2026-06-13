@@ -18,7 +18,7 @@ export function Immeuble({
   const n = ordreAffichage.length
 
   return (
-    <div className="flex flex-col items-center gap-1.5" aria-label="Ton immeuble">
+    <div className="flex flex-col items-center gap-1.5 md:px-16" aria-label="Ton immeuble">
       {ordreAffichage.map((t, i) => {
         const largeur = 30 + (socle[t] / max) * 70 // 30%..100%
         const estPhase = t === phase

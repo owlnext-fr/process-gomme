@@ -41,13 +41,29 @@ export function ResultsScreen({
 
       <div className="mt-8 flex flex-col gap-8 md:flex-row md:items-start">
         <div className="flex w-full flex-col gap-8 md:sticky md:top-6 md:w-[38%]">
-          <Immeuble immeuble={result.immeuble} socle={result.socle} phase={result.phase} />
-          <Suspense fallback={<div className="h-64 w-full" aria-label="Radar de ton profil" />}>
-            <RadarProfil socle={result.socle} />
-          </Suspense>
+          <section className="rounded-xl border bg-card p-6">
+            <h2 className="text-lg font-semibold">Ton immeuble</h2>
+            <p className="mt-1 mb-5 text-sm text-muted-foreground">
+              Tes six facettes empilées de la plus marquée (en bas) à la plus discrète.
+              La largeur reflète l'intensité ; l'étage encadré est ta phase actuelle.
+            </p>
+            <Immeuble immeuble={result.immeuble} socle={result.socle} phase={result.phase} />
+          </section>
+          <section className="rounded-xl border bg-card p-6">
+            <h2 className="text-lg font-semibold">Ton profil en relief</h2>
+            <p className="mt-1 text-sm text-muted-foreground">
+              La même information vue d'ensemble : plus une branche s'étire, plus la
+              facette correspondante pèse dans ta manière de fonctionner.
+            </p>
+            <Suspense fallback={<div className="h-80 w-full" aria-label="Radar de ton profil" />}>
+              <RadarProfil socle={result.socle} />
+            </Suspense>
+          </section>
         </div>
         <div className="w-full md:flex-1">
-          <Synthese result={result} />
+          <div className="rounded-xl border bg-card p-6 md:p-8">
+            <Synthese result={result} />
+          </div>
         </div>
       </div>
     </main>
