@@ -1,0 +1,78 @@
+# Conventions de code
+
+Squelettes et patterns récurrents du projet. À consulter avant de créer un nouveau type de fichier (entité, service, contrôleur, composant, etc.).
+
+Si tu découvres un pattern récurrent : documente-le ici.
+
+---
+
+## Composant d'écran / feature (React) — squelette
+
+```tsx
+// src/features/<feature>/<Nom>.tsx
+import { Button } from "@/components/ui/button"
+import type { TypeId } from "@/data/types"
+
+// Props typées en inline (pas d'interface séparée pour les petits composants).
+export function MonComposant({
+  valeur,
+  onChange,
+}: {
+  valeur: TypeId | undefined
+  onChange: (v: TypeId) => void
+}) {
+  return (
+    <main className="flex flex-col gap-6 p-6">
+      {/* … */}
+    </main>
+  )
+}
+```
+
+## Logique pure + son test (TDD) — squelette
+
+```ts
+// src/lib/<module>.ts — AUCUN import React. Pur, déterministe, testable en isolation.
+import { TYPE_IDS, type TypeId } from "@/data/types"
+
+export function maFonction(/* … */): /* … */ {
+  // …
+}
+```
+
+```ts
+// src/lib/<module>.test.ts
+import { describe, it, expect } from "vitest"
+import { maFonction } from "./<module>"
+
+describe("maFonction", () => {
+  it("fait X", () => {
+    expect(maFonction(/* … */)).toBe(/* … */)
+  })
+})
+```
+
+## Données de contenu — squelette
+
+```ts
+// src/data/<...>.ts ou src/content/<...>.ts
+import type { TypeId } from "@/data/types"
+
+export const MA_DONNEE: Record<TypeId, string> = {
+  travaillomane: "…",
+  // … les 6 types dans l'ordre canonique de TYPE_IDS
+}
+```
+
+### Règles tacites
+
+- **Pas de point-virgule**, **guillemets doubles** (style ESLint/Prettier du repo — suivre l'existant).
+- **Alias `@/`** → `src/` partout (imports). Path dans `tsconfig` (`paths`, sans `baseUrl`).
+- **TDD** pour toute logique pure (`lib/`, reducers, composition de contenu) : test rouge → impl → vert.
+- **Séparation stricte** : `data/` (contenu) · `lib/` (logique pure, sans React) · `content/` (textes) · `features/` (UI). L'UI ne fait qu'afficher la logique.
+- **Fichiers focalisés** : une responsabilité par fichier ; si ça grossit, découper.
+- **Contenu de personnalité 100 % ORIGINAL** : jamais de reformulation/copie de matériel propriétaire (types, fiches, items). Noms officiels des 6 types tolérés en façade uniquement.
+- **Français correct** dans tout le contenu UI : accents et ponctuation soignés (« é », « ê », « » si besoin).
+- **Composants shadcn** dans `src/components/ui/` : générés par la CLI, non modifiés à la main ; exemptés de la règle ESLint `react-refresh`.
+- **a11y plancher** : `aria-label` sur les contrôles/visuels, focus clavier visible, `useReducedMotion()` pour toute animation.
+- **Commits gitmoji** directs sur `main`. **`pnpm before_push`** avant chaque push.

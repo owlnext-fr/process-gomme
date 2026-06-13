@@ -29,5 +29,9 @@ dist-ssr
 /blob-report/
 /playwright/.cache/
 
-# Superpowers brainstorming (maquettes locales)
+# Maquettes du compagnon visuel de brainstorming (scratch local, à ne PAS versionner).
+# NB : les specs/plans dans docs/superpowers/ SONT versionnés — c'est un dossier différent.
 /.superpowers/
+
+# Claude Code : overrides/secrets locaux (le reste de .claude/ est partagé/versionné)
+.claude/settings.local.json
