@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from "motion/react"
-import { TYPES, type TypeId } from "@/data/types"
+import { TYPES, TYPE_COLORS, type TypeId } from "@/data/types"
 
 export function Immeuble({
   immeuble,
@@ -30,8 +30,9 @@ export function Immeuble({
             initial={reduce ? false : { width: 0, opacity: 0 }}
             animate={{ width: `${largeur}%`, opacity: 1 }}
             transition={{ delay: delai, duration: 0.4, ease: "easeOut" }}
-            className={`flex items-center justify-between gap-3 rounded-md px-3 py-2 text-sm text-primary-foreground ${
-              estPhase ? "bg-primary ring-2 ring-offset-2 ring-amber-500" : "bg-muted-foreground"
+            style={{ backgroundColor: TYPE_COLORS[t] }}
+            className={`flex items-center justify-between gap-3 rounded-md px-3 py-2 text-sm text-white ${
+              estPhase ? "ring-2 ring-foreground ring-offset-2" : ""
             }`}
           >
             <span className="truncate">{TYPES[t].nom}</span>
