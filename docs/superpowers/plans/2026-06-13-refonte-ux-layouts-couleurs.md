@@ -10,6 +10,16 @@
 
 ---
 
+## ⚠️ Ajustements live (2026-06-14) — priment sur le code des Tasks 4 & 5
+
+Validés sur capture avec l'utilisateur après coup :
+- `SplitLayout` : **pleine page** (pas de `mx-auto max-w-6xl`), volet droit `bg-primary`
+  (indigo), contenu **centré verticalement** (`flex flex-col justify-center`), masquage
+  mobile via `max-md:hidden`. Padding par volet (`p-6` / `md:p-10`).
+- `ProfilExplainer` : fond `bg-indigo-100` + bordure `indigo-200`, **`mx-auto w-full max-w-lg`**, `p-8`.
+- Test `SplitLayout` : l'assertion vérifie `max-md:hidden` (et non `hidden`/`md:block`).
+- Commit de référence de l'ajustement : `bdaf954`.
+
 ## Référence — design validé
 
 Spec : `docs/superpowers/specs/2026-06-13-refonte-ux-layouts-couleurs-design.md`.

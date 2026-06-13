@@ -146,6 +146,21 @@ Icônes en `size-4`, placées via `<Icon className="..." />` à l'intérieur du 
 - **nouvel invariant** : test que `TYPE_COLORS` couvre exactement les 6 `TYPE_IDS` (même
   esprit que les invariants de `questions.ts`).
 
+## Ajustements en cours d'implémentation (2026-06-14)
+
+Décidés avec l'utilisateur en direct, sur capture d'écran (validés visuellement) :
+
+- **Layout pleine page** : `SplitLayout` n'est plus centré/cadré (`mx-auto max-w-6xl`
+  supprimés) ; les deux volets vont jusqu'aux bords de l'écran (pas de marges
+  latérales). Padding interne à chaque volet (`p-6` / `md:p-10`).
+- **Volet 2/3 coloré** : fond du volet droit = **accent indigo du thème** (`bg-primary`,
+  `#4f46e5`) — aligné sur la couleur des boutons (et non un violet distinct).
+- **Panneau d'explications** : fond **indigo clair** (`bg-indigo-100`, bordure
+  `indigo-200`), **largeur plafonnée** (`max-w-lg`) et **centré** dans le volet
+  (vertical via `justify-center` sur le volet, horizontal via `mx-auto`).
+- **Masquage mobile** du volet droit (quiz) via `max-md:hidden` (au lieu de
+  `hidden md:block`, incompatible avec le centrage flex).
+
 ## Hors périmètre (YAGNI)
 
 - Pas de toggle dark mode exposé (on recolore `.dark` par propreté, sans l'exposer).
