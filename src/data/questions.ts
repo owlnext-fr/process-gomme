@@ -40,7 +40,7 @@ export const QUESTIONS: Question[] = [
         cible: "travaillomane",
       },
       {
-        label: "attrape deux planches au feeling pour voir où ça me mène.",
+        label: "me lance tout de suite, j'aime sentir le truc prendre forme sous mes mains.",
         cible: "rebelle",
       },
     ],
@@ -100,11 +100,11 @@ export const QUESTIONS: Question[] = [
     prompt: "Au moment de choisir un film pour la soirée, en général je…",
     options: [
       {
-        label: "penche pour une œuvre qui a du fond et défend quelque chose.",
+        label: "choisis un film qui me touche par ce qu'il raconte et défend.",
         cible: "perseverant",
       },
       {
-        label: "prends celui qui me fait envie sur le moment, juste pour le plaisir.",
+        label: "suis mon envie du moment, je me fie à ce qui me fait vibrer là, maintenant.",
         cible: "rebelle",
       },
     ],
@@ -136,7 +136,7 @@ export const QUESTIONS: Question[] = [
         cible: "perseverant",
       },
       {
-        label: "cherche l'argument qui fera bouger les autres et emporte le morceau.",
+        label: "trouve l'argument qui parle aux autres et fait avancer le débat.",
         cible: "promoteur",
       },
     ],
@@ -168,7 +168,7 @@ export const QUESTIONS: Question[] = [
         cible: "empathique",
       },
       {
-        label: "m'installe en retrait et observe l'ambiance avant d'aller plus loin.",
+        label: "reste en retrait à observer la scène, un peu dans mon monde.",
         cible: "reveur",
       },
     ],
@@ -216,7 +216,7 @@ export const QUESTIONS: Question[] = [
         cible: "promoteur",
       },
       {
-        label: "vois ça comme un grain de folie sympa et me laisse porter.",
+        label: "souris et improvise autre chose, c'est l'imprévu qui rend ça drôle.",
         cible: "rebelle",
       },
     ],
@@ -260,7 +260,7 @@ export const QUESTIONS: Question[] = [
     famille: "base",
     kind: "likert",
     statement:
-      "Par nature, je réagis au quart de tour selon ce qui me plaît ou ne me plaît pas, avec une bonne dose d'humour.",
+      "Par nature, je dis spontanément ce qui me plaît ou non, souvent avec une bonne dose d'humour.",
     cible: "rebelle",
   },
   {
