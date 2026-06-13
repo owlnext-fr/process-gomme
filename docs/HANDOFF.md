@@ -6,6 +6,12 @@ Notes informelles à destination de la prochaine session (humaine ou Claude). Fo
 
 ---
 
+## 2026-06-14 — Corrections UX mobile (intro + quiz)
+
+- **Intro mobile** : panneau d'explications masqué (`hideRightOnMobile` sur l'intro), box principale (titre + note + bouton) centrée sur la page (`max-md:items-center max-md:text-center`).
+- **Quiz mobile** : nav (Précédent/Suivant) poussée en bas de page (avant elle collait sous les réponses).
+- Mécanisme commun : `SplitLayout` donne au volet gauche `min-h-svh` en mobile (`md:min-h-0` en desktop) → le `flex` interne peut centrer (intro) ou pousser la nav en bas (quiz). Gate `before_push` vert. Commit `c9dd3c9`.
+
 ## 2026-06-14 — Refonte UX (layouts pleine page + page résultats + thème indigo)
 
 ### Dernière chose faite
