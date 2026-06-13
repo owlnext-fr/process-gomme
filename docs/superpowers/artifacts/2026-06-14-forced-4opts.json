@@ -1,0 +1,519 @@
+{
+  "summary": "Dedoublonne et homogeneise les libelles des options par famille",
+  "agentCount": 2,
+  "logs": [],
+  "result": {
+    "base": {
+      "questions": [
+        {
+          "id": "b-fc-01",
+          "options": [
+            {
+              "cible": "travaillomane",
+              "label": "lis toute la notice et trie les pièces avant la première vis."
+            },
+            {
+              "cible": "rebelle",
+              "label": "attaque direct sans la notice, c'est bien plus drôle d'improviser."
+            },
+            {
+              "cible": "perseverant",
+              "label": "le monte nickel, même la face cachée, parce que le travail bâclé je ne supporte pas."
+            },
+            {
+              "cible": "promoteur",
+              "label": "l'assemble en vitesse et envoie déjà une photo pour épater."
+            }
+          ]
+        },
+        {
+          "id": "b-fc-02",
+          "options": [
+            {
+              "cible": "travaillomane",
+              "label": "verrouille le menu, les horaires et les courses bien en amont."
+            },
+            {
+              "cible": "empathique",
+              "label": "choisis surtout les invités pour que le courant passe entre tout le monde."
+            },
+            {
+              "cible": "reveur",
+              "label": "savoure longtemps l'ambiance dans ma tête avant de bouger le petit doigt."
+            },
+            {
+              "cible": "promoteur",
+              "label": "rameute la bande et vise une soirée dont on reparlera longtemps."
+            }
+          ]
+        },
+        {
+          "id": "b-fc-03",
+          "options": [
+            {
+              "cible": "travaillomane",
+              "label": "liste d'abord les étapes et les infos qui me manquent."
+            },
+            {
+              "cible": "promoteur",
+              "label": "flaire le bon coup et pousse pour qu'on embarque sans attendre."
+            },
+            {
+              "cible": "perseverant",
+              "label": "vérifie que l'objectif tient la route et mérite qu'on s'y donne."
+            },
+            {
+              "cible": "rebelle",
+              "label": "fonce vers ce qui m'attire, sans me casser la tête."
+            }
+          ]
+        },
+        {
+          "id": "b-fc-04",
+          "options": [
+            {
+              "cible": "travaillomane",
+              "label": "le découpe en petites questions claires pour avancer pas à pas."
+            },
+            {
+              "cible": "reveur",
+              "label": "le laisse infuser tout seul en pensant à autre chose."
+            },
+            {
+              "cible": "empathique",
+              "label": "capte d'abord ce que ça remue chez les gens autour."
+            },
+            {
+              "cible": "rebelle",
+              "label": "m'amuse à le retourner avec l'idée à contre-courant qui me vient."
+            }
+          ]
+        },
+        {
+          "id": "b-fc-05",
+          "options": [
+            {
+              "cible": "perseverant",
+              "label": "choisis un film qui porte un message qui me tient vraiment à cœur."
+            },
+            {
+              "cible": "rebelle",
+              "label": "attrape le titre qui me tente à la seconde, sans réfléchir."
+            },
+            {
+              "cible": "travaillomane",
+              "label": "compare les avis et les notes avant de trancher."
+            },
+            {
+              "cible": "empathique",
+              "label": "vise ce qui ferait plaisir à toute la tablée."
+            }
+          ]
+        },
+        {
+          "id": "b-fc-06",
+          "options": [
+            {
+              "cible": "perseverant",
+              "label": "me demande surtout si le travail rendu restait honnête malgré tout."
+            },
+            {
+              "cible": "empathique",
+              "label": "jauge son état avant même d'aborder le sujet."
+            },
+            {
+              "cible": "reveur",
+              "label": "laisse passer un peu de temps avant de réagir."
+            },
+            {
+              "cible": "promoteur",
+              "label": "vais droit au but pour rattraper le coup et repartir vite."
+            }
+          ]
+        },
+        {
+          "id": "b-fc-07",
+          "options": [
+            {
+              "cible": "perseverant",
+              "label": "défends calmement le point de vue qui me semble le plus juste."
+            },
+            {
+              "cible": "promoteur",
+              "label": "trouve l'argument qui frappe et relance le débat."
+            },
+            {
+              "cible": "travaillomane",
+              "label": "remets les faits au clair pour qu'on raisonne sur du concret."
+            },
+            {
+              "cible": "reveur",
+              "label": "décroche du brouhaha et suis le fil de mes propres idées."
+            }
+          ]
+        },
+        {
+          "id": "b-fc-08",
+          "options": [
+            {
+              "cible": "perseverant",
+              "label": "me demande tout de suite si c'est droit et conforme à ce que je crois."
+            },
+            {
+              "cible": "reveur",
+              "label": "y repense seul, par bribes, bien des jours plus tard."
+            },
+            {
+              "cible": "empathique",
+              "label": "pense aussitôt aux personnes touchées et à leur peine."
+            },
+            {
+              "cible": "rebelle",
+              "label": "réagis du tac au tac, souvent avec une pointe d'ironie."
+            }
+          ]
+        },
+        {
+          "id": "b-fc-09",
+          "options": [
+            {
+              "cible": "empathique",
+              "label": "rejoins celui qui a l'air un peu isolé pour lui tenir compagnie."
+            },
+            {
+              "cible": "reveur",
+              "label": "m'installe dans un coin pour observer la scène tranquillement."
+            },
+            {
+              "cible": "travaillomane",
+              "label": "repère les rares personnes avec qui parler de vrais sujets."
+            },
+            {
+              "cible": "rebelle",
+              "label": "lance une vanne pour briser la glace et voir qui suit."
+            }
+          ]
+        },
+        {
+          "id": "b-fc-10",
+          "options": [
+            {
+              "cible": "empathique",
+              "label": "m'assois avec lui pour comprendre ce qui le plombe."
+            },
+            {
+              "cible": "promoteur",
+              "label": "lui lance un défi concret qui rallume son énergie d'un coup."
+            },
+            {
+              "cible": "perseverant",
+              "label": "lui rappelle l'engagement pris et la fierté de tenir bon."
+            },
+            {
+              "cible": "reveur",
+              "label": "prends de la hauteur et lui propose un autre angle de vue."
+            }
+          ]
+        },
+        {
+          "id": "b-fc-11",
+          "options": [
+            {
+              "cible": "reveur",
+              "label": "savoure de ne rien prévoir et laisse filer mon imagination."
+            },
+            {
+              "cible": "rebelle",
+              "label": "improvise une lubie sur un coup de tête, juste pour voir."
+            },
+            {
+              "cible": "travaillomane",
+              "label": "avance tranquillement sur ma liste et coche deux ou trois choses."
+            },
+            {
+              "cible": "promoteur",
+              "label": "appelle mes potes pour monter une sortie qui décoiffe."
+            }
+          ]
+        },
+        {
+          "id": "b-fc-12",
+          "options": [
+            {
+              "cible": "promoteur",
+              "label": "rebondis sur-le-champ et tourne le contretemps à mon avantage."
+            },
+            {
+              "cible": "rebelle",
+              "label": "souris et bifurque ailleurs, l'imprévu rend le voyage savoureux."
+            },
+            {
+              "cible": "perseverant",
+              "label": "garde le cap et trouve coûte que coûte comment tenir mon plan."
+            },
+            {
+              "cible": "empathique",
+              "label": "sonde l'humeur de chacun avant qu'on décide de la suite ensemble."
+            }
+          ]
+        }
+      ]
+    },
+    "phase": {
+      "questions": [
+        {
+          "id": "p-fc-01",
+          "options": [
+            {
+              "cible": "travaillomane",
+              "label": "poser un cadre net, tout remettre en ordre et savourer le calme d'un espace bien rangé."
+            },
+            {
+              "cible": "rebelle",
+              "label": "tout lâcher, sortir sur un coup de tête et m'offrir un éclat de rire."
+            },
+            {
+              "cible": "perseverant",
+              "label": "me recentrer sur l'essentiel et avancer dans la direction qui me semble juste."
+            },
+            {
+              "cible": "promoteur",
+              "label": "plonger dans une activité grisante qui me regonfle à bloc."
+            }
+          ]
+        },
+        {
+          "id": "p-fc-02",
+          "options": [
+            {
+              "cible": "travaillomane",
+              "label": "qu'on remarque le soin et la rigueur que je mets dans mon travail."
+            },
+            {
+              "cible": "empathique",
+              "label": "un peu de chaleur et d'attention pour qui je suis, tout simplement."
+            },
+            {
+              "cible": "reveur",
+              "label": "qu'on me laisse respirer, sans rien attendre de moi pour l'instant."
+            },
+            {
+              "cible": "promoteur",
+              "label": "qu'on me suive sans hésiter quand je propose de foncer."
+            }
+          ]
+        },
+        {
+          "id": "p-fc-03",
+          "options": [
+            {
+              "cible": "travaillomane",
+              "label": "avancer méthodiquement sur un dossier et valider ce que j'avais planifié."
+            },
+            {
+              "cible": "promoteur",
+              "label": "me lancer dans quelque chose d'intense, avec une vraie pression à gérer."
+            },
+            {
+              "cible": "perseverant",
+              "label": "m'engager pour une cause à laquelle je crois et défendre ce qui compte à mes yeux."
+            },
+            {
+              "cible": "rebelle",
+              "label": "ne rien prévoir et suivre l'envie du moment, comme ça vient."
+            }
+          ]
+        },
+        {
+          "id": "p-fc-04",
+          "options": [
+            {
+              "cible": "travaillomane",
+              "label": "la satisfaction tranquille de voir mes tâches abouties et tout en ordre."
+            },
+            {
+              "cible": "reveur",
+              "label": "des heures à moi pour laisser flotter mes pensées sans contrainte."
+            },
+            {
+              "cible": "empathique",
+              "label": "ces instants simples où l'on se demande sincèrement comment va l'autre."
+            },
+            {
+              "cible": "rebelle",
+              "label": "un bon coup de folie, un fou rire qui sort de l'ordinaire."
+            }
+          ]
+        },
+        {
+          "id": "p-fc-05",
+          "options": [
+            {
+              "cible": "perseverant",
+              "label": "la mettre au service d'une cause qui me tient à cœur."
+            },
+            {
+              "cible": "rebelle",
+              "label": "improviser et faire ce qui me chante, sans aucun programme."
+            },
+            {
+              "cible": "travaillomane",
+              "label": "la planifier dans le détail pour mieux la savourer ensuite."
+            },
+            {
+              "cible": "empathique",
+              "label": "la passer entouré des miens, dans un moment où nos liens se resserrent."
+            }
+          ]
+        },
+        {
+          "id": "p-fc-06",
+          "options": [
+            {
+              "cible": "perseverant",
+              "label": "qu'on reconnaisse l'engagement que je mets dans ce en quoi je crois."
+            },
+            {
+              "cible": "empathique",
+              "label": "des échanges plus humains, où l'on prenne le temps de se parler vraiment."
+            },
+            {
+              "cible": "reveur",
+              "label": "un peu de répit pour réfléchir à ma façon, sans qu'on me presse."
+            },
+            {
+              "cible": "promoteur",
+              "label": "de l'action, des défis concrets à relever et la liberté de foncer."
+            }
+          ]
+        },
+        {
+          "id": "p-fc-07",
+          "options": [
+            {
+              "cible": "perseverant",
+              "label": "m'investir dans quelque chose d'utile, fidèle à mes valeurs."
+            },
+            {
+              "cible": "promoteur",
+              "label": "partir à l'aventure et vivre des moments forts, pleins d'adrénaline."
+            },
+            {
+              "cible": "travaillomane",
+              "label": "mener à terme une réalisation soignée et savourer le travail accompli."
+            },
+            {
+              "cible": "reveur",
+              "label": "me retirer loin du bruit, avec tout le temps qu'il me faut pour rêver."
+            }
+          ]
+        },
+        {
+          "id": "p-fc-08",
+          "options": [
+            {
+              "cible": "perseverant",
+              "label": "approfondir un combat qui compte et défendre ce en quoi je crois."
+            },
+            {
+              "cible": "reveur",
+              "label": "flâner seul, l'esprit libre, à laisser vagabonder mon imaginaire."
+            },
+            {
+              "cible": "empathique",
+              "label": "m'offrir un vrai moment de douceur avec ceux qui me sont chers."
+            },
+            {
+              "cible": "rebelle",
+              "label": "céder à une lubie du moment, juste pour m'amuser un peu."
+            }
+          ]
+        },
+        {
+          "id": "p-fc-09",
+          "options": [
+            {
+              "cible": "empathique",
+              "label": "retrouver une présence affectueuse et un vrai moment de complicité."
+            },
+            {
+              "cible": "reveur",
+              "label": "me poser dans mon coin pour me ressourcer en silence."
+            },
+            {
+              "cible": "travaillomane",
+              "label": "régler ce qu'il me reste à faire avant de pouvoir décrocher."
+            },
+            {
+              "cible": "rebelle",
+              "label": "tout envoyer balader et m'amuser sans aucune contrainte."
+            }
+          ]
+        },
+        {
+          "id": "p-fc-10",
+          "options": [
+            {
+              "cible": "empathique",
+              "label": "de l'affection sincère et le sentiment d'être accueilli comme je suis."
+            },
+            {
+              "cible": "promoteur",
+              "label": "de l'énergie, du mouvement et quelque chose qui décoiffe ensemble."
+            },
+            {
+              "cible": "perseverant",
+              "label": "de vrais échanges sincères, où chacun défend ce en quoi il croit."
+            },
+            {
+              "cible": "reveur",
+              "label": "un recoin paisible pour me poser, observer et savourer l'instant."
+            }
+          ]
+        },
+        {
+          "id": "p-fc-11",
+          "options": [
+            {
+              "cible": "reveur",
+              "label": "me glisser dans une bulle à moi, seul avec mon imaginaire."
+            },
+            {
+              "cible": "rebelle",
+              "label": "sauter sur l'occasion pour un truc léger et fun, là, tout de suite."
+            },
+            {
+              "cible": "travaillomane",
+              "label": "m'attaquer enfin à un projet concret qui me trotte en tête."
+            },
+            {
+              "cible": "promoteur",
+              "label": "tenter une expérience qui bouge, avec du monde autour."
+            }
+          ]
+        },
+        {
+          "id": "p-fc-12",
+          "options": [
+            {
+              "cible": "promoteur",
+              "label": "relever un défi qui me pousse dans mes retranchements."
+            },
+            {
+              "cible": "rebelle",
+              "label": "lâcher prise, rire et m'autoriser quelques fantaisies."
+            },
+            {
+              "cible": "perseverant",
+              "label": "m'engager dans quelque chose qui a du sens et qu'on reconnaît."
+            },
+            {
+              "cible": "empathique",
+              "label": "de la tendresse et des instants doux avec ceux qui me sont chers."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

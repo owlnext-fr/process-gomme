@@ -35,15 +35,15 @@ describe("QUESTIONS — structure globale", () => {
 })
 
 describe("QUESTIONS — choix forcés", () => {
-  it("chaque forcé a exactement 2 options de types distincts et valides", () => {
+  it("chaque forcé a exactement 4 options de types distincts et valides", () => {
     for (const q of forced) {
-      expect(q.options).toHaveLength(2)
-      const [a, b] = q.options
-      expect(a.cible).not.toBe(b.cible)
-      expect(TYPE_IDS).toContain(a.cible)
-      expect(TYPE_IDS).toContain(b.cible)
-      expect(a.label.length).toBeGreaterThan(0)
-      expect(b.label.length).toBeGreaterThan(0)
+      expect(q.options).toHaveLength(4)
+      const cibles = q.options.map((o) => o.cible)
+      expect(new Set(cibles).size).toBe(4)
+      for (const o of q.options) {
+        expect(TYPE_IDS).toContain(o.cible)
+        expect(o.label.length).toBeGreaterThan(0)
+      }
       expect(q.prompt.length).toBeGreaterThan(0)
     }
   })
@@ -72,11 +72,11 @@ describe("QUESTIONS — équilibrage (5 apparitions-cible par type et par famill
     return init
   }
 
-  it("chaque type est cible 4× en forcé et 1× en Likert, dans chaque famille", () => {
+  it("chaque type est cible 8× en forcé et 1× en Likert, dans chaque famille", () => {
     for (const f of FAMILLES) {
       const c = comptageCibles(f)
       for (const t of TYPE_IDS) {
-        expect(c[t].fc, `${t} forcé en ${f}`).toBe(4)
+        expect(c[t].fc, `${t} forcé en ${f}`).toBe(8)
         expect(c[t].lk, `${t} likert en ${f}`).toBe(1)
       }
     }
