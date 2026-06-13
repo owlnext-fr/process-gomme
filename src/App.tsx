@@ -1,24 +1,19 @@
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import { useReducer } from "react"
+import { quizReducer, initialState } from "@/features/quiz/quizReducer"
+import { IntroScreen } from "@/features/intro/IntroScreen"
+import { QuizScreen } from "@/features/quiz/QuizScreen"
+import { ResultsScreen } from "@/features/results/ResultsScreen"
 
 function App() {
-  return (
-    <main className="flex min-h-svh flex-col items-center justify-center gap-6 p-6">
-      <Card className="w-full max-w-md">
-        <CardHeader>
-          <h1 className="font-heading text-3xl leading-snug font-medium">
-            Hello 👋
-          </h1>
-        </CardHeader>
-        <CardContent className="flex flex-col gap-4">
-          <p className="text-muted-foreground">
-            process gomme — squelette déployé. Le contenu arrive aux blocs suivants.
-          </p>
-          <Button className="w-fit">Bientôt : le test</Button>
-        </CardContent>
-      </Card>
-    </main>
-  )
+  const [state, dispatch] = useReducer(quizReducer, initialState)
+
+  if (state.screen === "intro") {
+    return <IntroScreen onStart={() => dispatch({ type: "start" })} />
+  }
+  if (state.screen === "quiz") {
+    return <QuizScreen state={state} dispatch={dispatch} />
+  }
+  return <ResultsScreen answers={state.answers} onRestart={() => dispatch({ type: "restart" })} />
 }
 
 export default App
