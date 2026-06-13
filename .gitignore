@@ -35,3 +35,6 @@ dist-ssr
 
 # Claude Code : overrides/secrets locaux (le reste de .claude/ est partagé/versionné)
 .claude/settings.local.json
+
+# Compagnon visuel brainstorming (mockups locaux)
+.superpowers/
