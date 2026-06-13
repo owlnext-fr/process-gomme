@@ -16,6 +16,7 @@ Voir aussi : `ENVIRONMENT.md` · `QUIRKS.md` · `BACKLOG.md` · `HANDOFF.md` · 
 | Lazy-load Recharts (radar) | 2026-06-13 | — | — | ✅ Livré | Bundle initial 672→411 kB ; Recharts en chunk séparé (`ResultsScreen.tsx`) |
 | Système de mémoire projet | 2026-06-13 | — | — | ✅ Livré | `docs/` (HANDOFF/INDEX/ENVIRONMENT/QUIRKS/BACKLOG/CONVENTIONS) + bloc mémoire `CLAUDE.md` + hook `SessionStart` (`.claude/hooks/load-memory.sh`) |
 | Refonte UX — layouts pleine page 1/3-2/3 + page résultats C + thème indigo | 2026-06-14 | [spec](superpowers/specs/2026-06-13-refonte-ux-layouts-couleurs-design.md) | [plan](superpowers/plans/2026-06-13-refonte-ux-layouts-couleurs.md) | ✅ Livré | `SplitLayout` + `ProfilExplainer` ; volet 2/3 indigo (`bg-primary`) ; `TYPE_COLORS` (radar+pyramide+pastilles) ; icônes lucide sur tous les boutons ; résultats en cartes (titres+explications) ; pleine page |
+| Corrections UX mobile (intro + quiz) | 2026-06-14 | — | — | ✅ Livré | Intro mobile : panneau d'explications masqué + box centrée sur la page ; quiz mobile : nav (Précédent/Suivant) poussée en bas de page. Via `SplitLayout` volet gauche `min-h-svh` (`md:min-h-0`). Commit `c9dd3c9` |
 
 ## Commandes / scripts utilitaires
 

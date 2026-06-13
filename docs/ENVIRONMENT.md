@@ -48,3 +48,10 @@ pnpm before_push    # gate CI complet en local (lint+test+build+e2e) — À LANC
 ## Déploiement
 
 `git push origin main` → GitHub Actions enchaîne `test → build → deploy` (rien n'est publié si un test échoue). Réglage GitHub fait une fois : Settings → Pages → Source = **GitHub Actions**.
+
+## Outils de dev / vérification visuelle
+
+- **Serveur de dev** : `pnpm dev` sert sur **`http://localhost:5173/process-gomme/`** (Vite prend **5174** si 5173 est occupé). Ne pas oublier le suffixe `/process-gomme/` (cf. `base` dans `vite.config.ts`).
+- **Vérif visuelle** : on capture les écrans via le **MCP Playwright** (`browser_navigate` + `browser_resize` + `browser_take_screenshot`) pour juger desktop (ex. 1440×900) et mobile (ex. 390×844) pendant les itérations UX.
+- **Compagnon visuel (brainstorming superpowers)** : serveur local de maquettes ; les HTML générés vivent sous `.superpowers/brainstorm/.../content/` (cliquables, sélections lues dans `.../state/events`).
+- **`.gitignore`** : `.superpowers/`, `.playwright-mcp/`, `*.png` (artefacts de capture/maquettes — ne pas committer).

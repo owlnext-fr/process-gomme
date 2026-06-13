@@ -95,3 +95,13 @@ Comportements non-évidents découverts au fil du projet. Un H2 par quirk, avec 
 **Workaround** : `md:px-16` (padding seulement à partir de `md`). En mobile, la pyramide reste pleine largeur.
 
 **Référence** : `src/features/results/Immeuble.tsx`
+
+## Centrer / positionner en mobile : `min-h-svh` sur le volet (2026-06-14)
+
+**Symptôme** : en mobile (layout empilé, pas `grid`), impossible de centrer verticalement la box d'intro ou de pousser la nav du quiz en bas de page — le contenu colle en haut.
+
+**Cause** : hors `grid`, le volet gauche du `SplitLayout` fait juste la hauteur de son contenu, donc `justify-center`/`flex-1` n'ont rien à répartir.
+
+**Workaround** : donner au volet gauche `min-h-svh` en mobile (`md:min-h-0` en desktop, où la grille `stretch` gère déjà la hauteur). Le `flex` interne peut alors centrer (`justify-center`) ou pousser le dernier enfant en bas (zone centrale en `flex-1`).
+
+**Référence** : `src/components/SplitLayout.tsx`

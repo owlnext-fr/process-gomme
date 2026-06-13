@@ -64,6 +64,32 @@ export const MA_DONNEE: Record<TypeId, string> = {
 }
 ```
 
+## Écran intro/quiz avec `SplitLayout` — squelette
+
+```tsx
+// src/features/<feature>/<Nom>Screen.tsx
+import { SplitLayout } from "@/components/SplitLayout"
+import { ProfilExplainer } from "@/components/ProfilExplainer"
+
+export function MonEcran(/* props */) {
+  return (
+    <SplitLayout
+      hideRightOnMobile           // si le panneau droit doit disparaître en mobile (quiz)
+      left={
+        // intro : centrer la box → `flex flex-1 flex-col justify-center ... max-md:items-center max-md:text-center`
+        // quiz  : `flex flex-1 flex-col gap-8` ; mettre `flex-1` sur la zone centrale
+        //         pour pousser la nav en bas (le volet gauche est min-h-svh en mobile)
+        <div className="flex flex-1 flex-col gap-8">{/* … */}</div>
+      }
+      right={<ProfilExplainer />}
+    />
+  )
+}
+```
+
+- `SplitLayout` fournit le `<main>` (1/3-2/3 en `md`, empilé en mobile, volet gauche `min-h-svh`/`md:min-h-0`, volet droit indigo `bg-primary` centré).
+- `ProfilExplainer` est statique (contenu original dans `src/content/explainer.ts`), déjà cadré (`max-w-lg`) et centré.
+
 ### Règles tacites
 
 - **Pas de point-virgule**, **guillemets doubles** (style ESLint/Prettier du repo — suivre l'existant).
