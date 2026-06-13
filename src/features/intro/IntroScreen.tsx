@@ -6,8 +6,9 @@ import { ProfilExplainer } from "@/components/ProfilExplainer"
 export function IntroScreen({ onStart }: { onStart: () => void }) {
   return (
     <SplitLayout
+      hideRightOnMobile
       left={
-        <div className="flex flex-1 flex-col justify-center gap-6">
+        <div className="flex flex-1 flex-col justify-center gap-6 max-md:items-center max-md:text-center">
           <div className="flex flex-col gap-3">
             <h1 className="text-4xl font-semibold tracking-tight">process gomme</h1>
             <p className="text-muted-foreground">
