@@ -6,6 +6,24 @@ Notes informelles à destination de la prochaine session (humaine ou Claude). Fo
 
 ---
 
+## 2026-06-14 — Questions à 4 options (choix forcés)
+
+### Dernière chose faite
+- Les **24 questions à choix forcé** (12 base + 12 phase) passent de **2 → 4 options**. Likert (6/famille) et moteur de scoring **inchangés**. Gate `before_push` **vert**.
+- **Équilibrage** : chaque type est cible **8× en forcé** (+1 Likert) par famille. Assignation déterministe figée dans le plan ; invariant testé mis à jour (4 options, types distincts, 8×).
+- **Contenu** (96 options, 100 % original) produit via le tool **Workflow** : 1er run = brouillon → jury 5 angles → correction (jury fusionné après un crash rate-limit, voir QUIRKS) ; 2e run = **passe de dédoublonnage/cohérence** par famille (le jury avait relevé des répétitions de tournures + p-fc-05 trop long). Provenance : `docs/superpowers/artifacts/2026-06-14-forced-4opts.json`.
+
+### Trucs en suspens
+- Rien de bloquant. Commits sur `main`, **non poussés** (à `git push` quand tu veux → déploie).
+- Le code change est minime (type `options` en 4-uplet) ; `ForcedChoice` mappait déjà les options, `scoring` fait déjà `+1 au choix`.
+
+### Prochaine chose à creuser
+- Backlog : mélange aléatoire de l'ordre des 4 options (anti-biais de position).
+- Relire à l'œil quelques libellés en contexte (lecture humaine) — le jury a validé, mais un dernier regard ne nuit pas.
+
+### Notes pour future Claude
+- **Workflow + jury** : `Workflow` s'invoque depuis la boucle principale (pas un sous-agent). Pièges rencontrés cette session, voir QUIRKS : `args` n'arrive PAS toujours comme tableau (inliner les données dans le script), agents `null` sous rate-limit (rendre le script résilient + réduire la rafale en fusionnant le jury), reprise via `resumeFromRunId` pour réutiliser le cache.
+
 ## 2026-06-14 — Corrections UX mobile (intro + quiz)
 
 - **Intro mobile** : panneau d'explications masqué (`hideRightOnMobile` sur l'intro), box principale (titre + note + bouton) centrée sur la page (`max-md:items-center max-md:text-center`).

@@ -98,6 +98,7 @@ export function MonEcran(/* props */) {
 - **Séparation stricte** : `data/` (contenu) · `lib/` (logique pure, sans React) · `content/` (textes) · `features/` (UI). L'UI ne fait qu'afficher la logique.
 - **Fichiers focalisés** : une responsabilité par fichier ; si ça grossit, découper.
 - **Contenu de personnalité 100 % ORIGINAL** : jamais de reformulation/copie de matériel propriétaire (types, fiches, items). Noms officiels des 6 types tolérés en façade uniquement.
+- **Questions à choix forcé = 4 options** de types distincts. Invariant testé : chaque type est cible **8× en forcé** (+1 en Likert) par famille. L'assignation des 4 types par question est **déterministe** (voir le plan 2026-06-14) ; seule la prose est générée. Le scoring reste `+1 au type choisi` (indépendant du nombre d'options).
 - **Français correct** dans tout le contenu UI : accents et ponctuation soignés (« é », « ê », « » si besoin).
 - **Composants shadcn** dans `src/components/ui/` : générés par la CLI, non modifiés à la main ; exemptés de la règle ESLint `react-refresh`.
 - **a11y plancher** : `aria-label` sur les contrôles/visuels, focus clavier visible, `useReducedMotion()` pour toute animation.

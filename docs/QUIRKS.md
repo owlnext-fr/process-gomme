@@ -105,3 +105,14 @@ Comportements non-évidents découverts au fil du projet. Un H2 par quirk, avec 
 **Workaround** : donner au volet gauche `min-h-svh` en mobile (`md:min-h-0` en desktop, où la grille `stretch` gère déjà la hauteur). Le `flex` interne peut alors centrer (`justify-center`) ou pousser le dernier enfant en bas (zone centrale en `flex-1`).
 
 **Référence** : `src/components/SplitLayout.tsx`
+
+## Tool `Workflow` (orchestration multi-agents) : pièges (2026-06-14)
+
+**Contexte** : génération du contenu des questions à 4 options via un Workflow « jury ».
+
+- **`args` n'arrive pas toujours comme tableau** : `const QS = args` a planté avec `pipeline() expects an array`. **Workaround** : **inliner les données dans le script** plutôt que de les passer via `args` (fiable à 100 %).
+- **Agents `null` sous rate-limit** : quand le serveur limite (« not your usage limit »), `agent()` renvoie `null` après retries ; un script qui fait `opts.options` derrière plante toute la run. **Workaround** : rendre le script **résilient aux null** (garder le dernier état valide, `filter(Boolean)`) ET **réduire la rafale** (ici : fusionner les 5 juges parallèles en **1 agent** qui évalue les 5 angles → ~5× moins de requêtes simultanées).
+- **Reprise** : après un échec, `Workflow({scriptPath, resumeFromRunId})` rejoue les `agent()` réussis depuis le **cache** (clé = prompt) et ne relance que les appels modifiés/nouveaux — précieux pour ne pas regénérer les brouillons coûteux.
+- **`Workflow` = boucle principale uniquement** : ne pas l'imbriquer dans un sous-agent lancé via le tool Agent.
+
+**Référence** : `docs/superpowers/plans/2026-06-14-questions-4-options.md`
