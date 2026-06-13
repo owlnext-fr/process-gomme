@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest"
-import { TYPES, TYPE_IDS, type TypeId } from "./types"
+import { TYPES, TYPE_IDS } from "./types"
 
 describe("TYPES", () => {
   it("contient exactement les 6 types dans l'ordre canonique", () => {
