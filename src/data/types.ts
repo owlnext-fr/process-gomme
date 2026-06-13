@@ -74,3 +74,17 @@ export const TYPES: Record<TypeId, TypeMeta> = {
       "A besoin d'action, de défi et d'intensité vécue dans l'instant présent.",
   },
 }
+
+/**
+ * Couleur d'affichage par type — SOURCE UNIQUE de vérité.
+ * Consommée par le radar, la pyramide (immeuble) et le panneau d'explications.
+ * Pointe vers les tokens CSS `--type-1..6` définis dans src/index.css.
+ */
+export const TYPE_COLORS: Record<TypeId, string> = {
+  travaillomane: "var(--type-1)",
+  perseverant: "var(--type-2)",
+  empathique: "var(--type-3)",
+  reveur: "var(--type-4)",
+  rebelle: "var(--type-5)",
+  promoteur: "var(--type-6)",
+}

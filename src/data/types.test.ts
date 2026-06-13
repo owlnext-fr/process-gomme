@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest"
-import { TYPES, TYPE_IDS } from "./types"
+import { TYPES, TYPE_IDS, TYPE_COLORS } from "./types"
 
 describe("TYPES", () => {
   it("contient exactement les 6 types dans l'ordre canonique", () => {
@@ -25,5 +25,19 @@ describe("TYPES", () => {
 
   it("les ids de TYPES correspondent à TYPE_IDS", () => {
     expect(Object.keys(TYPES).sort()).toEqual([...TYPE_IDS].sort())
+  })
+})
+
+describe("TYPE_COLORS", () => {
+  it("définit une couleur non vide pour chacun des 6 types", () => {
+    expect(Object.keys(TYPE_COLORS).sort()).toEqual([...TYPE_IDS].sort())
+    for (const id of TYPE_IDS) {
+      expect(TYPE_COLORS[id]).toMatch(/^var\(--type-[1-6]\)$/)
+    }
+  })
+
+  it("attribue une couleur distincte à chaque type", () => {
+    const valeurs = TYPE_IDS.map((id) => TYPE_COLORS[id])
+    expect(new Set(valeurs).size).toBe(TYPE_IDS.length)
   })
 })
