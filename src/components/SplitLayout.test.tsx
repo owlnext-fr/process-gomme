@@ -11,9 +11,8 @@ describe("SplitLayout", () => {
 
   it("masque le volet droit en mobile quand hideRightOnMobile", () => {
     render(<SplitLayout left={<p>G</p>} right={<p>DROITE</p>} hideRightOnMobile />)
-    // le wrapper du volet droit porte la classe responsive `hidden md:block`
+    // le wrapper du volet droit est masqué sous le breakpoint md (`max-md:hidden`)
     const droite = screen.getByText("DROITE").parentElement
-    expect(droite?.className).toContain("hidden")
-    expect(droite?.className).toContain("md:block")
+    expect(droite?.className).toContain("max-md:hidden")
   })
 })

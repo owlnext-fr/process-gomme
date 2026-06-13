@@ -3,7 +3,7 @@ import { EXPLAINER_TITRE, EXPLAINER_SECTIONS } from "@/content/explainer"
 export function ProfilExplainer({ className = "" }: { className?: string }) {
   return (
     <aside
-      className={`rounded-xl border bg-secondary/40 p-6 ${className}`}
+      className={`mx-auto w-full max-w-lg rounded-xl border border-indigo-200 bg-indigo-100 p-8 ${className}`}
       aria-label={EXPLAINER_TITRE}
     >
       <h2 className="text-lg font-semibold">{EXPLAINER_TITRE}</h2>
