@@ -30,6 +30,10 @@ interactions » soit rappelé au moment précis où l'utilisateur·ice lit ses r
   d'explication. Le paragraphe descriptif personnalisé reste **dessous**, hors encadré.
   → Un seul niveau de titre par section (pas de doublon « Ta base » / « Ta base »).
 - **Couleur du titre** : `text-primary` (uniforme sur les 4 encadrés).
+- **Icône par concept** : une icône `lucide-react` (en `text-primary`) à gauche du titre,
+  une par section — `Anchor` (base), `Compass` (phase), `Building2` (immeuble),
+  `ArrowLeftRight` (interactions). `lucide-react` est déjà une dépendance du projet
+  (utilisée dans `ResultsScreen`).
 - **Fond** : `bg-indigo-50` + `border-indigo-200` — même famille que le bandeau du haut et
   `ProfilExplainer` (`bg-indigo-100`), mais un cran plus clair pour distinguer « aide à la
   lecture » de « ton résultat » sans rivaliser visuellement avec le bandeau principal.
@@ -59,12 +63,15 @@ Contraintes de contenu :
 
 ```
 ┌───────────────────────────────────────┐
-│ Ta base — Travailleur                   │  ← <h2>, text-primary
+│ ⚓ Ta base — Travailleur                 │  ← icône (Anchor) + <h2>, text-primary
 │ Ta façon la plus stable de percevoir    │  ← phrase (text-muted-foreground)
 │ le monde, celle qui bouge peu…          │     fond indigo-50, bordure indigo-200
 └───────────────────────────────────────┘
 [paragraphe de description personnalisé]   ← contenu existant, inchangé
 ```
+
+Icônes par section : `Anchor` (base), `Compass` (phase), `Building2` (immeuble),
+`ArrowLeftRight` (interactions).
 
 ## Implémentation
 
@@ -81,17 +88,22 @@ export const SECTION_HINTS = {
 
 ### `src/features/results/Synthese.tsx` (modifié)
 
-Le composant interne `Section` reçoit une nouvelle prop `hint: string`. Son en-tête est
-re-stylé en encadré :
+Le composant interne `Section` reçoit deux nouvelles props : `hint: string` et
+`icon: LucideIcon`. Son en-tête est re-stylé en encadré, avec l'icône à gauche du titre :
 
 ```tsx
-function Section({ titre, hint, children }: {
-  titre: string; hint: string; children: React.ReactNode
+import { Anchor, ArrowLeftRight, Building2, Compass, type LucideIcon } from "lucide-react"
+
+function Section({ titre, hint, icon: Icon, children }: {
+  titre: string; hint: string; icon: LucideIcon; children: React.ReactNode
 }) {
   return (
     <section className="flex flex-col gap-2">
       <div className="rounded-lg border border-indigo-200 bg-indigo-50 px-4 py-3">
-        <h2 className="text-xl font-semibold text-primary">{titre}</h2>
+        <h2 className="flex items-center gap-2 text-xl font-semibold text-primary">
+          <Icon className="size-5 flex-none" aria-hidden />
+          {titre}
+        </h2>
         <p className="mt-0.5 text-sm leading-relaxed text-muted-foreground">{hint}</p>
       </div>
       <div className="text-muted-foreground leading-relaxed">{children}</div>
@@ -100,8 +112,12 @@ function Section({ titre, hint, children }: {
 }
 ```
 
-Les 4 appels passent le `hint` correspondant depuis `SECTION_HINTS`. Aucun changement de
-scoring ni du contenu personnalisé existant.
+Les 4 appels passent le `hint` (depuis `SECTION_HINTS`) et l'`icon` correspondants :
+`Anchor` (base), `Compass` (phase), `Building2` (immeuble), `ArrowLeftRight`
+(interactions). Aucun changement de scoring ni du contenu personnalisé existant.
+
+> Les icônes sont des composants React : elles vivent dans `Synthese.tsx` (mapping
+> concept → composant), pas dans `sectionHints.ts` qui reste du **contenu textuel pur**.
 
 ## Tests
 
@@ -115,5 +131,5 @@ scoring ni du contenu personnalisé existant.
 ## Hors scope (YAGNI)
 
 - Pas de repli ni de réutilisation de `explainer.ts` / `ProfilExplainer`.
-- Pas d'icône, de pastille de couleur, ni d'animation sur les encadrés.
+- Pas de pastille de couleur par type, ni d'animation sur les encadrés.
 - Aucune modification de l'intro ni du quiz.
