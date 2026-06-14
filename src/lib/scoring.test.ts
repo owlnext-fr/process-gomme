@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest"
-import { computeResult, type Answers } from "./scoring"
+import { computeResult, deriveFromSocle, type Answers } from "./scoring"
 import { QUESTIONS } from "@/data/questions"
 import { TYPE_IDS, type TypeId } from "@/data/types"
 
@@ -53,5 +53,29 @@ describe("computeResult", () => {
     expect(r.base).toBe(TYPE_IDS[0])
     expect(r.phase).toBe(TYPE_IDS[0])
     expect(r.immeuble).toEqual(TYPE_IDS)
+  })
+})
+
+describe("deriveFromSocle", () => {
+  it("dérive base = max et immeuble = tri décroissant (tie-break canonique)", () => {
+    const socle: Record<TypeId, number> = {
+      travaillomane: 30,
+      perseverant: 30,
+      empathique: 20,
+      reveur: 10,
+      rebelle: 6,
+      promoteur: 4,
+    }
+    const { base, immeuble } = deriveFromSocle(socle)
+    expect(base).toBe("travaillomane")
+    expect(immeuble).toEqual([
+      "travaillomane",
+      "perseverant",
+      "empathique",
+      "reveur",
+      "rebelle",
+      "promoteur",
+    ])
+    expect(TYPE_IDS.indexOf(base)).toBeLessThan(TYPE_IDS.indexOf("perseverant"))
   })
 })

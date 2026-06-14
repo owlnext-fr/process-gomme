@@ -16,6 +16,8 @@ export interface ScoreResult {
   baseEgalePhase: boolean
 }
 
+export type DisplayResult = Omit<ScoreResult, "motivation">
+
 function vecteurNul(): Record<TypeId, number> {
   return Object.fromEntries(TYPE_IDS.map((t) => [t, 0])) as Record<TypeId, number>
 }
@@ -35,6 +37,17 @@ function argmax(v: Record<TypeId, number>): TypeId {
   return best
 }
 
+export function deriveFromSocle(socle: Record<TypeId, number>): {
+  base: TypeId
+  immeuble: TypeId[]
+} {
+  const base = argmax(socle)
+  const immeuble = [...TYPE_IDS].sort(
+    (a, b) => socle[b] - socle[a] || TYPE_IDS.indexOf(a) - TYPE_IDS.indexOf(b),
+  )
+  return { base, immeuble }
+}
+
 export function computeResult(answers: Answers): ScoreResult {
   const socleRaw = vecteurNul()
   const motivationRaw = vecteurNul()
@@ -52,11 +65,8 @@ export function computeResult(answers: Answers): ScoreResult {
 
   const socle = normaliser(socleRaw)
   const motivation = normaliser(motivationRaw)
-  const base = argmax(socle)
+  const { base, immeuble } = deriveFromSocle(socle)
   const phase = argmax(motivation)
-  const immeuble = [...TYPE_IDS].sort(
-    (a, b) => socle[b] - socle[a] || TYPE_IDS.indexOf(a) - TYPE_IDS.indexOf(b),
-  )
 
   return { socle, motivation, base, phase, immeuble, baseEgalePhase: base === phase }
 }
