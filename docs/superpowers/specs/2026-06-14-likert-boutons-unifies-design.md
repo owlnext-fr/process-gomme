@@ -67,18 +67,20 @@ export function ChoiceGroup({
 
 ### 2. Labels Likert (échelle d'accord)
 
-Constante dans `LikertScale.tsx`, ordre 1→5 :
+Constante dans `LikertScale.tsx`. La `value` garde sa sémantique (`5 = Tout à fait d'accord`),
+mais l'**ordre d'affichage** est **descendant** : l'adhésion forte est en **haut**.
 
-| valeur | label |
-|---|---|
-| 1 | Pas du tout d'accord |
-| 2 | Plutôt pas d'accord |
-| 3 | Mitigé |
-| 4 | Plutôt d'accord |
-| 5 | Tout à fait d'accord |
+| Ordre affiché (haut → bas) | valeur | label |
+|---|---|---|
+| 1ᵉʳ | 5 | Tout à fait d'accord |
+| 2ᵉ | 4 | Plutôt d'accord |
+| 3ᵉ | 3 | Mitigé |
+| 4ᵉ | 2 | Plutôt pas d'accord |
+| 5ᵉ | 1 | Pas du tout d'accord |
 
-Les énoncés Likert sont tous des auto-descriptions à la 1re personne (« j'ai besoin de… »,
-« je perçois… ») → l'échelle d'accord colle à tous.
+L'ordre d'affichage est **purement cosmétique** : le scoring stocke la `value` (pas la position),
+donc il est strictement inchangé. Les énoncés Likert sont tous des auto-descriptions à la 1re
+personne (« j'ai besoin de… », « je perçois… ») → l'échelle d'accord colle à tous.
 
 Les libellés d'extrémités sous le slider (« Pas du tout » / « Tout à fait ») **disparaissent**
 (chaque ligne est désormais labellisée). Le slider shadcn (`src/components/ui/slider.tsx`) n'est
