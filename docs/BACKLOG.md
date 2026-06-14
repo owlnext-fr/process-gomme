@@ -21,10 +21,6 @@ Une fois faite, déplace-la en `INDEX.md` (livré) ou supprime-la (abandonnée).
 - [ ] Tokeniser le violet/indigo clair des panneaux : `bg-indigo-100`/`border-indigo-200` sont en dur dans `ProfilExplainer` et le bandeau de `ResultsScreen` (hors système de tokens, non dark-adaptatif). Les passer en tokens dédiés si on expose un jour le dark mode.
 - [ ] Anneau de l'étage « phase » de la pyramide (`ring-foreground` dans `Immeuble`) : contraste limite sur certaines teintes en dark mode. À revoir si le dark mode est exposé.
 
-## Contenu du test
-
-- [ ] Mélanger aléatoirement l'ordre des 4 options d'une question forcée (anti-biais de position). Actuellement ordre **fixe** pour le déterminisme des tests/e2e — à faire avec une seed ou un shuffle au montage sans casser l'e2e (qui clique la 1re option).
-
 ## Qualité
 
 - [ ] Audit complet de navigation clavier (tab order, focus visible) sur les 3 écrans.

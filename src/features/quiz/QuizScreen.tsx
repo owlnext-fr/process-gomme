@@ -1,10 +1,12 @@
+import { useMemo } from "react"
 import { AnimatePresence, motion, useReducedMotion } from "motion/react"
 import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
 import { SplitLayout } from "@/components/SplitLayout"
 import { ProfilExplainer } from "@/components/ProfilExplainer"
-import { QUESTIONS } from "@/data/questions"
+import { QUESTIONS, type Option } from "@/data/questions"
+import { shuffledIndices } from "@/lib/shuffle"
 import type { QuizState, Action } from "./quizReducer"
 import { ForcedChoice } from "./ForcedChoice"
 import { LikertScale } from "./LikertScale"
@@ -22,6 +24,19 @@ export function QuizScreen({
   const total = QUESTIONS.length
   const forcedManquant = q.kind === "forced" && !reponse
   const derniere = state.index === total - 1
+
+  // Ordre d'affichage des options mélangé une fois par session (stable pendant le quiz,
+  // y compris en revenant en arrière). Cosmétique : le scoring se base sur le type choisi.
+  const ordres = useMemo(
+    () =>
+      Object.fromEntries(
+        QUESTIONS.map((qq) => [
+          qq.id,
+          qq.kind === "forced" ? shuffledIndices(qq.options.length) : [],
+        ]),
+      ) as Record<string, number[]>,
+    [],
+  )
 
   return (
     <SplitLayout
@@ -46,7 +61,15 @@ export function QuizScreen({
             >
               {q.kind === "forced" ? (
                 <ForcedChoice
-                  question={q}
+                  question={{
+                    ...q,
+                    options: ordres[q.id].map((i) => q.options[i]) as [
+                      Option,
+                      Option,
+                      Option,
+                      Option,
+                    ],
+                  }}
                   valeur={reponse?.kind === "forced" ? reponse.cible : undefined}
                   onChange={(cible) =>
                     dispatch({ type: "answer", id: q.id, answer: { kind: "forced", cible } })

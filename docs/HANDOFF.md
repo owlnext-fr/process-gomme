@@ -6,6 +6,10 @@ Notes informelles à destination de la prochaine session (humaine ou Claude). Fo
 
 ---
 
+## 2026-06-14 — Ordre aléatoire des options à l'affichage
+
+- Dernier item du backlog : l'ordre des 4 options d'une question forcée est désormais **mélangé** (anti-biais de position). `shuffledIndices` (Fisher-Yates, `src/lib/shuffle.ts`, rng injectable + testé) ; `QuizScreen` calcule un ordre **stable par session** via `useMemo` (pas de re-mélange en revenant en arrière). Purement cosmétique : le scoring se base sur le type choisi, pas la position. Gate vert, poussé + déployé.
+
 ## 2026-06-14 — Harmonisation de la forme des options (anti-biais)
 
 ### Dernière chose faite
