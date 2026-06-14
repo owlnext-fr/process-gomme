@@ -6,6 +6,18 @@ Comportements non-évidents découverts au fil du projet. Un H2 par quirk, avec 
 
 ---
 
+## Likert : ordre d'affichage descendant ≠ value (2026-06-15)
+
+**Piège** : dans `src/features/quiz/LikertScale.tsx`, le tableau `LIKERT_OPTIONS` est dans l'ordre d'**affichage** (descendant : « Tout à fait d'accord » en premier), mais chaque entrée porte une `value` string (`"5"` … `"1"`) qui est le **vrai niveau d'accord**. La position dans le tableau **n'est pas** la value. Le scoring (`(valeur - 1) / 4` dans `scoring.ts`) lit la value, pas l'index → inverser/réordonner les options à l'écran ne change **rien** au score. Si tu édites ce tableau, ne déduis jamais la value de l'index.
+
+**Référence** : `src/features/quiz/LikertScale.tsx`, `src/lib/scoring.ts`
+
+## Likert obligatoire : fallback `?? 3` de `scoring.ts` inatteignable (2026-06-15)
+
+**Piège** : depuis que tout le quiz est obligatoire (gate `reponseManquante` dans `QuizScreen`), `computeResult` ne reçoit plus jamais de Likert non répondu — le fallback `valeur ?? 3` (neutre) y est **conservé par défense mais ne se déclenche plus en pratique**. Ne pas le supprimer en croyant à du code mort : il protège un appel hypothétique sur réponses partielles. Aucun test ne le couvre directement (il n'est plus atteignable par le flux normal).
+
+**Référence** : `src/lib/scoring.ts` (`computeResult`), `src/features/quiz/QuizScreen.tsx`
+
 ## `SECTION_HINTS` : test sur les clés EXACTES (2026-06-14)
 
 **Piège** : `src/content/sectionHints.test.ts` vérifie la liste **exacte** des clés (`toEqual([...])`), pas juste leur présence. Ajouter (ou retirer) une section dans `SECTION_HINTS` **casse ce test** tant qu'on n'a pas mis à jour le tableau attendu. Pense à éditer le test en même temps que l'objet.

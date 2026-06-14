@@ -97,6 +97,13 @@ export function MonEcran(/* props */) {
 - `SplitLayout` fournit le `<main>` (1/3-2/3 en `md`, empilé en mobile, volet gauche `min-h-svh`/`md:min-h-0`, volet droit indigo `bg-primary` centré).
 - `ProfilExplainer` est statique (contenu original dans `src/content/explainer.ts`), déjà cadré (`max-w-lg`) et centré.
 
+## Question de quiz : tout passe par `ChoiceGroup`
+
+- **Composant unique de rendu** : les deux types de question (choix forcé ET Likert) sont rendus par `src/features/quiz/ChoiceGroup.tsx` (legend + `RadioGroup` de cartes-boutons bordées). `ForcedChoice` et `LikertScale` sont de **fins adaptateurs** qui mappent leurs données vers `{ value, label }[]` et délèguent à `ChoiceGroup`. Ne **jamais** redéfinir le markup des cartes localement — sinon les deux types divergent.
+- Interface : `ChoiceGroup({ legend, options, value?, onChange, idPrefix })` ; ids des radios = `${idPrefix}-${opt.value}` (stables, même si l'ordre d'affichage des forcés est mélangé en amont par `QuizScreen`).
+- Le **mélange** des options forcées reste en amont dans `QuizScreen` (les adaptateurs ne mélangent pas). Les Likert ne sont **jamais** mélangés (l'échelle a un ordre sémantique).
+- **Toute question est obligatoire** : `QuizScreen` bloque « Suivant » via `reponseManquante = !reponse` (forcé comme Likert). Pas de valeur par défaut présélectionnée.
+
 ### Règles tacites
 
 - **Pas de point-virgule**, **guillemets doubles** (style ESLint/Prettier du repo — suivre l'existant).

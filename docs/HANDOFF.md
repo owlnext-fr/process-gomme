@@ -6,6 +6,26 @@ Notes informelles à destination de la prochaine session (humaine ou Claude). Fo
 
 ---
 
+## 2026-06-15 — Likert en boutons (expérience de quiz unifiée)
+
+### Dernière chose faite
+- Les **sliders Likert** sont remplacés par **5 boutons** en liste verticale, **identiques aux choix forcés** (même geste, même visuel). Extraction d'un composant présentiel partagé **`ChoiceGroup`** (`src/features/quiz/ChoiceGroup.tsx`) ; **`ForcedChoice`** et **`LikertScale`** ne sont plus que de fins **adaptateurs** qui lui passent leurs options → divergence structurellement impossible.
+- **Ordre d'affichage descendant** : « Tout à fait d'accord » (value 5) en **haut** → « Pas du tout d'accord » (value 1) en bas. La `value` garde sa sémantique ; l'ordre est purement cosmétique (le scoring stocke la value, pas la position).
+- **Obligation universelle** : `QuizScreen` bloque « Suivant / Voir mes résultats » via `reponseManquante = !reponse` (forcé **comme** Likert). **Plus de neutre par défaut** : on ne passe plus `valeur={... : 3}` mais `: undefined` ; rien n'est présélectionné.
+- **Slider shadcn retiré** (`src/components/ui/slider.tsx` supprimé — n'était importé que par `LikertScale`).
+- Exécuté en **subagent-driven** (6 tâches, implémenteur + double revue spec/qualité). Raffinement issu de la revue : ids de `ChoiceGroup` basés sur `opt.value` (stables malgré le shuffle des forcés) plutôt que sur l'index. Vérif visuelle desktop (1440×900) + mobile (390×844) via MCP Playwright : 5 cartes, ordre descendant, rien de coché, « Suivant » désactivé. Gate `pnpm before_push` **vert** (64 unit + 2 e2e).
+
+### Trucs en suspens
+- **Pas encore poussé** au moment d'écrire ces lignes (commits sur `main`, gate vert). `git push origin main` → déploie.
+
+### Prochaine chose à creuser
+- Rien d'identifié. L'expérience de quiz est maintenant homogène (tout en cartes-boutons radio).
+
+### Notes pour future Claude
+- Le fallback `valeur ?? 3` dans `scoring.ts` (`computeResult`) est **conservé par défense mais désormais inatteignable** : tout est répondu avant d'atteindre les résultats. Ne pas s'en étonner ni le « nettoyer » sans réfléchir (il protège un appel hypothétique sur réponses partielles).
+- Pour **ajouter/éditer une option Likert** : `LIKERT_OPTIONS` dans `LikertScale.tsx`. Attention, l'ordre du tableau est l'ordre d'**affichage** (descendant) ; la `value` (string "1".."5") porte le sens, pas la position. Voir QUIRKS.
+- Spec : `docs/superpowers/specs/2026-06-14-likert-boutons-unifies-design.md` · Plan : `docs/superpowers/plans/2026-06-14-likert-boutons-unifies.md`.
+
 ## 2026-06-14 — Pack restitution « Pour aller plus loin »
 
 ### Dernière chose faite
