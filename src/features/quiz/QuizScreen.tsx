@@ -22,7 +22,7 @@ export function QuizScreen({
   const q = QUESTIONS[state.index]
   const reponse = state.answers[q.id]
   const total = QUESTIONS.length
-  const forcedManquant = q.kind === "forced" && !reponse
+  const reponseManquante = !reponse
   const derniere = state.index === total - 1
 
   // Ordre d'affichage des options mélangé une fois par session (stable pendant le quiz,
@@ -78,7 +78,7 @@ export function QuizScreen({
               ) : (
                 <LikertScale
                   question={q}
-                  valeur={reponse?.kind === "likert" ? reponse.valeur : 3}
+                  valeur={reponse?.kind === "likert" ? reponse.valeur : undefined}
                   onChange={(valeur) =>
                     dispatch({ type: "answer", id: q.id, answer: { kind: "likert", valeur } })
                   }
@@ -96,7 +96,7 @@ export function QuizScreen({
               <ChevronLeft className="size-4" aria-hidden />
               Précédent
             </Button>
-            <Button onClick={() => dispatch({ type: "next" })} disabled={forcedManquant}>
+            <Button onClick={() => dispatch({ type: "next" })} disabled={reponseManquante}>
               {derniere ? "Voir mes résultats" : "Suivant"}
               {derniere ? (
                 <Sparkles className="size-4" aria-hidden />
