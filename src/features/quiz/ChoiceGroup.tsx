@@ -9,7 +9,7 @@ export function ChoiceGroup({
 }: {
   legend: string
   options: { value: string; label: string }[]
-  value: string | undefined
+  value?: string
   onChange: (value: string) => void
   idPrefix: string
 }) {
@@ -17,8 +17,8 @@ export function ChoiceGroup({
     <fieldset className="flex flex-col gap-3">
       <legend className="mb-3 text-lg font-medium">{legend}</legend>
       <RadioGroup value={value ?? ""} onValueChange={onChange}>
-        {options.map((opt, i) => {
-          const id = `${idPrefix}-${i}`
+        {options.map((opt) => {
+          const id = `${idPrefix}-${opt.value}`
           return (
             <label
               key={id}
