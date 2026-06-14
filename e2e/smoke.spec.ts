@@ -19,8 +19,8 @@ test("parcours complet : intro → quiz → résultats", async ({ page }) => {
 
     const suivant = page.getByRole("button", { name: /suivant|résultats/i })
 
-    // Si un choix forcé est présent, sélectionner la 1re option.
-    // (Les Likert ont une valeur par défaut à 3 — pas besoin d'interaction.)
+    // Toutes les questions (forcés ET Likert) sont désormais des boutons radio et exigent
+    // une réponse. On sélectionne la 1re option pour pouvoir avancer.
     const radios = page.getByRole("radio")
     if (await radios.first().isVisible().catch(() => false)) {
       await radios.first().click()
