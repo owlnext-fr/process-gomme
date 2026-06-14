@@ -31,7 +31,8 @@ const result: DisplayResult = {
 const writeText = vi.fn().mockResolvedValue(undefined)
 
 beforeEach(() => {
-  writeText.mockClear()
+  writeText.mockReset()
+  writeText.mockResolvedValue(undefined)
   Object.defineProperty(navigator, "clipboard", {
     value: { writeText },
     configurable: true,
@@ -47,6 +48,15 @@ describe("ShareButton", () => {
     })
     const url = writeText.mock.calls[0][0] as string
     expect(url).toContain("?r=" + encodeResult(result))
-    expect(await screen.findByText(/lien copié/i)).toBeInTheDocument()
+    expect(await screen.findByRole("button", { name: /lien copié/i })).toBeInTheDocument()
+  })
+
+  it("affiche « Copie impossible » si la copie échoue", async () => {
+    writeText.mockRejectedValueOnce(new Error("denied"))
+    render(<ShareButton result={result} />)
+    fireEvent.click(screen.getByRole("button", { name: /partager/i }))
+    expect(
+      await screen.findByRole("button", { name: /copie impossible/i }),
+    ).toBeInTheDocument()
   })
 })
