@@ -55,10 +55,14 @@ export function ResultsScreen({
         </p>
       </div>
 
-      <Tabs defaultValue="profil" className="mt-8">
-        <TabsList>
-          <TabsTrigger value="profil">Ton profil</TabsTrigger>
-          <TabsTrigger value="plus">Pour aller plus loin</TabsTrigger>
+      <Tabs defaultValue="profil" className="mt-8 pb-24 md:pb-0">
+        <TabsList className="fixed inset-x-0 bottom-0 z-50 w-full justify-center gap-2 rounded-none border-t bg-background/95 p-2 backdrop-blur md:static md:inset-auto md:bottom-auto md:z-auto md:w-fit md:gap-0 md:rounded-lg md:border-0 md:bg-muted md:p-[3px] md:backdrop-blur-none">
+          <TabsTrigger value="profil" className="flex-1 md:flex-none">
+            Ton profil
+          </TabsTrigger>
+          <TabsTrigger value="plus" className="flex-1 md:flex-none">
+            Pour aller plus loin
+          </TabsTrigger>
         </TabsList>
 
         <TabsContent value="profil">
