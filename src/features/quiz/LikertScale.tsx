@@ -1,5 +1,15 @@
-import { Slider } from "@/components/ui/slider"
+import { ChoiceGroup } from "./ChoiceGroup"
 import type { Likert as LikertQuestion } from "@/data/questions"
+
+// Échelle d'accord. value = niveau (5 = tout à fait d'accord). Affichée en ordre DESCENDANT
+// (adhésion forte en haut). Le scoring stocke la value, pas la position → ordre purement cosmétique.
+const LIKERT_OPTIONS: { value: string; label: string }[] = [
+  { value: "5", label: "Tout à fait d'accord" },
+  { value: "4", label: "Plutôt d'accord" },
+  { value: "3", label: "Mitigé" },
+  { value: "2", label: "Plutôt pas d'accord" },
+  { value: "1", label: "Pas du tout d'accord" },
+]
 
 export function LikertScale({
   question,
@@ -7,26 +17,16 @@ export function LikertScale({
   onChange,
 }: {
   question: LikertQuestion
-  valeur: number
+  valeur: number | undefined
   onChange: (valeur: 1 | 2 | 3 | 4 | 5) => void
 }) {
   return (
-    <fieldset className="flex flex-col gap-6">
-      <legend className="text-lg font-medium">{question.statement}</legend>
-      <div className="flex flex-col gap-3 px-1 py-6">
-        <Slider
-          min={1}
-          max={5}
-          step={1}
-          value={[valeur]}
-          onValueChange={([v]) => onChange(v as 1 | 2 | 3 | 4 | 5)}
-          aria-label="Niveau d'accord de 1 à 5"
-        />
-        <div className="flex justify-between text-sm text-muted-foreground">
-          <span>Pas du tout</span>
-          <span>Tout à fait</span>
-        </div>
-      </div>
-    </fieldset>
+    <ChoiceGroup
+      legend={question.statement}
+      idPrefix={question.id}
+      options={LIKERT_OPTIONS}
+      value={valeur != null ? String(valeur) : undefined}
+      onChange={(v) => onChange(Number(v) as 1 | 2 | 3 | 4 | 5)}
+    />
   )
 }
