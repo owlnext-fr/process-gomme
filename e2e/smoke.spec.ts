@@ -35,4 +35,8 @@ test("parcours complet : intro → quiz → résultats", async ({ page }) => {
   await expect(page.getByRole("heading", { name: /ta base/i })).toBeVisible()
   await expect(page.getByLabel(/ton immeuble/i)).toBeVisible()
   await expect(page.getByRole("button", { name: /recommencer/i })).toBeVisible()
+
+  // Onglet « Pour aller plus loin »
+  await page.getByRole("tab", { name: /pour aller plus loin/i }).click()
+  await expect(page.getByRole("heading", { name: /toi sous stress/i })).toBeVisible()
 })
