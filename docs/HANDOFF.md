@@ -6,6 +6,24 @@ Notes informelles à destination de la prochaine session (humaine ou Claude). Fo
 
 ---
 
+## 2026-06-14 — Harmonisation de la forme des options (anti-biais)
+
+### Dernière chose faite
+- Adrien a remarqué que les 2 options « ajoutées » sonnaient différemment des 2 d'origine → **biais d'orientation** (la forme pouvait pousser un choix). Passe d'**harmonisation** : les 4 options de chaque question forcée réécrites pour être **parallèles en forme** (longueur, structure, registre, énergie, symétrie de justification). Cibles/équilibrage **inchangés**. Gate complet **vert**, commit `85e92f7`, poussé + déployé.
+- Méthode : Workflow **jury de 5 personas** (Le métricien, Le styliste, L'ado cash, Le conformiste prudent, Le lecteur pressé) jugeant la **forme à l'aveugle des types** → réécriture si ≥2 jurés signalent un déséquilibre.
+- **2 régressions corrigées à la main avant intégration** (l'auto-réécriture les avait introduites) : double « je » (prompts base finissent par « je… ») et accents perdus sur ~6 questions. Puis revue finale (7,5/10) → 4 retouches ciblées (fidélité perseverant b-fc-01, longueurs p-fc-03 / b-fc-07, justification b-fc-03).
+
+### Trucs en suspens
+- Le **rate-limit serveur** a encore frappé le Workflow (jury 5 personas = grosse rafale) ; la résilience + `resumeFromRunId` ont sauvé le coup, mais le 2e tour de re-validation (r1) n'a pas pu finir partout. La revue finale consolidée (1 agent) a comblé.
+
+### Prochaine chose à creuser
+- Si on relance un gros Workflow : **fusionner le jury** (1 agent multi-angles) pour éviter le rate-limit, ou batcher base/phase. Voir QUIRKS.
+- Backlog inchangé (shuffle ordre des options, etc.).
+
+### Notes pour future Claude
+- Règle ajoutée dans CONVENTIONS : **options non-orientantes** (forme parallèle) + **grammaire de continuation** (base = verbe sans « je » en tête ; phase = infinitif). À respecter si on régénère du contenu.
+- Provenance brute de l'harmonisation : `docs/superpowers/artifacts/2026-06-14-forced-4opts.json` (le `questions.ts` final porte en plus les 4 retouches manuelles).
+
 ## 2026-06-14 — Questions à 4 options (choix forcés)
 
 ### Dernière chose faite
