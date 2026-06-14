@@ -10,15 +10,15 @@ export const VIGILANCE_BASE: Record<TypeId, string> = {
   travaillomane:
     "Tout comprendre n'est pas tout décider : autorise-toi à trancher avec les pièces que tu as déjà, sans attendre le tableau parfait",
   perseverant:
-    "Une remarque n'est pas un procès : avant de défendre ta position, vérifie si on attaque vraiment tes valeurs ou si on partage juste un avis",
+    "Un avis qui diffère du tien n'est pas une menace mais un matériau : pose une question pour le comprendre avant d'en faire un débat de principes",
   empathique:
-    "Lire les besoins des autres n'oblige pas à oublier les tiens : ose dire non quand un oui te coûterait trop",
+    "Avant de te mettre au service de l'échange, dis tôt ce que toi tu veux : un accord posé clairement vaut mieux qu'un arrangement deviné",
   reveur:
-    "Prendre du recul est précieux, disparaître l'est moins : fais un petit pas vers les autres avant qu'on cesse de venir te chercher",
+    "Tes idées n'ont pas à être finies pour valoir le partage : ose les déposer en chantier, c'est aussi une façon d'être là pour les autres",
   rebelle:
-    "Au lieu de te braquer quand ça coince, mets des mots sur ce qui te pèse : c'est plus léger à porter et plus clair pour les autres",
+    "Plutôt que de laisser le ras-le-bol s'installer en sourdine, traduis-le en une proposition concrète : tu reprends la main au lieu de subir le cadre",
   promoteur:
-    "Aller vite ouvre des portes, foncer en aveugle en referme : accorde-toi un temps d'arrêt pour préserver le rythme et les liens autour de toi",
+    "Une victoire que tu portes seul rassemble moins qu'un cap partagé : explique où tu veux emmener les autres, ils avanceront avec toi, pas derrière",
 }
 
 /**
