@@ -20,6 +20,7 @@ Voir aussi : `ENVIRONMENT.md` · `QUIRKS.md` · `BACKLOG.md` · `HANDOFF.md` · 
 | Questions à 4 options (choix forcés) | 2026-06-14 | [spec](superpowers/specs/2026-06-14-questions-4-options-design.md) | [plan](superpowers/plans/2026-06-14-questions-4-options.md) | ✅ Livré | Forcés 2→4 options, équilibré 8×/type/famille ; Likert & scoring inchangés ; contenu original via Workflow jury (5 angles + cohérence). Provenance : `docs/superpowers/artifacts/2026-06-14-forced-4opts.json` |
 | Harmonisation de la forme des options (anti-biais) | 2026-06-14 | — | — | ✅ Livré | 4 options réécrites parallèles (longueur/structure/registre/énergie) via Workflow jury 5 personas ; cibles/équilibrage inchangés. Commit `85e92f7` |
 | Ordre aléatoire des options à l'affichage | 2026-06-14 | — | — | ✅ Livré | `shuffledIndices` (Fisher-Yates, `src/lib/shuffle.ts`, testé) ; mélange **stable par session** dans `QuizScreen` (`useMemo`) ; cosmétique, scoring inchangé |
+| Encadrés explicatifs des concepts dans la synthèse | 2026-06-14 | [spec](superpowers/specs/2026-06-14-encadres-explicatifs-synthese-design.md) | [plan](superpowers/plans/2026-06-14-encadres-explicatifs-synthese.md) | ✅ Livré | Chaque section de `Synthese` a un encadré (fond `indigo-50`) = icône lucide + titre `primary` + 1 phrase. Contenu dans `src/content/sectionHints.ts` (4 clés, distinct de `explainer.ts`). Icônes : Anchor/Compass/Building2/ArrowLeftRight |
 
 ## Commandes / scripts utilitaires
 

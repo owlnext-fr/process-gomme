@@ -6,6 +6,25 @@ Notes informelles à destination de la prochaine session (humaine ou Claude). Fo
 
 ---
 
+## 2026-06-14 — Encadrés explicatifs des concepts dans la synthèse
+
+### Dernière chose faite
+- Sur la page résultats, chaque section de `Synthese` (`src/features/results/Synthese.tsx`) a maintenant un **encadré d'en-tête** sur fond clair (`bg-indigo-50`, bordure `indigo-200`) : **icône lucide** (`text-primary`) + **titre `<h2>` en `text-primary`** + **une phrase d'explication** du concept. Le paragraphe perso suit dessous, inchangé. 4 sections couvertes : base (Anchor), phase (Compass), immeuble (Building2), interactions (ArrowLeftRight).
+- Le titre de section a été **absorbé dans l'encadré** (plus de `<h2>` séparé) → pas de doublon, un seul niveau de titre.
+- Contenu des 4 phrases dans **nouveau** `src/content/sectionHints.ts` (`SECTION_HINTS`), testé. `explainer.ts` / intro / quiz **intacts**.
+- Tests ajoutés : `sectionHints.test.ts` (4 clés non vides) + `Synthese.test.tsx` (les 4 phrases s'affichent). Gate `pnpm before_push` **vert** (lint+unit+build+e2e).
+
+### Trucs en suspens
+- **Pas encore poussé** au moment d'écrire ces lignes — `git push` est la dernière étape du plan.
+- Phrases de `sectionHints.ts` retouchables si besoin (formulations validées en brainstorming mais perfectibles).
+
+### Prochaine chose à creuser
+- Rien d'identifié. Vérifier le rendu réel sur la page de résultats (le visuel des 4 encadrés) si l'occasion se présente.
+
+### Notes pour future Claude
+- Deux jeux de définitions des concepts coexistent volontairement (`explainer.ts` vs `sectionHints.ts`) — voir `QUIRKS.md`. Modifier l'un ne touche pas l'autre.
+- Spec : `docs/superpowers/specs/2026-06-14-encadres-explicatifs-synthese-design.md` · Plan : `docs/superpowers/plans/2026-06-14-encadres-explicatifs-synthese.md`.
+
 ## 2026-06-14 — Ordre aléatoire des options à l'affichage
 
 - Dernier item du backlog : l'ordre des 4 options d'une question forcée est désormais **mélangé** (anti-biais de position). `shuffledIndices` (Fisher-Yates, `src/lib/shuffle.ts`, rng injectable + testé) ; `QuizScreen` calcule un ordre **stable par session** via `useMemo` (pas de re-mélange en revenant en arrière). Purement cosmétique : le scoring se base sur le type choisi, pas la position. Gate vert, poussé + déployé.

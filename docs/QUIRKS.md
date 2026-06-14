@@ -6,6 +6,17 @@ Comportements non-évidents découverts au fil du projet. Un H2 par quirk, avec 
 
 ---
 
+## Deux jeux de définitions des concepts coexistent (2026-06-14)
+
+**Piège** : les concepts base / phase / immeuble sont définis à **deux endroits** au contenu volontairement différent.
+
+- `src/content/explainer.ts` (`EXPLAINER_SECTIONS`) — **glossaire autonome**, phrases préfixées « Ta base, c'est… », avec pastille de couleur. Affiché par `ProfilExplainer` sur l'**intro** et le **quiz**.
+- `src/content/sectionHints.ts` (`SECTION_HINTS`) — **rappel contextuel court** (sans préfixe, car il suit le titre de section), + une 4ᵉ entrée `interactions` absente de l'explainer. Affiché dans les encadrés de `Synthese` (page **résultats**).
+
+**Conséquence** : modifier la définition d'un concept dans l'un **n'affecte PAS** l'autre. Si tu changes le sens d'un concept, pense à répercuter dans les deux.
+
+**Référence** : `src/content/explainer.ts`, `src/content/sectionHints.ts`, `src/features/results/Synthese.tsx`
+
 ## Vite `base` obligatoire pour GitHub Pages (2026-06-13)
 
 **Symptôme** : en prod, les assets (JS/CSS) renvoient 404 et la page est blanche.
