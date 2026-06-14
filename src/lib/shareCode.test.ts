@@ -47,6 +47,7 @@ describe("shareCode", () => {
     expect(decodeResult("!!!pas-du-base64!!!")).toBeNull()
     expect(decodeResult(btoa(JSON.stringify({ s: [1, 2, 3], p: 0 })))).toBeNull()
     expect(decodeResult(btoa(JSON.stringify({ s: [0, 0, 0, 0, 0, 0], p: 9 })))).toBeNull()
+    expect(decodeResult(btoa(JSON.stringify({ s: [0, 0, 0, 0, 0, 0], p: 0 })))).toBeNull() // socle tout à zéro
     expect(
       decodeResult(btoa(JSON.stringify({ s: [0, 0, 0, 0, 0, 200], p: 0 }))),
     ).toBeNull()

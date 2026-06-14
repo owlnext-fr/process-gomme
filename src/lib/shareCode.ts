@@ -23,6 +23,7 @@ export function decodeResult(code: string): DisplayResult | null {
     for (const n of s) {
       if (!Number.isInteger(n) || n < 0 || n > 100) return null
     }
+    if ((s as number[]).reduce((a, b) => a + b, 0) === 0) return null
     const socle = {} as Record<TypeId, number>
     TYPE_IDS.forEach((t, i) => {
       socle[t] = s[i] as number
