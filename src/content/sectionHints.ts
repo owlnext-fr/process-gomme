@@ -13,4 +13,10 @@ export const SECTION_HINTS = {
     "L'agencement de tes six facettes, empilées de la plus présente à la plus discrète.",
   interactions:
     "Comment ta base et ta phase dialoguent au quotidien — parfois en accord, parfois en tension.",
+  canal:
+    "Le registre de communication qui passe le plus naturellement avec toi.",
+  stress:
+    "Comment la tension tend à se manifester quand tes besoins du moment ne sont pas nourris — et comment revenir à l'équilibre.",
+  vigilance:
+    "Deux points d'attention : un lié à ton fond, un lié à ton moment présent.",
 } as const

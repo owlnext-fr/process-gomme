@@ -2,12 +2,15 @@ import { describe, it, expect } from "vitest"
 import { SECTION_HINTS } from "./sectionHints"
 
 describe("SECTION_HINTS", () => {
-  it("contient exactement les 4 clés attendues", () => {
+  it("contient exactement les 7 clés attendues", () => {
     expect(Object.keys(SECTION_HINTS)).toEqual([
       "base",
       "phase",
       "immeuble",
       "interactions",
+      "canal",
+      "stress",
+      "vigilance",
     ])
   })
 
