@@ -6,21 +6,28 @@ Notes informelles à destination de la prochaine session (humaine ou Claude). Fo
 
 ---
 
-## 2026-06-14 — Énergie par étage dans l'immeuble
+## 2026-06-14 — Pack restitution « Pour aller plus loin »
 
 ### Dernière chose faite
-- Nouveau module `src/content/energie.ts` : `ENERGIE: Record<TypeId, string>` — une phrase courte (~30-40 mots) par type décrivant la ressource mobilisable à cet étage de l'immeuble, ancrée sur `essenceBase` (types.ts), avec une nuance générique du coût d'énergie (haut = spontané ; bas = mobilisable mais plus coûteux). Prose 100 % originale, voix de `descriptions.ts` (tutoiement, bienveillant). Chaque phrase commence par « tu y… » pour s'enchaîner après le préfixe « Nom — X% — ».
-- `Synthese.tsx` : import de `ENERGIE` ; la liste « Ton immeuble » affiche désormais `Nom — X%` (en `font-medium text-foreground`) suivi de `— <ENERGIE[t]>`. `<ol>` passé en `flex flex-col gap-1.5`.
-- TDD : `src/content/energie.test.ts` (6 clés == TYPE_IDS, longueur > 20). Suite complète verte (18 fichiers, 53 tests) + `pnpm build` OK. Commit `b47759d`.
+- Enrichissement de la fiche de résultats avec **4 sections dérivées** (0 nouvelle question — tout se déduit de `socle`/`phase`), réparties en **2 onglets** :
+  - **Onglet « Ton profil »** = vue actuelle ; la liste « Ton immeuble » affiche désormais `Nom — X% — <phrase ressource>` (énergie par étage).
+  - **Onglet « Pour aller plus loin »** = **Canal de communication** (base, `canaux.ts`), **Toi sous stress** (base × phase, `stress.ts` + `composeStress`, branche `base===phase`), **Points de vigilance** (base + phase, `vigilance.ts` + `composeVigilance`, 2 puces).
+- Nouveaux modules de contenu **100 % originaux**, ancrés sur `essenceBase`/`besoinPhase`, voix de `descriptions.ts` : `canaux.ts`, `energie.ts`, `stress.ts`, `vigilance.ts`. `stress`/`vigilance` en templates assemblés façon `composeInteraction`.
+- UI : encadré de section **extrait et partagé** `src/components/ResultSection.tsx` (consommé par `Synthese` ET `PlusLoin`). Onglet 2 = `src/features/results/PlusLoin.tsx`. Onglets **shadcn** (`src/components/ui/tabs.tsx`, déjà présent, basé sur le package `radix-ui`). Hints `canal`/`stress`/`vigilance` ajoutés dans `sectionHints.ts`.
+- **Mobile** : la barre d'onglets est **fixe en bas, pleine largeur** sur mobile (`fixed bottom-0`, triggers `flex-1`), et redevient une pill en haut sur desktop (`md:static`). `Tabs` a `pb-24 md:pb-0` pour que le contenu ne passe pas sous la barre. Vérifié visuellement (Playwright, 390×844 et 1440×900).
+- Exécuté en **subagent-driven** ; les 4 tâches de contenu en **ultrathink (Opus) + revue qualité** (fidélité/équilibre/anti-redite/originalité). Retouches issues des revues : tutoiement cohérent (canaux), suppression de la redite haut/bas (énergie), vigilance base ré-angulée pour être distincte de `descriptions.ts`. Dépendance `@radix-ui/react-tabs` ajoutée par erreur puis **retirée** (le `tabs.tsx` existant utilise le package umbrella `radix-ui`).
+- Tests : `canaux`/`energie`/`stress`/`vigilance`.test, `ResultSection`.test, `PlusLoin`.test, `sectionHints` (7 clés), e2e `smoke` étendu (clic onglet « Pour aller plus loin »). Gate `pnpm before_push` **vert** (59 unit + 2 e2e).
 
 ### Trucs en suspens
-- **Pas encore poussé** (seul le commit local est fait).
+- **Push final** = dernière étape (gate vert).
 
 ### Prochaine chose à creuser
-- Rien d'identifié.
+- Incréments restants du topo « coller au bouquin » : « motivation actuelle » écartée (doublon) ; **phase vécue** (historique) et **mode entretien** = R&D future (voir BACKLOG).
 
 ### Notes pour future Claude
-- Les phrases de `energie.ts` restent volontairement **génériques sur le rang** (« haut/bas », « en haut/plus bas ») pour fonctionner à n'importe quelle position dans l'immeuble. Si on veut une formulation indexée sur le rang réel, c'est un autre design (table par rang plutôt que par type).
+- Les phrases de `energie.ts` sont **génériques sur le rang** (pas indexées sur la position réelle dans l'immeuble) — design assumé.
+- `stress.ts` : les clauses respectent des **contrats grammaticaux** (déclencheur sans ponctuation finale, réflexe/retour avec point) pour que `composeStress` assemble les 36 paires correctement. Toute retouche de clause doit relire l'assemblage.
+- `SECTION_HINTS` a un test qui vérifie les **clés exactes** (7) → ajouter une clé = mettre à jour ce test (voir QUIRKS).
 
 ## 2026-06-14 — Partage de la page de résultats par URL
 

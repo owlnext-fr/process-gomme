@@ -6,6 +6,18 @@ Comportements non-évidents découverts au fil du projet. Un H2 par quirk, avec 
 
 ---
 
+## `SECTION_HINTS` : test sur les clés EXACTES (2026-06-14)
+
+**Piège** : `src/content/sectionHints.test.ts` vérifie la liste **exacte** des clés (`toEqual([...])`), pas juste leur présence. Ajouter (ou retirer) une section dans `SECTION_HINTS` **casse ce test** tant qu'on n'a pas mis à jour le tableau attendu. Pense à éditer le test en même temps que l'objet.
+
+**Référence** : `src/content/sectionHints.ts`, `src/content/sectionHints.test.ts`
+
+## `@radix-ui/react-tabs` vs `radix-ui` (umbrella) (2026-06-14)
+
+**Piège** : `src/components/ui/tabs.tsx` importe `from "radix-ui"` (le **package umbrella**, déjà en dépendance), pas `@radix-ui/react-tabs`. Inutile d'ajouter `@radix-ui/react-tabs` pour utiliser les onglets — ce serait une dépendance morte. Idem pour d'autres primitives shadcn déjà présentes.
+
+**Référence** : `src/components/ui/tabs.tsx`, `package.json`
+
 ## Partage par URL : code = `socle` + `phase` uniquement, scores arrondis (2026-06-14)
 
 **Comment ça marche** : le lien de partage encode dans `?r=<base64url>` un JSON `{ s, p }` où `s` = les 6 scores `socle` **arrondis à l'entier** (ordre `TYPE_IDS`) et `p` = l'index de la `phase`. `base` et `immeuble` ne sont **pas** stockés : ils sont redérivés de `socle` via `deriveFromSocle` (`src/lib/scoring.ts`), réutilisé par `decodeResult` (`src/lib/shareCode.ts`). `motivation` n'est pas dans le lien (jamais affiché).

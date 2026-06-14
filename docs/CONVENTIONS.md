@@ -64,6 +64,13 @@ export const MA_DONNEE: Record<TypeId, string> = {
 }
 ```
 
+## Section de résultats : encadré partagé + contenu dérivé assemblé
+
+- **Encadré de section** : toujours via `src/components/ResultSection.tsx` (`titre` + `hint` + `icon` lucide + `children`). Consommé par `Synthese` (onglet « Ton profil ») ET `PlusLoin` (onglet « Pour aller plus loin »). Ne pas redéfinir l'encadré localement.
+- **Contenu dérivé base/phase** : quand une section se déduit de la base ET de la phase, suivre le pattern `composeInteraction` (`src/content/interactions.ts`) — des `Record<TypeId, string>` de **clauses** + une fonction `composeXxx(base, phase)` qui les assemble, avec une branche `base === phase`. Exemples : `composeStress` (`stress.ts`), `composeVigilance` (`vigilance.ts`).
+- **Contrats grammaticaux** : si des clauses sont concaténées dans une phrase gabarit, documenter la forme attendue de chaque clause (ponctuation, majuscule) pour que les 36 paires s'assemblent correctement. Tester `composeXxx` sur **toute paire** + la variante `base === phase`.
+- **Onglets résultats** : `src/components/ui/tabs.tsx` (shadcn, package `radix-ui` umbrella — **pas** `@radix-ui/react-tabs`). Sur mobile, la `TabsList` est **fixe en bas** (`fixed inset-x-0 bottom-0`, triggers `flex-1`), pill en haut sur desktop (`md:static`, `md:flex-none`) ; prévoir `pb-*` sur `Tabs` pour dégager le contenu.
+
 ## Écran intro/quiz avec `SplitLayout` — squelette
 
 ```tsx
