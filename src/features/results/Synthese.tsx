@@ -1,6 +1,7 @@
 import { Anchor, ArrowLeftRight, Building2, Compass } from "lucide-react"
 import { TYPES, type TypeId } from "@/data/types"
 import { DESCRIPTIONS } from "@/content/descriptions"
+import { ENERGIE } from "@/content/energie"
 import { IMMEUBLE_INTRO, composeInteraction } from "@/content/interactions"
 import { SECTION_HINTS } from "@/content/sectionHints"
 import type { DisplayResult } from "@/lib/scoring"
@@ -18,10 +19,13 @@ export function Synthese({ result }: { result: DisplayResult }) {
       </ResultSection>
       <ResultSection titre="Ton immeuble" hint={SECTION_HINTS.immeuble} icon={Building2}>
         <p>{IMMEUBLE_INTRO}</p>
-        <ol className="mt-2 list-decimal pl-5">
+        <ol className="mt-2 flex flex-col gap-1.5 list-decimal pl-5">
           {immeuble.map((t: TypeId) => (
             <li key={t}>
-              {TYPES[t].nom} — {Math.round(result.socle[t])}%
+              <span className="font-medium text-foreground">
+                {TYPES[t].nom} — {Math.round(result.socle[t])}%
+              </span>{" "}
+              — {ENERGIE[t]}
             </li>
           ))}
         </ol>

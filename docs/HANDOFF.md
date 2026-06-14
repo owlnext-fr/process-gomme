@@ -6,6 +6,22 @@ Notes informelles à destination de la prochaine session (humaine ou Claude). Fo
 
 ---
 
+## 2026-06-14 — Énergie par étage dans l'immeuble
+
+### Dernière chose faite
+- Nouveau module `src/content/energie.ts` : `ENERGIE: Record<TypeId, string>` — une phrase courte (~30-40 mots) par type décrivant la ressource mobilisable à cet étage de l'immeuble, ancrée sur `essenceBase` (types.ts), avec une nuance générique du coût d'énergie (haut = spontané ; bas = mobilisable mais plus coûteux). Prose 100 % originale, voix de `descriptions.ts` (tutoiement, bienveillant). Chaque phrase commence par « tu y… » pour s'enchaîner après le préfixe « Nom — X% — ».
+- `Synthese.tsx` : import de `ENERGIE` ; la liste « Ton immeuble » affiche désormais `Nom — X%` (en `font-medium text-foreground`) suivi de `— <ENERGIE[t]>`. `<ol>` passé en `flex flex-col gap-1.5`.
+- TDD : `src/content/energie.test.ts` (6 clés == TYPE_IDS, longueur > 20). Suite complète verte (18 fichiers, 53 tests) + `pnpm build` OK. Commit `b47759d`.
+
+### Trucs en suspens
+- **Pas encore poussé** (seul le commit local est fait).
+
+### Prochaine chose à creuser
+- Rien d'identifié.
+
+### Notes pour future Claude
+- Les phrases de `energie.ts` restent volontairement **génériques sur le rang** (« haut/bas », « en haut/plus bas ») pour fonctionner à n'importe quelle position dans l'immeuble. Si on veut une formulation indexée sur le rang réel, c'est un autre design (table par rang plutôt que par type).
+
 ## 2026-06-14 — Partage de la page de résultats par URL
 
 ### Dernière chose faite
