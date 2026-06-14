@@ -1,519 +1,612 @@
 {
-  "summary": "Dedoublonne et homogeneise les libelles des options par famille",
-  "agentCount": 2,
-  "logs": [],
+  "summary": "Harmonise la forme des 4 options par question (jury 5 personas) pour ne pas orienter",
+  "agentCount": 282,
+  "logs": [
+    "[jury:b-fc-05:Le conformiste prudent:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-02:Le conformiste prudent:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:b-fc-05:Le styliste:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:b-fc-08:L'ado cash:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:b-fc-11:Le styliste:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:b-fc-11:L'ado cash:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:b-fc-11:Le metricien:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:b-fc-08:Le conformiste prudent:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:b-fc-11:Le conformiste prudent:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:b-fc-11:Le lecteur presse:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-04:Le metricien:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-03:Le metricien:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-04:Le styliste:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-04:Le lecteur presse:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-03:Le styliste:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-02:L'ado cash:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-03:L'ado cash:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-03:Le conformiste prudent:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-04:Le conformiste prudent:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:b-fc-08:Le lecteur presse:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-03:Le lecteur presse:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-04:L'ado cash:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-07:Le metricien:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:b-fc-08:Le metricien:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-07:Le styliste:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-07:Le conformiste prudent:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-07:L'ado cash:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-01:Le metricien:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-01:Le styliste:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-07:Le lecteur presse:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-01:L'ado cash:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-01:Le lecteur presse:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-06:Le conformiste prudent:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-06:L'ado cash:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-06:Le metricien:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-02:Le lecteur presse:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-08:Le styliste:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:b-fc-08:Le styliste:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-08:Le conformiste prudent:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-08:L'ado cash:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-01:Le conformiste prudent:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-06:Le styliste:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[refine:b-fc-02:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-08:Le metricien:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-10:Le metricien:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-08:Le lecteur presse:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-10:Le conformiste prudent:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-10:Le styliste:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-10:Le lecteur presse:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-09:Le metricien:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-06:Le lecteur presse:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-09:Le conformiste prudent:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-11:Le metricien:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-09:L'ado cash:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-11:L'ado cash:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-11:Le conformiste prudent:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-09:Le styliste:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-11:Le lecteur presse:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-12:Le metricien:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-12:L'ado cash:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-02:Le metricien:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-10:L'ado cash:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[refine:b-fc-04:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-12:Le conformiste prudent:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-12:Le lecteur presse:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-11:Le styliste:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[refine:b-fc-12:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[refine:b-fc-05:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-12:Le styliste:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[refine:b-fc-01:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[refine:b-fc-07:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-09:Le lecteur presse:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited",
+    "[jury:p-fc-02:Le styliste:r1] failed: API Error: Server is temporarily limiting requests (not your usage limit) · Rate limited"
+  ],
   "result": {
-    "base": {
-      "questions": [
-        {
-          "id": "b-fc-01",
-          "options": [
-            {
-              "cible": "travaillomane",
-              "label": "lis toute la notice et trie les pièces avant la première vis."
-            },
-            {
-              "cible": "rebelle",
-              "label": "attaque direct sans la notice, c'est bien plus drôle d'improviser."
-            },
-            {
-              "cible": "perseverant",
-              "label": "le monte nickel, même la face cachée, parce que le travail bâclé je ne supporte pas."
-            },
-            {
-              "cible": "promoteur",
-              "label": "l'assemble en vitesse et envoie déjà une photo pour épater."
-            }
-          ]
-        },
-        {
-          "id": "b-fc-02",
-          "options": [
-            {
-              "cible": "travaillomane",
-              "label": "verrouille le menu, les horaires et les courses bien en amont."
-            },
-            {
-              "cible": "empathique",
-              "label": "choisis surtout les invités pour que le courant passe entre tout le monde."
-            },
-            {
-              "cible": "reveur",
-              "label": "savoure longtemps l'ambiance dans ma tête avant de bouger le petit doigt."
-            },
-            {
-              "cible": "promoteur",
-              "label": "rameute la bande et vise une soirée dont on reparlera longtemps."
-            }
-          ]
-        },
-        {
-          "id": "b-fc-03",
-          "options": [
-            {
-              "cible": "travaillomane",
-              "label": "liste d'abord les étapes et les infos qui me manquent."
-            },
-            {
-              "cible": "promoteur",
-              "label": "flaire le bon coup et pousse pour qu'on embarque sans attendre."
-            },
-            {
-              "cible": "perseverant",
-              "label": "vérifie que l'objectif tient la route et mérite qu'on s'y donne."
-            },
-            {
-              "cible": "rebelle",
-              "label": "fonce vers ce qui m'attire, sans me casser la tête."
-            }
-          ]
-        },
-        {
-          "id": "b-fc-04",
-          "options": [
-            {
-              "cible": "travaillomane",
-              "label": "le découpe en petites questions claires pour avancer pas à pas."
-            },
-            {
-              "cible": "reveur",
-              "label": "le laisse infuser tout seul en pensant à autre chose."
-            },
-            {
-              "cible": "empathique",
-              "label": "capte d'abord ce que ça remue chez les gens autour."
-            },
-            {
-              "cible": "rebelle",
-              "label": "m'amuse à le retourner avec l'idée à contre-courant qui me vient."
-            }
-          ]
-        },
-        {
-          "id": "b-fc-05",
-          "options": [
-            {
-              "cible": "perseverant",
-              "label": "choisis un film qui porte un message qui me tient vraiment à cœur."
-            },
-            {
-              "cible": "rebelle",
-              "label": "attrape le titre qui me tente à la seconde, sans réfléchir."
-            },
-            {
-              "cible": "travaillomane",
-              "label": "compare les avis et les notes avant de trancher."
-            },
-            {
-              "cible": "empathique",
-              "label": "vise ce qui ferait plaisir à toute la tablée."
-            }
-          ]
-        },
-        {
-          "id": "b-fc-06",
-          "options": [
-            {
-              "cible": "perseverant",
-              "label": "me demande surtout si le travail rendu restait honnête malgré tout."
-            },
-            {
-              "cible": "empathique",
-              "label": "jauge son état avant même d'aborder le sujet."
-            },
-            {
-              "cible": "reveur",
-              "label": "laisse passer un peu de temps avant de réagir."
-            },
-            {
-              "cible": "promoteur",
-              "label": "vais droit au but pour rattraper le coup et repartir vite."
-            }
-          ]
-        },
-        {
-          "id": "b-fc-07",
-          "options": [
-            {
-              "cible": "perseverant",
-              "label": "défends calmement le point de vue qui me semble le plus juste."
-            },
-            {
-              "cible": "promoteur",
-              "label": "trouve l'argument qui frappe et relance le débat."
-            },
-            {
-              "cible": "travaillomane",
-              "label": "remets les faits au clair pour qu'on raisonne sur du concret."
-            },
-            {
-              "cible": "reveur",
-              "label": "décroche du brouhaha et suis le fil de mes propres idées."
-            }
-          ]
-        },
-        {
-          "id": "b-fc-08",
-          "options": [
-            {
-              "cible": "perseverant",
-              "label": "me demande tout de suite si c'est droit et conforme à ce que je crois."
-            },
-            {
-              "cible": "reveur",
-              "label": "y repense seul, par bribes, bien des jours plus tard."
-            },
-            {
-              "cible": "empathique",
-              "label": "pense aussitôt aux personnes touchées et à leur peine."
-            },
-            {
-              "cible": "rebelle",
-              "label": "réagis du tac au tac, souvent avec une pointe d'ironie."
-            }
-          ]
-        },
-        {
-          "id": "b-fc-09",
-          "options": [
-            {
-              "cible": "empathique",
-              "label": "rejoins celui qui a l'air un peu isolé pour lui tenir compagnie."
-            },
-            {
-              "cible": "reveur",
-              "label": "m'installe dans un coin pour observer la scène tranquillement."
-            },
-            {
-              "cible": "travaillomane",
-              "label": "repère les rares personnes avec qui parler de vrais sujets."
-            },
-            {
-              "cible": "rebelle",
-              "label": "lance une vanne pour briser la glace et voir qui suit."
-            }
-          ]
-        },
-        {
-          "id": "b-fc-10",
-          "options": [
-            {
-              "cible": "empathique",
-              "label": "m'assois avec lui pour comprendre ce qui le plombe."
-            },
-            {
-              "cible": "promoteur",
-              "label": "lui lance un défi concret qui rallume son énergie d'un coup."
-            },
-            {
-              "cible": "perseverant",
-              "label": "lui rappelle l'engagement pris et la fierté de tenir bon."
-            },
-            {
-              "cible": "reveur",
-              "label": "prends de la hauteur et lui propose un autre angle de vue."
-            }
-          ]
-        },
-        {
-          "id": "b-fc-11",
-          "options": [
-            {
-              "cible": "reveur",
-              "label": "savoure de ne rien prévoir et laisse filer mon imagination."
-            },
-            {
-              "cible": "rebelle",
-              "label": "improvise une lubie sur un coup de tête, juste pour voir."
-            },
-            {
-              "cible": "travaillomane",
-              "label": "avance tranquillement sur ma liste et coche deux ou trois choses."
-            },
-            {
-              "cible": "promoteur",
-              "label": "appelle mes potes pour monter une sortie qui décoiffe."
-            }
-          ]
-        },
-        {
-          "id": "b-fc-12",
-          "options": [
-            {
-              "cible": "promoteur",
-              "label": "rebondis sur-le-champ et tourne le contretemps à mon avantage."
-            },
-            {
-              "cible": "rebelle",
-              "label": "souris et bifurque ailleurs, l'imprévu rend le voyage savoureux."
-            },
-            {
-              "cible": "perseverant",
-              "label": "garde le cap et trouve coûte que coûte comment tenir mon plan."
-            },
-            {
-              "cible": "empathique",
-              "label": "sonde l'humeur de chacun avant qu'on décide de la suite ensemble."
-            }
-          ]
-        }
-      ]
-    },
-    "phase": {
-      "questions": [
-        {
-          "id": "p-fc-01",
-          "options": [
-            {
-              "cible": "travaillomane",
-              "label": "poser un cadre net, tout remettre en ordre et savourer le calme d'un espace bien rangé."
-            },
-            {
-              "cible": "rebelle",
-              "label": "tout lâcher, sortir sur un coup de tête et m'offrir un éclat de rire."
-            },
-            {
-              "cible": "perseverant",
-              "label": "me recentrer sur l'essentiel et avancer dans la direction qui me semble juste."
-            },
-            {
-              "cible": "promoteur",
-              "label": "plonger dans une activité grisante qui me regonfle à bloc."
-            }
-          ]
-        },
-        {
-          "id": "p-fc-02",
-          "options": [
-            {
-              "cible": "travaillomane",
-              "label": "qu'on remarque le soin et la rigueur que je mets dans mon travail."
-            },
-            {
-              "cible": "empathique",
-              "label": "un peu de chaleur et d'attention pour qui je suis, tout simplement."
-            },
-            {
-              "cible": "reveur",
-              "label": "qu'on me laisse respirer, sans rien attendre de moi pour l'instant."
-            },
-            {
-              "cible": "promoteur",
-              "label": "qu'on me suive sans hésiter quand je propose de foncer."
-            }
-          ]
-        },
-        {
-          "id": "p-fc-03",
-          "options": [
-            {
-              "cible": "travaillomane",
-              "label": "avancer méthodiquement sur un dossier et valider ce que j'avais planifié."
-            },
-            {
-              "cible": "promoteur",
-              "label": "me lancer dans quelque chose d'intense, avec une vraie pression à gérer."
-            },
-            {
-              "cible": "perseverant",
-              "label": "m'engager pour une cause à laquelle je crois et défendre ce qui compte à mes yeux."
-            },
-            {
-              "cible": "rebelle",
-              "label": "ne rien prévoir et suivre l'envie du moment, comme ça vient."
-            }
-          ]
-        },
-        {
-          "id": "p-fc-04",
-          "options": [
-            {
-              "cible": "travaillomane",
-              "label": "la satisfaction tranquille de voir mes tâches abouties et tout en ordre."
-            },
-            {
-              "cible": "reveur",
-              "label": "des heures à moi pour laisser flotter mes pensées sans contrainte."
-            },
-            {
-              "cible": "empathique",
-              "label": "ces instants simples où l'on se demande sincèrement comment va l'autre."
-            },
-            {
-              "cible": "rebelle",
-              "label": "un bon coup de folie, un fou rire qui sort de l'ordinaire."
-            }
-          ]
-        },
-        {
-          "id": "p-fc-05",
-          "options": [
-            {
-              "cible": "perseverant",
-              "label": "la mettre au service d'une cause qui me tient à cœur."
-            },
-            {
-              "cible": "rebelle",
-              "label": "improviser et faire ce qui me chante, sans aucun programme."
-            },
-            {
-              "cible": "travaillomane",
-              "label": "la planifier dans le détail pour mieux la savourer ensuite."
-            },
-            {
-              "cible": "empathique",
-              "label": "la passer entouré des miens, dans un moment où nos liens se resserrent."
-            }
-          ]
-        },
-        {
-          "id": "p-fc-06",
-          "options": [
-            {
-              "cible": "perseverant",
-              "label": "qu'on reconnaisse l'engagement que je mets dans ce en quoi je crois."
-            },
-            {
-              "cible": "empathique",
-              "label": "des échanges plus humains, où l'on prenne le temps de se parler vraiment."
-            },
-            {
-              "cible": "reveur",
-              "label": "un peu de répit pour réfléchir à ma façon, sans qu'on me presse."
-            },
-            {
-              "cible": "promoteur",
-              "label": "de l'action, des défis concrets à relever et la liberté de foncer."
-            }
-          ]
-        },
-        {
-          "id": "p-fc-07",
-          "options": [
-            {
-              "cible": "perseverant",
-              "label": "m'investir dans quelque chose d'utile, fidèle à mes valeurs."
-            },
-            {
-              "cible": "promoteur",
-              "label": "partir à l'aventure et vivre des moments forts, pleins d'adrénaline."
-            },
-            {
-              "cible": "travaillomane",
-              "label": "mener à terme une réalisation soignée et savourer le travail accompli."
-            },
-            {
-              "cible": "reveur",
-              "label": "me retirer loin du bruit, avec tout le temps qu'il me faut pour rêver."
-            }
-          ]
-        },
-        {
-          "id": "p-fc-08",
-          "options": [
-            {
-              "cible": "perseverant",
-              "label": "approfondir un combat qui compte et défendre ce en quoi je crois."
-            },
-            {
-              "cible": "reveur",
-              "label": "flâner seul, l'esprit libre, à laisser vagabonder mon imaginaire."
-            },
-            {
-              "cible": "empathique",
-              "label": "m'offrir un vrai moment de douceur avec ceux qui me sont chers."
-            },
-            {
-              "cible": "rebelle",
-              "label": "céder à une lubie du moment, juste pour m'amuser un peu."
-            }
-          ]
-        },
-        {
-          "id": "p-fc-09",
-          "options": [
-            {
-              "cible": "empathique",
-              "label": "retrouver une présence affectueuse et un vrai moment de complicité."
-            },
-            {
-              "cible": "reveur",
-              "label": "me poser dans mon coin pour me ressourcer en silence."
-            },
-            {
-              "cible": "travaillomane",
-              "label": "régler ce qu'il me reste à faire avant de pouvoir décrocher."
-            },
-            {
-              "cible": "rebelle",
-              "label": "tout envoyer balader et m'amuser sans aucune contrainte."
-            }
-          ]
-        },
-        {
-          "id": "p-fc-10",
-          "options": [
-            {
-              "cible": "empathique",
-              "label": "de l'affection sincère et le sentiment d'être accueilli comme je suis."
-            },
-            {
-              "cible": "promoteur",
-              "label": "de l'énergie, du mouvement et quelque chose qui décoiffe ensemble."
-            },
-            {
-              "cible": "perseverant",
-              "label": "de vrais échanges sincères, où chacun défend ce en quoi il croit."
-            },
-            {
-              "cible": "reveur",
-              "label": "un recoin paisible pour me poser, observer et savourer l'instant."
-            }
-          ]
-        },
-        {
-          "id": "p-fc-11",
-          "options": [
-            {
-              "cible": "reveur",
-              "label": "me glisser dans une bulle à moi, seul avec mon imaginaire."
-            },
-            {
-              "cible": "rebelle",
-              "label": "sauter sur l'occasion pour un truc léger et fun, là, tout de suite."
-            },
-            {
-              "cible": "travaillomane",
-              "label": "m'attaquer enfin à un projet concret qui me trotte en tête."
-            },
-            {
-              "cible": "promoteur",
-              "label": "tenter une expérience qui bouge, avec du monde autour."
-            }
-          ]
-        },
-        {
-          "id": "p-fc-12",
-          "options": [
-            {
-              "cible": "promoteur",
-              "label": "relever un défi qui me pousse dans mes retranchements."
-            },
-            {
-              "cible": "rebelle",
-              "label": "lâcher prise, rire et m'autoriser quelques fantaisies."
-            },
-            {
-              "cible": "perseverant",
-              "label": "m'engager dans quelque chose qui a du sens et qu'on reconnaît."
-            },
-            {
-              "cible": "empathique",
-              "label": "de la tendresse et des instants doux avec ceux qui me sont chers."
-            }
-          ]
-        }
-      ]
-    }
+    "results": [
+      {
+        "id": "b-fc-01",
+        "famille": "base",
+        "options": [
+          {
+            "cible": "travaillomane",
+            "label": "je lis la notice du début à la fin et je trie les pièces une à une."
+          },
+          {
+            "cible": "rebelle",
+            "label": "je laisse la notice de côté et je monte selon mon envie du moment."
+          },
+          {
+            "cible": "perseverant",
+            "label": "je respecte chaque étape de la notice et je serre bien chaque vis."
+          },
+          {
+            "cible": "promoteur",
+            "label": "je vise le montage entier et je relève le défi sans m'arrêter."
+          }
+        ]
+      },
+      {
+        "id": "b-fc-02",
+        "famille": "base",
+        "options": [
+          {
+            "cible": "travaillomane",
+            "label": "prepare le menu, les horaires et la liste des courses a l'avance."
+          },
+          {
+            "cible": "empathique",
+            "label": "place chacun a table pour que tout le monde se sente bien."
+          },
+          {
+            "cible": "reveur",
+            "label": "imagine l'ambiance dans ma tete avant de passer a la cuisine."
+          },
+          {
+            "cible": "promoteur",
+            "label": "rassemble tout le monde et lance une soiree pleine d'energie."
+          }
+        ]
+      },
+      {
+        "id": "b-fc-03",
+        "famille": "base",
+        "options": [
+          {
+            "cible": "travaillomane",
+            "label": "pose les étapes et repère les informations qui me manquent encore."
+          },
+          {
+            "cible": "promoteur",
+            "label": "saisis l'occasion et lance la machine pour qu'on démarre tout de suite."
+          },
+          {
+            "cible": "perseverant",
+            "label": "regarde si l'objectif tient debout et vaut vraiment qu'on s'engage."
+          },
+          {
+            "cible": "rebelle",
+            "label": "suis ce qui m'attire et plonge là où l'envie me porte."
+          }
+        ]
+      },
+      {
+        "id": "b-fc-04",
+        "famille": "base",
+        "options": [
+          {
+            "cible": "travaillomane",
+            "label": "je le découpe en étapes claires et j'avance dans l'ordre."
+          },
+          {
+            "cible": "reveur",
+            "label": "je le mets de côté et je le laisse infuser dans ma tête."
+          },
+          {
+            "cible": "empathique",
+            "label": "je regarde d'abord ce qu'il provoque chez les gens autour."
+          },
+          {
+            "cible": "rebelle",
+            "label": "je le retourne dans tous les sens avec l'idée du moment."
+          }
+        ]
+      },
+      {
+        "id": "b-fc-05",
+        "famille": "base",
+        "options": [
+          {
+            "cible": "perseverant",
+            "label": "je choisis un film qui porte un message qui me tient à coeur."
+          },
+          {
+            "cible": "rebelle",
+            "label": "je choisis le film qui attire mon regard à cet instant précis."
+          },
+          {
+            "cible": "travaillomane",
+            "label": "je choisis un film bien noté après avoir comparé les critiques."
+          },
+          {
+            "cible": "empathique",
+            "label": "je choisis un film qui rassemble les gens présents autour de moi."
+          }
+        ]
+      },
+      {
+        "id": "b-fc-06",
+        "famille": "base",
+        "options": [
+          {
+            "cible": "perseverant",
+            "label": "regarde d'abord si le travail rendu tient debout sur le fond des choses."
+          },
+          {
+            "cible": "empathique",
+            "label": "regarde d'abord comment il traverse la situation et comment il le ressent."
+          },
+          {
+            "cible": "reveur",
+            "label": "prends d'abord un temps de recul avant de dire quoi que ce soit."
+          },
+          {
+            "cible": "promoteur",
+            "label": "cherche d'abord comment reprendre le dossier en main et le relancer."
+          }
+        ]
+      },
+      {
+        "id": "b-fc-07",
+        "famille": "base",
+        "options": [
+          {
+            "cible": "perseverant",
+            "label": "je défends le point de vue qui me semble juste"
+          },
+          {
+            "cible": "promoteur",
+            "label": "je pousse mon idée et je relance le débat"
+          },
+          {
+            "cible": "travaillomane",
+            "label": "je remets les faits en ordre pour clarifier le sujet"
+          },
+          {
+            "cible": "reveur",
+            "label": "je m'écarte du bruit et je suis mes idées"
+          }
+        ]
+      },
+      {
+        "id": "b-fc-08",
+        "famille": "base",
+        "options": [
+          {
+            "cible": "perseverant",
+            "label": "je la confronte aussitôt à ce que je crois juste et important."
+          },
+          {
+            "cible": "reveur",
+            "label": "je la laisse infuser et j'y repense seul quelques jours plus tard."
+          },
+          {
+            "cible": "empathique",
+            "label": "je pense d'abord aux personnes touchées et à ce qu'elles vivent."
+          },
+          {
+            "cible": "rebelle",
+            "label": "je réagis dans l'instant, au gré de mon humeur du moment."
+          }
+        ]
+      },
+      {
+        "id": "b-fc-09",
+        "famille": "base",
+        "options": [
+          {
+            "cible": "empathique",
+            "label": "je repère une personne isolée et je viens lui parler tranquillement."
+          },
+          {
+            "cible": "reveur",
+            "label": "je m'installe un peu en retrait et j'observe l'ambiance se former."
+          },
+          {
+            "cible": "travaillomane",
+            "label": "je cherche un groupe où aborder un sujet un peu de fond."
+          },
+          {
+            "cible": "rebelle",
+            "label": "je lance une remarque légère et je vois qui me répond."
+          }
+        ]
+      },
+      {
+        "id": "b-fc-10",
+        "famille": "base",
+        "options": [
+          {
+            "cible": "empathique",
+            "label": "je m'assois avec lui pour comprendre ce qui le traverse en ce moment."
+          },
+          {
+            "cible": "promoteur",
+            "label": "je lui propose une action à mener pour remettre du mouvement maintenant."
+          },
+          {
+            "cible": "perseverant",
+            "label": "je lui rappelle l'engagement pris et le sens de tenir bon."
+          },
+          {
+            "cible": "reveur",
+            "label": "je prends du recul et lui propose un autre angle sur la situation."
+          }
+        ]
+      },
+      {
+        "id": "b-fc-11",
+        "famille": "base",
+        "options": [
+          {
+            "cible": "reveur",
+            "label": "je laisse les heures filer au gré de mon esprit et de mes envies vagues."
+          },
+          {
+            "cible": "rebelle",
+            "label": "je suis l'envie du moment et me lance dans une idée venue d'un coup."
+          },
+          {
+            "cible": "travaillomane",
+            "label": "je reprends ma liste et avance posément sur deux ou trois tâches en attente."
+          },
+          {
+            "cible": "promoteur",
+            "label": "j'appelle des amis et lance une sortie pour occuper l'après-midi ensemble."
+          }
+        ]
+      },
+      {
+        "id": "b-fc-12",
+        "famille": "base",
+        "options": [
+          {
+            "cible": "promoteur",
+            "label": "je transforme ce contretemps en occasion et redessine la suite du voyage."
+          },
+          {
+            "cible": "rebelle",
+            "label": "je change de cap et improvise la suite au gré de mon envie."
+          },
+          {
+            "cible": "perseverant",
+            "label": "je garde mon cap et trouve comment respecter le programme prévu."
+          },
+          {
+            "cible": "empathique",
+            "label": "je consulte le groupe et décide la suite ensemble avec chacun."
+          }
+        ]
+      },
+      {
+        "id": "p-fc-01",
+        "famille": "phase",
+        "options": [
+          {
+            "cible": "travaillomane",
+            "label": "mettre de l'ordre autour de moi et retrouver un espace clair et pose."
+          },
+          {
+            "cible": "rebelle",
+            "label": "suivre une envie du moment et m'offrir une parenthese libre et legere."
+          },
+          {
+            "cible": "perseverant",
+            "label": "revenir a l'essentiel et avancer dans la direction qui compte pour moi."
+          },
+          {
+            "cible": "promoteur",
+            "label": "me lancer dans une activite physique et retrouver mon energie du moment."
+          }
+        ]
+      },
+      {
+        "id": "p-fc-02",
+        "famille": "phase",
+        "options": [
+          {
+            "cible": "travaillomane",
+            "label": "qu'on remarque le soin que je mets dans ce que je fais."
+          },
+          {
+            "cible": "empathique",
+            "label": "qu'on prenne de mes nouvelles et qu'on s'interesse a moi."
+          },
+          {
+            "cible": "reveur",
+            "label": "qu'on me laisse du temps a moi, sans rien attendre en retour."
+          },
+          {
+            "cible": "promoteur",
+            "label": "qu'on me suive quand je decide de lancer les choses."
+          }
+        ]
+      },
+      {
+        "id": "p-fc-03",
+        "famille": "phase",
+        "options": [
+          {
+            "cible": "travaillomane",
+            "label": "reprendre un projet et avancer méthodiquement, étape par étape, selon mon plan."
+          },
+          {
+            "cible": "promoteur",
+            "label": "me lancer dans une activité prenante avec un objectif concret à atteindre."
+          },
+          {
+            "cible": "perseverant",
+            "label": "défendre un sujet auquel je crois et faire valoir mon point de vue."
+          },
+          {
+            "cible": "rebelle",
+            "label": "ne rien planifier du tout et suivre simplement l'envie du moment."
+          }
+        ]
+      },
+      {
+        "id": "p-fc-04",
+        "famille": "phase",
+        "options": [
+          {
+            "cible": "travaillomane",
+            "label": "retrouver le calme d'une liste de tâches menées à leur terme."
+          },
+          {
+            "cible": "reveur",
+            "label": "retrouver de longues heures à moi pour laisser flotter mes pensées."
+          },
+          {
+            "cible": "empathique",
+            "label": "retrouver ces instants où l'on prend des nouvelles sincères les uns des autres."
+          },
+          {
+            "cible": "rebelle",
+            "label": "retrouver une part de spontanéité où je suis le mouvement du moment."
+          }
+        ]
+      },
+      {
+        "id": "p-fc-05",
+        "famille": "phase",
+        "options": [
+          {
+            "cible": "perseverant",
+            "label": "la consacrer à une cause qui me semble juste et importante."
+          },
+          {
+            "cible": "rebelle",
+            "label": "la vivre au gré de mes envies, sans aucun programme fixé."
+          },
+          {
+            "cible": "travaillomane",
+            "label": "la préparer point par point pour en tirer le meilleur."
+          },
+          {
+            "cible": "empathique",
+            "label": "la partager avec les miens, dans un moment de vraie complicité."
+          }
+        ]
+      },
+      {
+        "id": "p-fc-06",
+        "famille": "phase",
+        "options": [
+          {
+            "cible": "perseverant",
+            "label": "sentir que l'on reconnaît l'engagement mis dans mon travail."
+          },
+          {
+            "cible": "empathique",
+            "label": "partager des moments d'échange où l'on se parle vraiment."
+          },
+          {
+            "cible": "reveur",
+            "label": "trouver un peu de calme pour avancer à mon rythme."
+          },
+          {
+            "cible": "promoteur",
+            "label": "relever des projets concrets en gardant ma marge d'action."
+          }
+        ]
+      },
+      {
+        "id": "p-fc-07",
+        "famille": "phase",
+        "options": [
+          {
+            "cible": "perseverant",
+            "label": "m'investir dans un projet de fond, qui demande de la constance et de l'engagement."
+          },
+          {
+            "cible": "promoteur",
+            "label": "me lancer dans une activité intense, qui demande de l'énergie et du nerf."
+          },
+          {
+            "cible": "travaillomane",
+            "label": "avancer pas à pas sur une réalisation précise, qui demande de la méthode et de la rigueur."
+          },
+          {
+            "cible": "reveur",
+            "label": "me retirer dans un coin tranquille, qui laisse de la place à l'imaginaire et au calme."
+          }
+        ]
+      },
+      {
+        "id": "p-fc-08",
+        "famille": "phase",
+        "options": [
+          {
+            "cible": "perseverant",
+            "label": "avancer sur un sujet qui compte vraiment a mes yeux."
+          },
+          {
+            "cible": "reveur",
+            "label": "marcher seul au gre de mes pensees et de mon imagination."
+          },
+          {
+            "cible": "empathique",
+            "label": "passer un moment tranquille avec les personnes qui m'entourent."
+          },
+          {
+            "cible": "rebelle",
+            "label": "suivre une envie du moment et voir ou elle me mene."
+          }
+        ]
+      },
+      {
+        "id": "p-fc-09",
+        "famille": "phase",
+        "options": [
+          {
+            "cible": "empathique",
+            "label": "passer un moment proche avec les personnes qui me sont familieres."
+          },
+          {
+            "cible": "reveur",
+            "label": "m'isoler dans un endroit paisible pour retrouver le fil de mes pensees."
+          },
+          {
+            "cible": "travaillomane",
+            "label": "boucler les taches en attente pour avoir l'esprit en ordre."
+          },
+          {
+            "cible": "rebelle",
+            "label": "suivre mes envies du moment sans me soucier des obligations."
+          }
+        ]
+      },
+      {
+        "id": "p-fc-10",
+        "famille": "phase",
+        "options": [
+          {
+            "cible": "empathique",
+            "label": "ressentir une affection sincère et me sentir accueilli tel que je suis."
+          },
+          {
+            "cible": "promoteur",
+            "label": "lancer un élan commun et vivre un moment intense tous ensemble."
+          },
+          {
+            "cible": "perseverant",
+            "label": "échanger franchement et défendre les choses qui comptent vraiment pour moi."
+          },
+          {
+            "cible": "reveur",
+            "label": "trouver un coin tranquille et savourer doucement chaque instant qui passe."
+          }
+        ]
+      },
+      {
+        "id": "p-fc-11",
+        "famille": "phase",
+        "options": [
+          {
+            "cible": "reveur",
+            "label": "me poser dans un coin tranquille et laisser mes idees vagabonder a leur rythme."
+          },
+          {
+            "cible": "rebelle",
+            "label": "suivre l'envie qui passe et m'offrir un moment juste pour le plaisir."
+          },
+          {
+            "cible": "travaillomane",
+            "label": "reprendre un projet concret et faire avancer les choses etape par etape."
+          },
+          {
+            "cible": "promoteur",
+            "label": "me lancer dans une activite animee et bouger aux cotes des autres."
+          }
+        ]
+      },
+      {
+        "id": "p-fc-12",
+        "famille": "phase",
+        "options": [
+          {
+            "cible": "promoteur",
+            "label": "saisir une occasion d'agir et m'engager pleinement dans ce qui se présente."
+          },
+          {
+            "cible": "rebelle",
+            "label": "suivre mes envies du moment et m'accorder des petits plaisirs spontanés."
+          },
+          {
+            "cible": "perseverant",
+            "label": "défendre une cause qui correspond à mes valeurs et à mes convictions."
+          },
+          {
+            "cible": "empathique",
+            "label": "prendre soin des gens qui comptent et partager des moments attentifs."
+          }
+        ]
+      }
+    ],
+    "manquants": []
   }
 }

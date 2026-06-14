@@ -34,10 +34,10 @@ export const QUESTIONS: Question[] = [
     kind: "forced",
     prompt: "Quand je monte un meuble livré en kit, par nature je…",
     options: [
-      { label: "lis toute la notice et trie les pièces avant la première vis.", cible: "travaillomane" },
-      { label: "attaque direct sans la notice, c'est bien plus drôle d'improviser.", cible: "rebelle" },
-      { label: "le monte nickel, même la face cachée, parce que le travail bâclé je ne supporte pas.", cible: "perseverant" },
-      { label: "l'assemble en vitesse et envoie déjà une photo pour épater.", cible: "promoteur" },
+      { label: "lis la notice du début à la fin et je trie les pièces une à une.", cible: "travaillomane" },
+      { label: "laisse la notice de côté et je monte selon mon envie du moment.", cible: "rebelle" },
+      { label: "le monte par principe jusqu'au bout, sans tricher même sur ce qui ne se voit pas.", cible: "perseverant" },
+      { label: "vise le montage entier et je relève le défi sans m'arrêter.", cible: "promoteur" },
     ],
   },
   {
@@ -46,10 +46,10 @@ export const QUESTIONS: Question[] = [
     kind: "forced",
     prompt: "Pour organiser un dîner entre amis chez moi, le plus souvent je…",
     options: [
-      { label: "verrouille le menu, les horaires et les courses bien en amont.", cible: "travaillomane" },
-      { label: "choisis surtout les invités pour que le courant passe entre tout le monde.", cible: "empathique" },
-      { label: "savoure longtemps l'ambiance dans ma tête avant de bouger le petit doigt.", cible: "reveur" },
-      { label: "rameute la bande et vise une soirée dont on reparlera longtemps.", cible: "promoteur" },
+      { label: "prépare le menu, les horaires et la liste des courses à l'avance.", cible: "travaillomane" },
+      { label: "place chacun à table pour que tout le monde se sente bien.", cible: "empathique" },
+      { label: "imagine l'ambiance dans ma tête avant de passer à la cuisine.", cible: "reveur" },
+      { label: "rassemble tout le monde et lance une soirée pleine d'énergie.", cible: "promoteur" },
     ],
   },
   {
@@ -58,10 +58,10 @@ export const QUESTIONS: Question[] = [
     kind: "forced",
     prompt: "Au lancement d'un nouveau projet au travail, par nature je…",
     options: [
-      { label: "liste d'abord les étapes et les infos qui me manquent.", cible: "travaillomane" },
-      { label: "flaire le bon coup et pousse pour qu'on embarque sans attendre.", cible: "promoteur" },
-      { label: "vérifie que l'objectif tient la route et mérite qu'on s'y donne.", cible: "perseverant" },
-      { label: "fonce vers ce qui m'attire, sans me casser la tête.", cible: "rebelle" },
+      { label: "pose les étapes et repère les informations qui me manquent encore.", cible: "travaillomane" },
+      { label: "saisis l'occasion et lance tout de suite la machine.", cible: "promoteur" },
+      { label: "regarde si l'objectif tient debout et vaut vraiment qu'on s'engage.", cible: "perseverant" },
+      { label: "suis ce qui m'attire et plonge là où l'envie me porte.", cible: "rebelle" },
     ],
   },
   {
@@ -70,10 +70,10 @@ export const QUESTIONS: Question[] = [
     kind: "forced",
     prompt: "Face à un problème compliqué, depuis toujours je…",
     options: [
-      { label: "le découpe en petites questions claires pour avancer pas à pas.", cible: "travaillomane" },
-      { label: "le laisse infuser tout seul en pensant à autre chose.", cible: "reveur" },
-      { label: "capte d'abord ce que ça remue chez les gens autour.", cible: "empathique" },
-      { label: "m'amuse à le retourner avec l'idée à contre-courant qui me vient.", cible: "rebelle" },
+      { label: "le découpe en étapes claires et j'avance dans l'ordre.", cible: "travaillomane" },
+      { label: "le mets de côté et je le laisse infuser dans ma tête.", cible: "reveur" },
+      { label: "regarde d'abord ce qu'il provoque chez les gens autour.", cible: "empathique" },
+      { label: "le retourne dans tous les sens avec l'idée du moment.", cible: "rebelle" },
     ],
   },
   {
@@ -82,10 +82,10 @@ export const QUESTIONS: Question[] = [
     kind: "forced",
     prompt: "Au moment de choisir un film pour la soirée, en général je…",
     options: [
-      { label: "choisis un film qui porte un message qui me tient vraiment à cœur.", cible: "perseverant" },
-      { label: "attrape le titre qui me tente à la seconde, sans réfléchir.", cible: "rebelle" },
-      { label: "compare les avis et les notes avant de trancher.", cible: "travaillomane" },
-      { label: "vise ce qui ferait plaisir à toute la tablée.", cible: "empathique" },
+      { label: "choisis un film qui porte un message qui me tient à cœur.", cible: "perseverant" },
+      { label: "choisis le film qui attire mon regard à cet instant précis.", cible: "rebelle" },
+      { label: "choisis un film bien noté après avoir comparé les critiques.", cible: "travaillomane" },
+      { label: "choisis un film qui rassemble les gens présents autour de moi.", cible: "empathique" },
     ],
   },
   {
@@ -94,10 +94,10 @@ export const QUESTIONS: Question[] = [
     kind: "forced",
     prompt: "Quand un collègue commet une erreur sur un dossier commun, par nature je…",
     options: [
-      { label: "me demande surtout si le travail rendu restait honnête malgré tout.", cible: "perseverant" },
-      { label: "jauge son état avant même d'aborder le sujet.", cible: "empathique" },
-      { label: "laisse passer un peu de temps avant de réagir.", cible: "reveur" },
-      { label: "vais droit au but pour rattraper le coup et repartir vite.", cible: "promoteur" },
+      { label: "regarde d'abord si le travail rendu tient debout sur le fond des choses.", cible: "perseverant" },
+      { label: "regarde d'abord comment il traverse la situation et comment il le ressent.", cible: "empathique" },
+      { label: "prends d'abord un temps de recul avant de dire quoi que ce soit.", cible: "reveur" },
+      { label: "cherche d'abord comment reprendre le dossier en main et le relancer.", cible: "promoteur" },
     ],
   },
   {
@@ -106,10 +106,10 @@ export const QUESTIONS: Question[] = [
     kind: "forced",
     prompt: "Dans une discussion animée entre amis, le plus souvent je…",
     options: [
-      { label: "défends calmement le point de vue qui me semble le plus juste.", cible: "perseverant" },
-      { label: "trouve l'argument qui frappe et relance le débat.", cible: "promoteur" },
-      { label: "remets les faits au clair pour qu'on raisonne sur du concret.", cible: "travaillomane" },
-      { label: "décroche du brouhaha et suis le fil de mes propres idées.", cible: "reveur" },
+      { label: "défends le point de vue qui me semble juste.", cible: "perseverant" },
+      { label: "pousse mon idée et je relance le débat.", cible: "promoteur" },
+      { label: "remets les faits en ordre pour clarifier le sujet.", cible: "travaillomane" },
+      { label: "m'écarte du bruit et je suis le fil de mes idées.", cible: "reveur" },
     ],
   },
   {
@@ -118,10 +118,10 @@ export const QUESTIONS: Question[] = [
     kind: "forced",
     prompt: "En lisant une actualité qui me marque, depuis toujours je…",
     options: [
-      { label: "me demande tout de suite si c'est droit et conforme à ce que je crois.", cible: "perseverant" },
-      { label: "y repense seul, par bribes, bien des jours plus tard.", cible: "reveur" },
-      { label: "pense aussitôt aux personnes touchées et à leur peine.", cible: "empathique" },
-      { label: "réagis du tac au tac, souvent avec une pointe d'ironie.", cible: "rebelle" },
+      { label: "la confronte aussitôt à ce que je crois juste et important.", cible: "perseverant" },
+      { label: "la laisse infuser et j'y repense seul quelques jours plus tard.", cible: "reveur" },
+      { label: "pense d'abord aux personnes touchées et à ce qu'elles vivent.", cible: "empathique" },
+      { label: "réagis dans l'instant, au gré de mon humeur du moment.", cible: "rebelle" },
     ],
   },
   {
@@ -130,10 +130,10 @@ export const QUESTIONS: Question[] = [
     kind: "forced",
     prompt: "En arrivant à une fête où je ne connais presque personne, par nature je…",
     options: [
-      { label: "rejoins celui qui a l'air un peu isolé pour lui tenir compagnie.", cible: "empathique" },
-      { label: "m'installe dans un coin pour observer la scène tranquillement.", cible: "reveur" },
-      { label: "repère les rares personnes avec qui parler de vrais sujets.", cible: "travaillomane" },
-      { label: "lance une vanne pour briser la glace et voir qui suit.", cible: "rebelle" },
+      { label: "repère une personne isolée et je viens lui parler tranquillement.", cible: "empathique" },
+      { label: "m'installe un peu en retrait et j'observe l'ambiance se former.", cible: "reveur" },
+      { label: "cherche un groupe où aborder un sujet un peu de fond.", cible: "travaillomane" },
+      { label: "lance une remarque légère et je vois qui me répond.", cible: "rebelle" },
     ],
   },
   {
@@ -142,10 +142,10 @@ export const QUESTIONS: Question[] = [
     kind: "forced",
     prompt: "Quand un coéquipier perd visiblement sa motivation, en général je…",
     options: [
-      { label: "m'assois avec lui pour comprendre ce qui le plombe.", cible: "empathique" },
-      { label: "lui lance un défi concret qui rallume son énergie d'un coup.", cible: "promoteur" },
-      { label: "lui rappelle l'engagement pris et la fierté de tenir bon.", cible: "perseverant" },
-      { label: "prends de la hauteur et lui propose un autre angle de vue.", cible: "reveur" },
+      { label: "m'assois avec lui pour comprendre ce qui le traverse en ce moment.", cible: "empathique" },
+      { label: "lui propose une action à mener pour remettre du mouvement maintenant.", cible: "promoteur" },
+      { label: "lui rappelle l'engagement pris et le sens de tenir bon.", cible: "perseverant" },
+      { label: "prends du recul et lui propose un autre angle sur la situation.", cible: "reveur" },
     ],
   },
   {
@@ -154,10 +154,10 @@ export const QUESTIONS: Question[] = [
     kind: "forced",
     prompt: "Devant un dimanche après-midi entièrement libre, le plus souvent je…",
     options: [
-      { label: "savoure de ne rien prévoir et laisse filer mon imagination.", cible: "reveur" },
-      { label: "improvise une lubie sur un coup de tête, juste pour voir.", cible: "rebelle" },
-      { label: "avance tranquillement sur ma liste et coche deux ou trois choses.", cible: "travaillomane" },
-      { label: "appelle mes potes pour monter une sortie qui décoiffe.", cible: "promoteur" },
+      { label: "laisse les heures filer au gré de mon esprit et de mes envies vagues.", cible: "reveur" },
+      { label: "suis l'envie du moment et me lance dans une idée venue d'un coup.", cible: "rebelle" },
+      { label: "reprends ma liste et avance posément sur deux ou trois tâches en attente.", cible: "travaillomane" },
+      { label: "appelle des amis et lance une sortie pour occuper l'après-midi ensemble.", cible: "promoteur" },
     ],
   },
   {
@@ -166,10 +166,10 @@ export const QUESTIONS: Question[] = [
     kind: "forced",
     prompt: "Si un imprévu chamboule mon programme de voyage, par nature je…",
     options: [
-      { label: "rebondis sur-le-champ et tourne le contretemps à mon avantage.", cible: "promoteur" },
-      { label: "souris et bifurque ailleurs, l'imprévu rend le voyage savoureux.", cible: "rebelle" },
-      { label: "garde le cap et trouve coûte que coûte comment tenir mon plan.", cible: "perseverant" },
-      { label: "sonde l'humeur de chacun avant qu'on décide de la suite ensemble.", cible: "empathique" },
+      { label: "transforme ce contretemps en occasion et redessine la suite du voyage.", cible: "promoteur" },
+      { label: "change de cap et improvise la suite au gré de mon envie.", cible: "rebelle" },
+      { label: "garde mon cap et trouve comment respecter le programme prévu.", cible: "perseverant" },
+      { label: "consulte le groupe et décide la suite ensemble avec chacun.", cible: "empathique" },
     ],
   },
 
@@ -230,10 +230,10 @@ export const QUESTIONS: Question[] = [
     kind: "forced",
     prompt: "Après une semaine bien chargée, ces derniers temps, pour récupérer j'aurais surtout envie de…",
     options: [
-      { label: "poser un cadre net, tout remettre en ordre et savourer le calme d'un espace bien rangé.", cible: "travaillomane" },
-      { label: "tout lâcher, sortir sur un coup de tête et m'offrir un éclat de rire.", cible: "rebelle" },
-      { label: "me recentrer sur l'essentiel et avancer dans la direction qui me semble juste.", cible: "perseverant" },
-      { label: "plonger dans une activité grisante qui me regonfle à bloc.", cible: "promoteur" },
+      { label: "mettre de l'ordre autour de moi et retrouver un espace clair et posé.", cible: "travaillomane" },
+      { label: "suivre une envie du moment et m'offrir une parenthèse libre et légère.", cible: "rebelle" },
+      { label: "revenir à l'essentiel et avancer dans la direction qui compte pour moi.", cible: "perseverant" },
+      { label: "me lancer dans une activité physique et retrouver mon énergie du moment.", cible: "promoteur" },
     ],
   },
   {
@@ -242,10 +242,10 @@ export const QUESTIONS: Question[] = [
     kind: "forced",
     prompt: "En ce moment, ce que j'aimerais le plus recevoir de mon entourage, c'est…",
     options: [
-      { label: "qu'on remarque le soin et la rigueur que je mets dans mon travail.", cible: "travaillomane" },
-      { label: "un peu de chaleur et d'attention pour qui je suis, tout simplement.", cible: "empathique" },
-      { label: "qu'on me laisse respirer, sans rien attendre de moi pour l'instant.", cible: "reveur" },
-      { label: "qu'on me suive sans hésiter quand je propose de foncer.", cible: "promoteur" },
+      { label: "qu'on remarque le soin que je mets dans ce que je fais.", cible: "travaillomane" },
+      { label: "qu'on prenne de mes nouvelles et qu'on s'intéresse à moi.", cible: "empathique" },
+      { label: "qu'on me laisse du temps à moi, sans rien attendre en retour.", cible: "reveur" },
+      { label: "qu'on me suive quand je décide de lancer les choses.", cible: "promoteur" },
     ],
   },
   {
@@ -254,10 +254,10 @@ export const QUESTIONS: Question[] = [
     kind: "forced",
     prompt: "Si une soirée se libérait cette semaine, là tout de suite j'aurais envie de…",
     options: [
-      { label: "avancer méthodiquement sur un dossier et valider ce que j'avais planifié.", cible: "travaillomane" },
-      { label: "me lancer dans quelque chose d'intense, avec une vraie pression à gérer.", cible: "promoteur" },
-      { label: "m'engager pour une cause à laquelle je crois et défendre ce qui compte à mes yeux.", cible: "perseverant" },
-      { label: "ne rien prévoir et suivre l'envie du moment, comme ça vient.", cible: "rebelle" },
+      { label: "reprendre un projet et avancer méthodiquement selon mon plan.", cible: "travaillomane" },
+      { label: "me lancer dans une activité prenante avec un objectif concret à atteindre.", cible: "promoteur" },
+      { label: "défendre un sujet auquel je crois et faire valoir mon point de vue.", cible: "perseverant" },
+      { label: "ne rien planifier du tout et suivre simplement l'envie du moment.", cible: "rebelle" },
     ],
   },
   {
@@ -266,10 +266,10 @@ export const QUESTIONS: Question[] = [
     kind: "forced",
     prompt: "Ce qui m'a le plus manqué ces dernières semaines, c'est…",
     options: [
-      { label: "la satisfaction tranquille de voir mes tâches abouties et tout en ordre.", cible: "travaillomane" },
-      { label: "des heures à moi pour laisser flotter mes pensées sans contrainte.", cible: "reveur" },
-      { label: "ces instants simples où l'on se demande sincèrement comment va l'autre.", cible: "empathique" },
-      { label: "un bon coup de folie, un fou rire qui sort de l'ordinaire.", cible: "rebelle" },
+      { label: "retrouver le calme d'une liste de tâches menées à leur terme.", cible: "travaillomane" },
+      { label: "retrouver de longues heures à moi pour laisser flotter mes pensées.", cible: "reveur" },
+      { label: "retrouver ces instants où l'on prend des nouvelles sincères les uns des autres.", cible: "empathique" },
+      { label: "retrouver une part de spontanéité où je suis le mouvement du moment.", cible: "rebelle" },
     ],
   },
   {
@@ -278,10 +278,10 @@ export const QUESTIONS: Question[] = [
     kind: "forced",
     prompt: "Pour une journée de congé qui approche, ces derniers temps j'aurais envie de…",
     options: [
-      { label: "la mettre au service d'une cause qui me tient à cœur.", cible: "perseverant" },
-      { label: "improviser et faire ce qui me chante, sans aucun programme.", cible: "rebelle" },
-      { label: "la planifier dans le détail pour mieux la savourer ensuite.", cible: "travaillomane" },
-      { label: "la passer entouré des miens, dans un moment où nos liens se resserrent.", cible: "empathique" },
+      { label: "la consacrer à une cause qui me semble juste et importante.", cible: "perseverant" },
+      { label: "la vivre au gré de mes envies, sans aucun programme fixé.", cible: "rebelle" },
+      { label: "la préparer point par point pour en tirer le meilleur.", cible: "travaillomane" },
+      { label: "la partager avec les miens, dans un moment de vraie complicité.", cible: "empathique" },
     ],
   },
   {
@@ -290,10 +290,10 @@ export const QUESTIONS: Question[] = [
     kind: "forced",
     prompt: "Ce qui me ferait du bien au travail en ce moment, ce serait…",
     options: [
-      { label: "qu'on reconnaisse l'engagement que je mets dans ce en quoi je crois.", cible: "perseverant" },
-      { label: "des échanges plus humains, où l'on prenne le temps de se parler vraiment.", cible: "empathique" },
-      { label: "un peu de répit pour réfléchir à ma façon, sans qu'on me presse.", cible: "reveur" },
-      { label: "de l'action, des défis concrets à relever et la liberté de foncer.", cible: "promoteur" },
+      { label: "sentir que l'on reconnaît l'engagement mis dans mon travail.", cible: "perseverant" },
+      { label: "partager des moments d'échange où l'on se parle vraiment.", cible: "empathique" },
+      { label: "trouver un peu de calme pour avancer à mon rythme.", cible: "reveur" },
+      { label: "relever des projets concrets en gardant ma marge d'action.", cible: "promoteur" },
     ],
   },
   {
@@ -302,10 +302,10 @@ export const QUESTIONS: Question[] = [
     kind: "forced",
     prompt: "Devant un week-end prolongé qui s'annonce, là maintenant j'aurais envie de…",
     options: [
-      { label: "m'investir dans quelque chose d'utile, fidèle à mes valeurs.", cible: "perseverant" },
-      { label: "partir à l'aventure et vivre des moments forts, pleins d'adrénaline.", cible: "promoteur" },
-      { label: "mener à terme une réalisation soignée et savourer le travail accompli.", cible: "travaillomane" },
-      { label: "me retirer loin du bruit, avec tout le temps qu'il me faut pour rêver.", cible: "reveur" },
+      { label: "m'investir dans un projet de fond, qui demande de la constance et de l'engagement.", cible: "perseverant" },
+      { label: "me lancer dans une activité intense, qui demande de l'énergie et du nerf.", cible: "promoteur" },
+      { label: "avancer pas à pas sur une réalisation précise, qui demande de la méthode et de la rigueur.", cible: "travaillomane" },
+      { label: "me retirer dans un coin tranquille, qui laisse de la place à l'imaginaire et au calme.", cible: "reveur" },
     ],
   },
   {
@@ -314,10 +314,10 @@ export const QUESTIONS: Question[] = [
     kind: "forced",
     prompt: "Si j'avais une matinée entière pour moi cette période, j'aimerais surtout…",
     options: [
-      { label: "approfondir un combat qui compte et porter haut mes convictions.", cible: "perseverant" },
-      { label: "flâner seul, l'esprit libre, à laisser vagabonder mon imaginaire.", cible: "reveur" },
-      { label: "m'offrir un vrai moment de douceur avec ceux qui me sont chers.", cible: "empathique" },
-      { label: "céder à une lubie du moment, juste pour m'amuser un peu.", cible: "rebelle" },
+      { label: "avancer sur un sujet qui compte vraiment à mes yeux.", cible: "perseverant" },
+      { label: "marcher seul au gré de mes pensées et de mon imagination.", cible: "reveur" },
+      { label: "passer un moment tranquille avec les personnes qui m'entourent.", cible: "empathique" },
+      { label: "suivre une envie du moment et voir où elle me mène.", cible: "rebelle" },
     ],
   },
   {
@@ -326,10 +326,10 @@ export const QUESTIONS: Question[] = [
     kind: "forced",
     prompt: "En rentrant chez moi après une journée bien remplie, ces derniers temps j'aspire à…",
     options: [
-      { label: "retrouver une présence affectueuse et un vrai moment de complicité.", cible: "empathique" },
-      { label: "me poser dans mon coin pour me ressourcer en silence.", cible: "reveur" },
-      { label: "régler ce qu'il me reste à faire avant de pouvoir décrocher.", cible: "travaillomane" },
-      { label: "tout envoyer balader et m'amuser sans aucune contrainte.", cible: "rebelle" },
+      { label: "passer un moment proche avec les personnes qui me sont familières.", cible: "empathique" },
+      { label: "m'isoler dans un endroit paisible pour retrouver le fil de mes pensées.", cible: "reveur" },
+      { label: "boucler les tâches en attente pour avoir l'esprit en ordre.", cible: "travaillomane" },
+      { label: "suivre mes envies du moment sans me soucier des obligations.", cible: "rebelle" },
     ],
   },
   {
@@ -338,10 +338,10 @@ export const QUESTIONS: Question[] = [
     kind: "forced",
     prompt: "D'une retrouvaille avec mes proches qui se prépare, en ce moment j'attends surtout…",
     options: [
-      { label: "de l'affection sincère et le sentiment d'être accueilli comme je suis.", cible: "empathique" },
-      { label: "de l'énergie, du mouvement et quelque chose qui décoiffe ensemble.", cible: "promoteur" },
-      { label: "de vrais échanges sincères, où chacun défend ce en quoi il croit.", cible: "perseverant" },
-      { label: "un recoin paisible pour me poser, observer et savourer l'instant.", cible: "reveur" },
+      { label: "ressentir une affection sincère et me sentir accueilli tel que je suis.", cible: "empathique" },
+      { label: "lancer un élan commun et vivre un moment intense tous ensemble.", cible: "promoteur" },
+      { label: "échanger franchement et défendre les choses qui comptent vraiment pour moi.", cible: "perseverant" },
+      { label: "trouver un coin tranquille et savourer doucement chaque instant qui passe.", cible: "reveur" },
     ],
   },
   {
@@ -350,10 +350,10 @@ export const QUESTIONS: Question[] = [
     kind: "forced",
     prompt: "Quand un créneau de temps libre s'ouvre à l'improviste ces jours-ci, j'ai envie de…",
     options: [
-      { label: "me glisser dans une bulle à moi, seul avec mon imaginaire.", cible: "reveur" },
-      { label: "sauter sur l'occasion pour un truc léger et fun, là, tout de suite.", cible: "rebelle" },
-      { label: "m'attaquer enfin à un projet concret qui me trotte en tête.", cible: "travaillomane" },
-      { label: "tenter une expérience qui bouge, avec du monde autour.", cible: "promoteur" },
+      { label: "me poser dans un coin tranquille et laisser mes idées vagabonder à leur rythme.", cible: "reveur" },
+      { label: "suivre l'envie qui passe et m'offrir un moment juste pour le plaisir.", cible: "rebelle" },
+      { label: "reprendre un projet concret et faire avancer les choses étape par étape.", cible: "travaillomane" },
+      { label: "me lancer dans une activité animée et bouger aux côtés des autres.", cible: "promoteur" },
     ],
   },
   {
@@ -362,10 +362,10 @@ export const QUESTIONS: Question[] = [
     kind: "forced",
     prompt: "Ces derniers temps, pour me sentir vraiment bien, j'aurais surtout besoin de…",
     options: [
-      { label: "relever un défi qui me pousse dans mes retranchements.", cible: "promoteur" },
-      { label: "lâcher prise, rire et m'autoriser quelques fantaisies.", cible: "rebelle" },
-      { label: "m'engager dans quelque chose qui a du sens et qu'on reconnaît.", cible: "perseverant" },
-      { label: "de la tendresse et des instants doux avec ceux qui me sont chers.", cible: "empathique" },
+      { label: "saisir une occasion d'agir et m'engager pleinement dans ce qui se présente.", cible: "promoteur" },
+      { label: "suivre mes envies du moment et m'accorder des petits plaisirs spontanés.", cible: "rebelle" },
+      { label: "défendre une cause qui correspond à mes valeurs et à mes convictions.", cible: "perseverant" },
+      { label: "prendre soin des gens qui comptent et partager des moments attentifs.", cible: "empathique" },
     ],
   },
 
