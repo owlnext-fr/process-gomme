@@ -6,6 +6,19 @@ Comportements non-évidents découverts au fil du projet. Un H2 par quirk, avec 
 
 ---
 
+## Partage par URL : code = `socle` + `phase` uniquement, scores arrondis (2026-06-14)
+
+**Comment ça marche** : le lien de partage encode dans `?r=<base64url>` un JSON `{ s, p }` où `s` = les 6 scores `socle` **arrondis à l'entier** (ordre `TYPE_IDS`) et `p` = l'index de la `phase`. `base` et `immeuble` ne sont **pas** stockés : ils sont redérivés de `socle` via `deriveFromSocle` (`src/lib/scoring.ts`), réutilisé par `decodeResult` (`src/lib/shareCode.ts`). `motivation` n'est pas dans le lien (jamais affiché).
+
+**Pièges** :
+- **Arrondi** : le profil partagé est rendu à partir des scores **arrondis**, pas des flottants d'origine. Dans le cas (très rare) où deux types sont à < 0,5 pt l'un de l'autre, l'ordre de l'immeuble ou la base affichés au destinataire peuvent différer de ce que voyait l'émetteur. Compromis assumé du format compact — ce n'est pas un bug.
+- **Base path** : construire l'URL avec `import.meta.env.BASE_URL` (= `/process-gomme/`), sinon le lien casse en prod. Idem pour le nettoyage de l'URL au clic « Faire mon test » (`history.replaceState(..., BASE_URL)`).
+- **Robustesse** : `decodeResult` valide strictement (taille 6, bornes 0–100, `p` ∈ 0–5, somme ≠ 0) et renvoie `null` sinon → un `?r=` corrompu est ignoré et l'app affiche l'intro.
+
+**Référence** : `src/lib/shareCode.ts`, `src/lib/scoring.ts` (`deriveFromSocle`, `DisplayResult`), `src/components/ShareButton.tsx`, `src/App.tsx`, `e2e/share.spec.ts`.
+
+---
+
 ## Deux jeux de définitions des concepts coexistent (2026-06-14)
 
 **Piège** : les concepts base / phase / immeuble sont définis à **deux endroits** au contenu volontairement différent.

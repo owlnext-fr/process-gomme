@@ -6,6 +6,26 @@ Notes informelles à destination de la prochaine session (humaine ou Claude). Fo
 
 ---
 
+## 2026-06-14 — Partage de la page de résultats par URL
+
+### Dernière chose faite
+- **Partage de profil** : nouveau bouton `ShareButton` (`src/components/ShareButton.tsx`) dans le header des résultats. Au clic → copie une URL `?r=<base64url>` (encode `socle`+`phase`, `src/lib/shareCode.ts`) dans le presse-papier + feedback « Lien copié » (région `aria-live` dédiée). Ouvrir un tel lien → `App` lit `?r=` une fois au montage (`readSharedFromLocation`, lazy `useState`) et rend la page en **mode partagé** : bandeau « profil partagé » + bouton « Faire mon test » (nettoie l'URL via `replaceState(BASE_URL)`), « Recommencer » masqué.
+- **Refactor** : `ResultsScreen`/`Synthese` prennent désormais un `DisplayResult = Omit<ScoreResult,"motivation">` ; `App` calcule/décode le résultat et le passe (séparation source/affichage). Tri `socle → {base, immeuble}` extrait dans `deriveFromSocle` (`scoring.ts`), réutilisé par `computeResult` ET `decodeResult` (zéro duplication).
+- **Tests** : `shareCode.test.ts` (round-trip + rejets), `ShareButton.test.tsx` (clipboard + erreur), `App.test.tsx` (`?r=` valide/invalide), **e2e `share.spec.ts`** (copie réelle → réouverture du lien → même profil → nettoyage URL). Gate `pnpm before_push` **vert** (50 unit + 2 e2e). Zéro dépendance ajoutée.
+- Exécuté en **subagent-driven** (6 tâches, implémenteur + revue spec + revue qualité chacune). Quelques retouches issues des revues : garde « socle tout à zéro » dans `decodeResult`, région `aria-live` dédiée + test du chemin d'erreur du `ShareButton`, `searchParams.set`.
+
+### Trucs en suspens
+- **Pas encore poussé** au moment d'écrire ces lignes (juste avant `git push` final).
+- Gaps de tests mineurs identifiés en revue mais jugés non nécessaires : pas de test du reset à 2 s du `ShareButton`, pas de cas `base === phase` au round-trip (logique triviale ; l'e2e couvre le flux réel).
+
+### Prochaine chose à creuser
+- Rien d'identifié. Idée future possible : aperçu Open Graph / image de partage (non fait, YAGNI — voir BACKLOG si on veut le tracer).
+
+### Notes pour future Claude
+- Le lien encode les **scores arrondis** : le profil partagé peut très marginalement différer de l'original si deux types sont à < 0,5 pt (voir `QUIRKS.md`). Compromis assumé.
+- Toujours construire/nettoyer l'URL avec `import.meta.env.BASE_URL` (base path GH Pages).
+- Spec : `docs/superpowers/specs/2026-06-14-partage-resultats-url-design.md` · Plan : `docs/superpowers/plans/2026-06-14-partage-resultats-url.md`.
+
 ## 2026-06-14 — Encadrés explicatifs des concepts dans la synthèse
 
 ### Dernière chose faite

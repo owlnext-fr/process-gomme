@@ -29,6 +29,8 @@ Carte des paths, conteneurs, services, accès. À jour au fil des découvertes.
 
 Pas de backend, pas de base de données. Tout le state est en mémoire navigateur (`useReducer`).
 
+**Surface publique de l'app** : un seul paramètre d'URL, `?r=<code base64url>` (lien de partage de profil). Lu une fois au montage par `App` (`readSharedFromLocation`, `src/lib/shareCode.ts`) ; un code invalide est ignoré → intro. Aucune autre route ni param.
+
 ## Variables d'environnement
 
 **Aucune.** L'app est 100 % statique, sans secret, sans backend. Pas de `.env`. Aucune donnée n'est envoyée ni persistée (les réponses restent en mémoire navigateur).
