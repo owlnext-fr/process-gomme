@@ -3,7 +3,7 @@ import { TYPES, type TypeId } from "@/data/types"
 import { DESCRIPTIONS } from "@/content/descriptions"
 import { IMMEUBLE_INTRO, composeInteraction } from "@/content/interactions"
 import { SECTION_HINTS } from "@/content/sectionHints"
-import type { ScoreResult } from "@/lib/scoring"
+import type { DisplayResult } from "@/lib/scoring"
 
 function Section({
   titre,
@@ -30,7 +30,7 @@ function Section({
   )
 }
 
-export function Synthese({ result }: { result: ScoreResult }) {
+export function Synthese({ result }: { result: DisplayResult }) {
   const { base, phase, immeuble } = result
   return (
     <div className="flex flex-col gap-8">

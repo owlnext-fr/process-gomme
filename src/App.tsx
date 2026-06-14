@@ -1,5 +1,6 @@
 import { useReducer } from "react"
 import { quizReducer, initialState } from "@/features/quiz/quizReducer"
+import { computeResult } from "@/lib/scoring"
 import { IntroScreen } from "@/features/intro/IntroScreen"
 import { QuizScreen } from "@/features/quiz/QuizScreen"
 import { ResultsScreen } from "@/features/results/ResultsScreen"
@@ -13,7 +14,12 @@ function App() {
   if (state.screen === "quiz") {
     return <QuizScreen state={state} dispatch={dispatch} />
   }
-  return <ResultsScreen answers={state.answers} onRestart={() => dispatch({ type: "restart" })} />
+  return (
+    <ResultsScreen
+      result={computeResult(state.answers)}
+      onRestart={() => dispatch({ type: "restart" })}
+    />
+  )
 }
 
 export default App

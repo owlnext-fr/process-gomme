@@ -1,34 +1,48 @@
 import { lazy, Suspense } from "react"
 import { RotateCcw } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { computeResult, type Answers } from "@/lib/scoring"
+import { ShareButton } from "@/components/ShareButton"
+import type { DisplayResult } from "@/lib/scoring"
 import { TYPES } from "@/data/types"
 import { Immeuble } from "./Immeuble"
 import { Synthese } from "./Synthese"
 
-// Recharts est lourd et n'est utilisé que sur cet écran : on le charge à la demande
-// (chunk séparé) pour alléger le bundle initial (intro + quiz).
 const RadarProfil = lazy(() =>
   import("./RadarProfil").then((m) => ({ default: m.RadarProfil })),
 )
 
 export function ResultsScreen({
-  answers,
+  result,
+  shared = false,
   onRestart,
 }: {
-  answers: Answers
+  result: DisplayResult
+  shared?: boolean
   onRestart: () => void
 }) {
-  const result = computeResult(answers)
   return (
     <main className="min-h-svh w-full p-6 md:p-10">
       <header className="flex items-center justify-between gap-4">
         <h1 className="text-3xl font-semibold tracking-tight">Tes résultats</h1>
-        <Button variant="outline" onClick={onRestart}>
-          <RotateCcw className="size-4" aria-hidden />
-          Recommencer
-        </Button>
+        <div className="flex gap-2">
+          <ShareButton result={result} />
+          {!shared && (
+            <Button variant="outline" onClick={onRestart}>
+              <RotateCcw className="size-4" aria-hidden />
+              Recommencer
+            </Button>
+          )}
+        </div>
       </header>
+
+      {shared && (
+        <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-indigo-200 bg-indigo-50 p-4">
+          <p className="text-sm text-muted-foreground">
+            Tu regardes un profil partagé.
+          </p>
+          <Button onClick={onRestart}>Faire mon test</Button>
+        </div>
+      )}
 
       <div className="mt-6 rounded-xl border border-indigo-200 bg-indigo-100 p-5">
         <p className="text-sm uppercase tracking-wide text-muted-foreground">
