@@ -1,15 +1,15 @@
 import { describe, it, expect } from "vitest"
 import { computeResult, deriveFromSocle, type Answers } from "./scoring"
-import { QUESTIONS } from "@/data/questions"
+import { QUESTION_STRUCTURE } from "@/data/questions"
 import { TYPE_IDS, type TypeId } from "@/data/types"
 
 function answersFavorisant(cibleBase: TypeId, ciblePhase: TypeId): Answers {
   const a: Answers = {}
-  for (const q of QUESTIONS) {
+  for (const q of QUESTION_STRUCTURE) {
     const cible = q.famille === "base" ? cibleBase : ciblePhase
     if (q.kind === "forced") {
-      const match = q.options.find((o) => o.cible === cible)
-      a[q.id] = { kind: "forced", cible: (match ?? q.options[0]).cible }
+      const choix = q.cibles.includes(cible) ? cible : q.cibles[0]
+      a[q.id] = { kind: "forced", cible: choix }
     } else {
       a[q.id] = { kind: "likert", valeur: q.cible === cible ? 5 : 1 }
     }

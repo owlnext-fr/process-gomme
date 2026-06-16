@@ -1,4 +1,4 @@
-import { QUESTIONS } from "@/data/questions"
+import { QUESTION_STRUCTURE } from "@/data/questions"
 import { TYPE_IDS, type TypeId } from "@/data/types"
 
 export type Answer =
@@ -52,7 +52,7 @@ export function computeResult(answers: Answers): ScoreResult {
   const socleRaw = vecteurNul()
   const motivationRaw = vecteurNul()
 
-  for (const q of QUESTIONS) {
+  for (const q of QUESTION_STRUCTURE) {
     const cible = q.famille === "base" ? socleRaw : motivationRaw
     const a = answers[q.id]
     if (q.kind === "forced") {
