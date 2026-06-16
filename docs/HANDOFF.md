@@ -6,6 +6,18 @@ Notes informelles à destination de la prochaine session (humaine ou Claude). Fo
 
 ---
 
+## 2026-06-17 — Export PDF (feature en cours) — Task 1/5 faite
+
+### Dernière chose faite
+- **Task 1 « Dépendance + couleurs PDF »** de la feature export PDF (`@react-pdf/renderer`). Ajout de la dépendance `@react-pdf/renderer 4.5.1` (dans `dependencies`) + carte couleurs `src/features/results/pdf/pdfColors.ts` : `PDF_TYPE_COLORS: Record<TypeId, string>` en hex, **miroir des tokens `--type-1..6` (thème clair)** de `src/index.css` (react-pdf ne lit pas les CSS vars). TDD : test `pdfColors.test.ts` (couvre les 6 types + format `#rrggbb`). Tests verts (75 unit) + lint OK. Commit `ef1326f`.
+- Hex confirmés identiques à `src/index.css` (thème clair) : travaillomane `#4f46e5`, perseverant `#7c3aed`, empathique `#be185d`, reveur `#0e7490`, rebelle `#b45309`, promoteur `#047857`. Mapping TypeId↔type-N validé via `TYPE_COLORS` dans `src/data/types.ts`.
+
+### Trucs en suspens
+- Feature PDF **incomplète** : restent Tasks 2→5 (document react-pdf immeuble+radar, bouton Exporter lazy, intégration header+e2e, gate+mémoire+deploy). **Pas encore poussé.** Ne pas ajouter de ligne « feature livrée » dans INDEX.md tant que Task 5 n'est pas faite.
+
+### Notes pour future Claude
+- ⚠️ `PDF_TYPE_COLORS` doit rester **en phase** avec `src/index.css` (`--type-1..6` thème clair) — duplication assumée car react-pdf n'a pas accès au runtime CSS.
+
 ## 2026-06-17 — Questionnaires par public (enfant / étudiant / adulte)
 
 ### Dernière chose faite
