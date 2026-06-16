@@ -27,7 +27,7 @@ export const TYPE_IDS: TypeId[] = [
 export const TYPES: Record<TypeId, TypeMeta> = {
   travaillomane: {
     id: "travaillomane",
-    nom: "Travaillomane",
+    nom: "Analyseur",
     essenceBase:
       "Lit le monde en pensées et en structures : il trie, planifie et cherche la logique et les faits avant d'avancer.",
     besoinPhase:
@@ -51,7 +51,7 @@ export const TYPES: Record<TypeId, TypeMeta> = {
   },
   reveur: {
     id: "reveur",
-    nom: "Rêveur",
+    nom: "Imagineur",
     essenceBase:
       "Lit le monde en images et en réflexions intérieures : il observe, imagine et prend du recul avant d'agir.",
     besoinPhase:
@@ -59,7 +59,7 @@ export const TYPES: Record<TypeId, TypeMeta> = {
   },
   rebelle: {
     id: "rebelle",
-    nom: "Rebelle",
+    nom: "Énergiseur",
     essenceBase:
       "Lit le monde en réactions « j'aime / j'aime pas » : spontané et créatif, il carbure au plaisir et à l'humour.",
     besoinPhase:
