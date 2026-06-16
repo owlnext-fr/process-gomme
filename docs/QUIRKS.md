@@ -6,6 +6,25 @@ Comportements non-évidents découverts au fil du projet. Un H2 par quirk, avec 
 
 ---
 
+## Export PDF : react-pdf lazy, env node pour les tests, couleurs dupliquées (2026-06-17)
+
+L'export PDF (`src/features/results/pdf/*`, `src/components/ExportPdfButton.tsx`) utilise
+`@react-pdf/renderer`. Trois pièges :
+
+- **Lazy obligatoire** : react-pdf est **lourd (~1,4 Mo)**. Il n'est importé **que** par
+  `ExportPdfButton`, en **`import()` dynamique** → chunk séparé chargé au clic. Ne **jamais**
+  le passer en import statique (ça le mettrait dans le bundle initial). Le build émet un
+  warning « chunk > 500 kB » pour ce chunk → **attendu, pas une régression**.
+- **Tests en environnement node** : le rendu se teste avec `renderToBuffer` (API node de
+  react-pdf), donc le fichier de test porte `// @vitest-environment node` en 1ʳᵉ ligne
+  (`ResultPdfDocument.test.tsx`). En jsdom ça ne marche pas.
+- **`PDF_TYPE_COLORS` duplique `index.css`** : react-pdf ne peut pas lire les CSS vars
+  `--type-1..6` → `pdfColors.ts` en redonne les 6 hex (thème clair). À garder en phase si on
+  change une teinte. Idem, dans les primitives SVG de react-pdf, `fontSize` se met dans
+  `style={{ fontSize }}` (pas en prop directe — limite des types).
+
+**Référence** : `src/features/results/pdf/`, `src/components/ExportPdfButton.tsx`
+
 ## Questions : structure (data) vs texte (content) — séparés par public (2026-06-17)
 
 **Comment ça marche** : depuis les questionnaires par public, les questions sont en **deux couches**.

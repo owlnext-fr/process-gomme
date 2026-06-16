@@ -19,6 +19,7 @@ Carte des paths, conteneurs, services, accès. À jour au fil des découvertes.
 - **Comment lancer une commande** : en local, `pnpm <script>` depuis la racine du repo.
 - **Prérequis e2e (une fois)** : `pnpm exec playwright install chromium`.
 - **App** : 100 % statique (Vite + React). `vite.config.ts` → `base: '/process-gomme/'` (impératif pour GitHub Pages, sinon les assets cassent).
+- **Dépendance notable** : `@react-pdf/renderer` (export PDF des résultats) — **runtime mais lazy-loadée** (`import()` dans `ExportPdfButton`), chunk séparé ~1,4 Mo, hors bundle initial. Voir QUIRKS.
 
 ## Services actifs
 

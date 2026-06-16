@@ -6,17 +6,20 @@ Notes informelles à destination de la prochaine session (humaine ou Claude). Fo
 
 ---
 
-## 2026-06-17 — Export PDF (feature en cours) — Task 1/5 faite
+## 2026-06-17 — Export PDF des résultats (1 clic) — livré
 
 ### Dernière chose faite
-- **Task 1 « Dépendance + couleurs PDF »** de la feature export PDF (`@react-pdf/renderer`). Ajout de la dépendance `@react-pdf/renderer 4.5.1` (dans `dependencies`) + carte couleurs `src/features/results/pdf/pdfColors.ts` : `PDF_TYPE_COLORS: Record<TypeId, string>` en hex, **miroir des tokens `--type-1..6` (thème clair)** de `src/index.css` (react-pdf ne lit pas les CSS vars). TDD : test `pdfColors.test.ts` (couvre les 6 types + format `#rrggbb`). Tests verts (75 unit) + lint OK. Commit `ef1326f`.
-- Hex confirmés identiques à `src/index.css` (thème clair) : travaillomane `#4f46e5`, perseverant `#7c3aed`, empathique `#be185d`, reveur `#0e7490`, rebelle `#b45309`, promoteur `#047857`. Mapping TypeId↔type-N validé via `TYPE_COLORS` dans `src/data/types.ts`.
+- Feature livrée en **subagent-driven** (5 tâches, chacune revue spec + revue qualité). Nouveau bouton **« Exporter en PDF »** (icône `Download`) dans le header des résultats (vue perso **et** partagée) : télécharge en 1 clic un **rapport vectoriel** complet (base·phase, immeuble, radar, synthèse, pour aller plus loin) via `@react-pdf/renderer`. Gate `pnpm before_push` **vert** (lint + **78 unit** + build + **3 e2e**).
+- **Document reconstruit depuis les données** (pas une capture du DOM) : `src/features/results/pdf/ResultPdfDocument.tsx` + `PdfImmeuble.tsx` (barres ∝ score) + `PdfRadar.tsx` (hexagone Svg) + `pdfColors.ts` (6 couleurs en **hex**, miroir de `index.css`). Réutilise **les mêmes fonctions de contenu** que l'écran (`DESCRIPTIONS`, `composeInteraction`, `ENERGIE`, `CANAUX`, `composeStress`, `composeVigilance`, `SECTION_HINTS`) + une **date** de génération FR.
+- **Lazy-load** : `ExportPdfButton` est le seul à importer react-pdf, en `import()` dynamique → chunk séparé **~1,4 Mo (gzip ~481 ko)**, **bundle initial `index` intact (~456 ko)**. Le warning Vite « chunk > 500 kB » concerne ce chunk lazy → **attendu, rien à corriger**.
 
 ### Trucs en suspens
-- Feature PDF **incomplète** : restent Tasks 2→5 (document react-pdf immeuble+radar, bouton Exporter lazy, intégration header+e2e, gate+mémoire+deploy). **Pas encore poussé.** Ne pas ajouter de ligne « feature livrée » dans INDEX.md tant que Task 5 n'est pas faite.
+- Poussé sur `main` → CI à surveiller (`gh run watch`). Si vert → déployé sur Pages.
 
 ### Notes pour future Claude
-- ⚠️ `PDF_TYPE_COLORS` doit rester **en phase** avec `src/index.css` (`--type-1..6` thème clair) — duplication assumée car react-pdf n'a pas accès au runtime CSS.
+- ⚠️ `PDF_TYPE_COLORS` (`features/results/pdf/pdfColors.ts`) **duplique en hex** les tokens `--type-1..6` (thème clair) de `src/index.css` — react-pdf ne lit pas les CSS vars. Garder en phase (voir QUIRKS + BACKLOG : idée de test machine-checké).
+- Le test du document tourne en **`// @vitest-environment node`** (react-pdf `renderToBuffer` est l'API node). Les primitives SVG de react-pdf : `fontSize` se met dans `style` (les props directes de `Text` SVG sont limitées côté types).
+- Spec : `docs/superpowers/specs/2026-06-17-export-pdf-resultats-design.md` · Plan : `docs/superpowers/plans/2026-06-17-export-pdf-resultats.md`.
 
 ## 2026-06-17 — Questionnaires par public (enfant / étudiant / adulte)
 

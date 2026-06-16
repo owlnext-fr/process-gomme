@@ -25,3 +25,6 @@ Une fois faite, déplace-la en `INDEX.md` (livré) ou supprime-la (abandonnée).
 
 - [ ] Audit complet de navigation clavier (tab order, focus visible) sur les 3 écrans.
 - [ ] Envisager un test unitaire sur `composeInteraction` couvrant l'enchaînement grammatical de chaque clause dans les deux gabarits.
+- [ ] **Test machine-checké de synchro des couleurs** : `PDF_TYPE_COLORS` (`features/results/pdf/pdfColors.ts`) duplique les tokens `--type-1..6` de `src/index.css` ; un test qui parse l'hex du thème clair dans `index.css` et le compare à `PDF_TYPE_COLORS` remplacerait le couplage « social » (commentaire) par une garantie.
+- [ ] **e2e : extraire un helper `completeQuiz(page)`** : la boucle de 36 questions (avec le `waitForTimeout(350)` lié aux animations Framer + la garde de visibilité des radios) est dupliquée dans `smoke.spec.ts`, `share.spec.ts` et `pdf.spec.ts` → une seule source de vérité (`e2e/helpers.ts`).
+- [ ] **e2e PDF : valider le contenu du fichier** : `pdf.spec.ts` vérifie l'événement de download + le suffixe `.pdf` ; on pourrait lire `download.path()` et contrôler l'en-tête `%PDF` (fichier réellement valide).
