@@ -6,6 +6,19 @@ Notes informelles à destination de la prochaine session (humaine ou Claude). Fo
 
 ---
 
+## 2026-06-16 — Renommage des labels affichés (standards à jour)
+
+### Dernière chose faite
+- Les **noms affichés** de 3 types changent (featurette live, sans brainstorm) : **Travaillomane → Analyseur**, **Rêveur → Imagineur**, **Rebelle → Énergiseur**. Seul le champ **`nom`** de `src/data/types.ts` est modifié (3 lignes).
+- **Les ids internes restent inchangés** (`travaillomane` / `reveur` / `rebelle`) : ils sont les clés du scoring, du contenu (`descriptions.ts`, `stress.ts`, etc.) et de tous les tests. Découpler id ↔ nom évite un refactor massif et risqué. → voir QUIRKS (id ≠ label).
+- Tous les consommateurs affichent `TYPES[id].nom` dynamiquement (Synthese, RadarProfil, Immeuble, ResultsScreen, interactions) → le renommage se propage seul. Gate `pnpm before_push` **vert** (lint + 64 unit + build + 2 e2e). Commit `e463a20`, poussé sur `main` → déployé.
+
+### Trucs en suspens
+- Rien. Poussé et en cours de déploiement.
+
+### Notes pour future Claude
+- **Ne pas confondre id et label** : l'id `travaillomane` s'affiche désormais « Analyseur », `reveur` → « Imagineur », `rebelle` → « Énergiseur ». Les ids/clés/tests gardent les anciens slugs ; c'est voulu. Pour renommer un type affiché, toucher **uniquement** `nom` dans `types.ts`.
+
 ## 2026-06-15 — Likert en boutons (expérience de quiz unifiée)
 
 ### Dernière chose faite

@@ -6,6 +6,22 @@ Comportements non-évidents découverts au fil du projet. Un H2 par quirk, avec 
 
 ---
 
+## Id de type ≠ nom affiché (2026-06-16)
+
+**Piège** : depuis le renommage aux standards à jour, les **ids internes** (`TypeId`) ne correspondent **plus** au nom montré à l'utilisateur :
+
+| id (clé interne, partout dans le code/tests/contenu) | nom affiché (`TYPES[id].nom`) |
+|---|---|
+| `travaillomane` | **Analyseur** |
+| `reveur` | **Imagineur** |
+| `rebelle` | **Énergiseur** |
+
+Les ids restent les anciens slugs car ils sont les **clés** du scoring, des `Record<TypeId, …>` de contenu (`descriptions.ts`, `stress.ts`, `canaux.ts`, `questions.ts`, etc.) et de **tous les tests**. Le nom affiché vit **uniquement** dans le champ `nom` de `src/data/types.ts`, source unique consommée dynamiquement par toute l'UI (`Synthese`, `RadarProfil`, `Immeuble`, `ResultsScreen`, `interactions.ts`).
+
+**Conséquence** : pour renommer un type à l'écran, ne toucher **que** `nom` ; ne jamais renommer un id (cassure massive, sans bénéfice). À l'inverse, voir l'id `travaillomane` dans un test ou une clé n'est **pas** un oubli de renommage — c'est volontaire.
+
+**Référence** : `src/data/types.ts` (`TypeId`, `TYPES[*].nom`)
+
 ## Likert : ordre d'affichage descendant ≠ value (2026-06-15)
 
 **Piège** : dans `src/features/quiz/LikertScale.tsx`, le tableau `LIKERT_OPTIONS` est dans l'ordre d'**affichage** (descendant : « Tout à fait d'accord » en premier), mais chaque entrée porte une `value` string (`"5"` … `"1"`) qui est le **vrai niveau d'accord**. La position dans le tableau **n'est pas** la value. Le scoring (`(valeur - 1) / 4` dans `scoring.ts`) lit la value, pas l'index → inverser/réordonner les options à l'écran ne change **rien** au score. Si tu édites ce tableau, ne déduis jamais la value de l'index.
