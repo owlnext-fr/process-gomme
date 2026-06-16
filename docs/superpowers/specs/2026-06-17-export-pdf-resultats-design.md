@@ -99,9 +99,10 @@ des données.
 
 ### Couleurs PDF (`pdfColors.ts`)
 
-`TYPE_COLORS` (`src/data/types.ts`) pointe vers des **CSS vars `oklch`** (`--type-1..6` dans
-`index.css`) — **inutilisables** par react-pdf. On définit donc
-`PDF_TYPE_COLORS: Record<TypeId, string>` en **hex**, miroir des 6 tokens. ⚠️ **Couplage** :
+`TYPE_COLORS` (`src/data/types.ts`) pointe vers des **CSS vars** (`--type-1..6` dans
+`index.css`, déjà en **hex** : `#4f46e5`, `#7c3aed`, `#be185d`, `#0e7490`, `#b45309`,
+`#047857` pour le thème clair) — non lisibles au runtime par react-pdf. On définit donc
+`PDF_TYPE_COLORS: Record<TypeId, string>`, **miroir hex** de ces 6 tokens. ⚠️ **Couplage** :
 si on change une teinte dans `index.css`, mettre à jour ce fichier. Documenté dans
 `QUIRKS.md`.
 
