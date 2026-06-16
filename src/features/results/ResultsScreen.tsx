@@ -3,6 +3,7 @@ import { RotateCcw } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ShareButton } from "@/components/ShareButton"
+import { ExportPdfButton } from "@/components/ExportPdfButton"
 import type { DisplayResult } from "@/lib/scoring"
 import { TYPES } from "@/data/types"
 import { Immeuble } from "./Immeuble"
@@ -27,6 +28,7 @@ export function ResultsScreen({
       <header className="flex items-center justify-between gap-4">
         <h1 className="text-3xl font-semibold tracking-tight">Tes résultats</h1>
         <div className="flex gap-2">
+          <ExportPdfButton result={result} />
           <ShareButton result={result} />
           {!shared && (
             <Button variant="outline" onClick={onRestart}>
