@@ -1,9 +1,8 @@
-import { ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { AUDIENCES, type Audience } from "@/data/audiences"
 import { SplitLayout } from "@/components/SplitLayout"
 import { ProfilExplainer } from "@/components/ProfilExplainer"
 
-export function IntroScreen({ onStart }: { onStart: () => void }) {
+export function IntroScreen({ onStart }: { onStart: (audience: Audience) => void }) {
   return (
     <SplitLayout
       hideRightOnMobile
@@ -16,10 +15,22 @@ export function IntroScreen({ onStart }: { onStart: () => void }) {
               aucune réponse n'est envoyée ni enregistrée.
             </p>
           </div>
-          <Button size="lg" className="w-fit" onClick={onStart}>
-            Commencer
-            <ArrowRight className="size-4" aria-hidden />
-          </Button>
+          <div className="flex flex-col gap-3 max-md:w-full">
+            <p className="text-sm font-medium">Pour qui ?</p>
+            <div className="grid grid-cols-3 gap-3 max-md:grid-cols-1">
+              {AUDIENCES.map(({ id, label, icon: Icon }) => (
+                <button
+                  key={id}
+                  type="button"
+                  onClick={() => onStart(id)}
+                  className="flex flex-col items-center gap-2 rounded-xl border bg-card p-6 text-center transition hover:border-primary hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring max-md:flex-row max-md:justify-center"
+                >
+                  <Icon className="size-8 text-primary" aria-hidden />
+                  <span className="font-medium">{label}</span>
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       }
       right={<ProfilExplainer />}

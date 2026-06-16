@@ -33,10 +33,12 @@ afterEach(() => {
 })
 
 describe("App", () => {
-  it("affiche l'écran d'intro avec un bouton Commencer", () => {
+  it("affiche l'écran d'intro avec les 3 cartes de public", () => {
     render(<App />)
     expect(screen.getByRole("heading", { name: /process gomme/i })).toBeInTheDocument()
-    expect(screen.getByRole("button", { name: /commencer/i })).toBeInTheDocument()
+    expect(screen.getByRole("button", { name: /enfant/i })).toBeInTheDocument()
+    expect(screen.getByRole("button", { name: /étudiant/i })).toBeInTheDocument()
+    expect(screen.getByRole("button", { name: /adulte/i })).toBeInTheDocument()
   })
 
   it("ouvre directement les résultats partagés quand ?r= est valide", () => {
@@ -49,6 +51,6 @@ describe("App", () => {
   it("ignore un ?r= invalide et affiche l'intro", () => {
     window.history.pushState({}, "", "?r=corrompu!!!")
     render(<App />)
-    expect(screen.getByRole("button", { name: /commencer/i })).toBeInTheDocument()
+    expect(screen.getByRole("button", { name: /enfant/i })).toBeInTheDocument()
   })
 })

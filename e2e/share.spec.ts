@@ -5,7 +5,7 @@ test.use({ permissions: ["clipboard-read", "clipboard-write"] })
 
 test("partage : copier le lien puis l'ouvrir reconstruit le même profil", async ({ page }) => {
   await page.goto("/process-gomme/")
-  await page.getByRole("button", { name: /commencer/i }).click()
+  await page.getByRole("button", { name: /adulte/i }).click()
 
   // Répondre aux 36 questions (1re option si choix forcé ; Likert par défaut à 3).
   for (let i = 0; i < 36; i++) {

@@ -5,7 +5,7 @@ test("parcours complet : intro → quiz → résultats", async ({ page }) => {
 
   // Intro
   await expect(page.getByRole("heading", { name: /process gomme/i })).toBeVisible()
-  await page.getByRole("button", { name: /commencer/i }).click()
+  await page.getByRole("button", { name: /enfant/i }).click()
 
   // Quiz : répondre aux 36 questions.
   for (let i = 0; i < 36; i++) {

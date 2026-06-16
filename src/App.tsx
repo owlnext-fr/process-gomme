@@ -24,7 +24,7 @@ function App() {
   }
 
   if (state.screen === "intro") {
-    return <IntroScreen onStart={() => dispatch({ type: "start" })} />
+    return <IntroScreen onStart={(audience) => dispatch({ type: "start", audience })} />
   }
   if (state.screen === "quiz") {
     return <QuizScreen state={state} dispatch={dispatch} />
