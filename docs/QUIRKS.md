@@ -6,6 +6,34 @@ Comportements non-évidents découverts au fil du projet. Un H2 par quirk, avec 
 
 ---
 
+## Questions : structure (data) vs texte (content) — séparés par public (2026-06-17)
+
+**Comment ça marche** : depuis les questionnaires par public, les questions sont en **deux couches**.
+- `src/data/questions.ts` → `QUESTION_STRUCTURE` : la **structure** (ids, `famille`, `kind`, `cibles`), testée (équilibrage 8×/1×). **Aucun texte.** C'est ce que lit le **scoring** (`scoring.ts`) et le `quizReducer` → indépendants du public.
+- `src/content/questions/{adulte,enfant,etudiant}.ts` → un **calque de texte par public** (`Record<id, QuestionText>`). Les labels d'un forcé sont indexés **par cible** (`Partial<Record<TypeId,string>>`, seulement les 4 cibles de la question — l'unicité des cibles garantit zéro désalignement).
+- `getQuestions(audience)` (`src/lib/questions.ts`) fusionne structure + calque → `Question[]` (avec texte) pour l'UI. Il **throw** si un label manque (calque incomplet).
+
+**Pièges** :
+- **Ajouter/retirer une question = toucher le squelette ET les 3 calques** (`adulte`, `enfant`, `etudiant`), sinon `src/content/questions/calques.test.ts` casse (il vérifie 36 questions complètes par public via `getQuestions`).
+- Le **scoring n'a pas besoin du public** : ne pas le lui passer. Valider le moteur une fois suffit pour les 3 publics.
+- Le **lien de partage `?r=`** n'encode pas le public (résultats identiques quel que soit le questionnaire d'origine) — voir le quirk partage.
+
+**Référence** : `src/data/questions.ts`, `src/content/questions/`, `src/lib/questions.ts`, `src/content/questions/calques.test.ts`
+
+## Workflow de génération de contenu : rate-limit ET limite de session (2026-06-17)
+
+**Symptôme** : un Workflow « jury » avec **5 personas distinctes par question** (brouillon + 5 critiques parallèles + révision ≈ 7 agents/item × 72 ≈ **500 agents Opus effort-élevé**) a d'abord saturé le **rate-limit serveur** (« Server is temporarily limiting requests », ~1/72 produit, 6,2 M tokens), puis — en reprenant — la **limite de session** (« You've hit your session limit · resets 12am »), ~4/72.
+
+**Cause** : trop d'appels Opus haute-intensité, en rafale (rate-limit serveur, ~concurrence 16) **et** en cumul (limite de session = total de tokens, indépendante de la rafale).
+
+**Workaround** (ce qui a débloqué, cf. la session précédente aussi) :
+- **Fusionner le jury** : 1 seul agent évalue les 5 angles → ~3 agents/item (~200 total), ~3× moins de tokens → tient dans la session. Qualité par agent préservée (Opus, effort élevé, 5 angles couverts).
+- **Réduire la rafale** indépendamment via une concurrence maison (`mapLimit`) plutôt que le cap par défaut (16) — utile contre le **rate-limit serveur** (pas contre la limite de session).
+- **`resumeFromRunId`** rejoue le cache disque (`agent-*.jsonl`) : éditer l'orchestration **sans changer les prompts** garde le cache valide (les brouillons ne re-tournent pas). **Jamais de reprise à zéro.**
+- Le journal (`journal.jsonl`) stocke des **clés hachées, pas les labels** → ne pas s'y fier pour mesurer la progression ; le vrai compte vient de la valeur de retour (`byAudience`/`missing`).
+
+**Référence** : `docs/superpowers/artifacts/2026-06-16-questions-publics.json`, `docs/superpowers/plans/2026-06-16-questionnaires-par-public.md` (Task 7)
+
 ## Id de type ≠ nom affiché (2026-06-16)
 
 **Piège** : depuis le renommage aux standards à jour, les **ids internes** (`TypeId`) ne correspondent **plus** au nom montré à l'utilisateur :

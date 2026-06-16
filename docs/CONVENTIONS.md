@@ -97,6 +97,19 @@ export function MonEcran(/* props */) {
 - `SplitLayout` fournit le `<main>` (1/3-2/3 en `md`, empilé en mobile, volet gauche `min-h-svh`/`md:min-h-0`, volet droit indigo `bg-primary` centré).
 - `ProfilExplainer` est statique (contenu original dans `src/content/explainer.ts`), déjà cadré (`max-w-lg`) et centré.
 
+## Questions : squelette de structure + calques de texte par public
+
+Les questions sont en **deux couches** (archi i18n maison, zéro dépendance) :
+
+- **Structure** dans `src/data/questions.ts` → `QUESTION_STRUCTURE: QuestionStruct[]` : `id`, `famille`, `kind`, et pour un forcé `cibles: [TypeId×4]` (ordre canonique des options). **Aucun texte.** Source unique, testée (équilibrage 8× forcé + 1× Likert par type/famille).
+- **Texte** dans `src/content/questions/<public>.ts` (`adulte`/`enfant`/`etudiant`) → `Record<id, QuestionText>` où `QuestionText = ForcedText { prompt; labels: Partial<Record<TypeId,string>> } | LikertText { statement }`. Les labels d'un forcé sont indexés **par cible** (seulement les 4 cibles de la question).
+- **Fusion** par `getQuestions(audience)` (`src/lib/questions.ts`) → `Question[]` (résolu, avec texte) consommé par l'UI. Le scoring et le reducer lisent **le squelette** (`QUESTION_STRUCTURE`), jamais le texte → indépendants du public.
+
+**Règles** :
+- **Ajouter/éditer une question = toucher le squelette ET les 3 calques** (`adulte`, `enfant`, `etudiant`). `src/content/questions/calques.test.ts` vérifie 36 questions complètes par public — il casse si un calque est incomplet.
+- Le contenu enfant/étudiant **dérive du contexte** de l'adulte (sens + cibles **préservés**), 100 % original. Respecter les **contrats de continuation** (base = verbe sans « je » ; phase = infinitif/subordonnée) et la **forme parallèle non-orientante** (cf. plus bas).
+- **Adulte = référence figée** : ne pas le régénérer sans raison (déjà poli/équilibré/harmonisé).
+
 ## Question de quiz : tout passe par `ChoiceGroup`
 
 - **Composant unique de rendu** : les deux types de question (choix forcé ET Likert) sont rendus par `src/features/quiz/ChoiceGroup.tsx` (legend + `RadioGroup` de cartes-boutons bordées). `ForcedChoice` et `LikertScale` sont de **fins adaptateurs** qui mappent leurs données vers `{ value, label }[]` et délèguent à `ChoiceGroup`. Ne **jamais** redéfinir le markup des cartes localement — sinon les deux types divergent.

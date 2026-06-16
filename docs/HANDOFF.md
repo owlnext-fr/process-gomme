@@ -6,6 +6,26 @@ Notes informelles à destination de la prochaine session (humaine ou Claude). Fo
 
 ---
 
+## 2026-06-17 — Questionnaires par public (enfant / étudiant / adulte)
+
+### Dernière chose faite
+- Feature livrée en **subagent-driven** (8 tâches, chacune avec revue spec + revue qualité). Le test propose désormais **3 publics** choisis sur l'accueil (3 cartes icône+label). Gate `pnpm before_push` **vert** (lint + **73 unit** + build + **2 e2e**).
+- **Archi i18n maison, zéro dépendance** : la **structure** des 36 questions vit une seule fois dans `src/data/questions.ts` (`QUESTION_STRUCTURE` : ids, famille, kind, cibles — **aucun texte**) ; le **texte** vit dans un **calque par public** (`src/content/questions/{adulte,enfant,etudiant}.ts`, `Record<id, QuestionText>`, labels indexés **par cible**). `getQuestions(audience)` (`src/lib/questions.ts`) fusionne squelette + calque → `Question[]` consommé par l'UI.
+- **Scoring, contenu de résultats et partage `?r=` inchangés** : le moteur (`scoring.ts`) ne lit que `QUESTION_STRUCTURE` → valider le moteur une fois couvre les 3 publics. `QuizState` porte `audience` ; l'action `start` la transporte ; `QuizScreen` résout via `getQuestions(state.audience)`.
+- **Contenu enfant/étudiant** : 72 variantes (36 × 2) **100 % originales**, dérivées du **contexte** (sens + cibles préservés) — adulte = l'existant figé. Génération via le tool **Workflow**.
+
+### Trucs en suspens
+- **Poussé sur `main`** ; CI en cours / à surveiller (`gh run watch`). Si vert → déployé sur Pages.
+
+### Prochaine chose à creuser
+- Rien de bloquant. Idée éventuelle : adapter aussi le **ton des résultats** par public (écarté ici, YAGNI — voir BACKLOG si besoin).
+
+### Notes pour future Claude
+- **Génération de contenu = leçon rate-limit (cf. QUIRKS)** : l'approche « 5 personas distinctes par question » (≈500 agents Opus effort-élevé) a **explosé le rate-limit serveur PUIS la limite de session** (1/72 puis 4/72, ~7 M tokens gâchés). La bascule vers un **conseil 5 angles fusionné en 1 agent** (≈3 agents/item, ~200 total) a tout débloqué (~3 % de session pour finir). Le `resumeFromRunId` réutilise le cache disque (`agent-*.jsonl`) → jamais de reprise à zéro.
+- 2 items enfant (`b-lk-02`, `p-fc-04`) sont sortis malformés du Workflow (final non-null mais champs vides) ; régénérés à part via un agent Opus dédié puis injectés. Si tu réutilises le script Workflow : `~/.claude/.../workflows/scripts/derive-questions-publics-wf_5f507033-dde.js`.
+- Pour **ajouter une question** : l'ajouter au squelette **ET** dans les **3 calques** (sinon `calques.test.ts` casse). Voir CONVENTIONS.
+- Spec : `docs/superpowers/specs/2026-06-16-questionnaires-par-public-design.md` · Plan : `docs/superpowers/plans/2026-06-16-questionnaires-par-public.md`.
+
 ## 2026-06-16 — Renommage des labels affichés (standards à jour)
 
 ### Dernière chose faite
