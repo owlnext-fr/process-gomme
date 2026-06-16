@@ -5,7 +5,8 @@ import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
 import { SplitLayout } from "@/components/SplitLayout"
 import { ProfilExplainer } from "@/components/ProfilExplainer"
-import { QUESTIONS, type Option } from "@/data/questions"
+import { type Option } from "@/data/questions"
+import { getQuestions } from "@/lib/questions"
 import { shuffledIndices } from "@/lib/shuffle"
 import type { QuizState, Action } from "./quizReducer"
 import { ForcedChoice } from "./ForcedChoice"
@@ -19,9 +20,10 @@ export function QuizScreen({
   dispatch: React.Dispatch<Action>
 }) {
   const reduce = useReducedMotion()
-  const q = QUESTIONS[state.index]
+  const questions = useMemo(() => getQuestions(state.audience ?? "adulte"), [state.audience])
+  const q = questions[state.index]
   const reponse = state.answers[q.id]
-  const total = QUESTIONS.length
+  const total = questions.length
   const reponseManquante = !reponse
   const derniere = state.index === total - 1
 
@@ -30,12 +32,12 @@ export function QuizScreen({
   const ordres = useMemo(
     () =>
       Object.fromEntries(
-        QUESTIONS.map((qq) => [
+        questions.map((qq) => [
           qq.id,
           qq.kind === "forced" ? shuffledIndices(qq.options.length) : [],
         ]),
       ) as Record<string, number[]>,
-    [],
+    [questions],
   )
 
   return (

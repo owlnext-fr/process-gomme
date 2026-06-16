@@ -79,21 +79,3 @@ export const QUESTION_STRUCTURE: QuestionStruct[] = [
   { id: "p-lk-05", famille: "phase", kind: "likert", cible: "rebelle" },
   { id: "p-lk-06", famille: "phase", kind: "likert", cible: "promoteur" },
 ]
-
-// TRANSITOIRE — maintient les consommateurs existants verts jusqu'à leur migration (Task 3-5).
-// Fusion locale (PAS d'import de lib/questions → pas de cycle). Retiré en Task 5.
-import { ADULTE } from "@/content/questions/adulte"
-import type { ForcedText, LikertText } from "@/content/questions/types"
-export const QUESTIONS: Question[] = QUESTION_STRUCTURE.map((s): Question => {
-  const t = ADULTE[s.id]
-  if (s.kind === "forced") {
-    const ft = t as ForcedText
-    const options = s.cibles.map((c) => {
-      const label = ft.labels[c]
-      if (label === undefined) throw new Error(`Calque incomplet : label manquant pour ${s.id} / ${c}`)
-      return { cible: c, label }
-    }) as [Option, Option, Option, Option]
-    return { id: s.id, famille: s.famille, kind: "forced", prompt: ft.prompt, options }
-  }
-  return { id: s.id, famille: s.famille, kind: "likert", cible: s.cible, statement: (t as LikertText).statement }
-})
