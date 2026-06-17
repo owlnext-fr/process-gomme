@@ -133,6 +133,7 @@ Les questions sont en **deux couches** (archi i18n maison, zéro dépendance) :
 - **a11y plancher** : `aria-label` sur les contrôles/visuels, focus clavier visible, `useReducedMotion()` pour toute animation.
 - **Couleurs de types** : toujours via **`TYPE_COLORS`** (`src/data/types.ts`, → tokens `--type-1..6`). Jamais de couleur de type en dur. Source unique partagée par le radar (`RadarProfil`), la pyramide (`Immeuble`) et les pastilles du panneau (`ProfilExplainer`).
 - **Icônes sur les boutons** : tout `<Button>` porte une icône **lucide-react** (`className="size-4"`, `aria-hidden`), le label texte reste pour l'a11y.
+- **Bouton icône-seule sur mobile** (anti-overflow d'un header d'actions) : envelopper le **libellé** dans `<span className="sr-only md:not-sr-only">…</span>` → icône seule sous `md`, texte rétabli à `md+`, **nom accessible toujours présent** (donc tests/role-name et lecteurs d'écran OK). Utilisé pour Exporter/Partager/Recommencer dans `ResultsScreen`.
 - **Layouts pleine page** : intro + quiz utilisent `SplitLayout` (1/3-2/3, pleine largeur, padding par volet) ; la page résultats est aussi pleine page. Pas de `mx-auto max-w-*` de cadrage global sur ces écrans.
 - **Masquer un volet flex en mobile** : `max-md:hidden` (pas `hidden md:block`, qui casse le `flex`). Voir `QUIRKS.md`.
 - **Commits gitmoji** directs sur `main`. **`pnpm before_push`** avant chaque push.

@@ -6,6 +6,18 @@ Notes informelles à destination de la prochaine session (humaine ou Claude). Fo
 
 ---
 
+## 2026-06-17 — Correctifs post-livraison (header mobile + PDF)
+
+### Dernière chose faite
+- **Header résultats sur mobile** : les libellés des 3 boutons (Exporter PDF / Partager / Recommencer) sont masqués sous `md` via `sr-only md:not-sr-only` → **icône seule sur mobile** (plus d'overflow à droite), texte rétabli sur desktop, **noms accessibles conservés**. Vérifié à 390 px (capture). Commit `1e8befd`.
+- **PDF — immeuble et radar côte à côte** (`flexDirection: "row"`, `visualImmeuble` flex 1 + `visualRadar` 220 pt) au lieu d'empilés. Commit `1e8befd`.
+- **PDF — collision titre/date corrigée** : le titre `process gomme` mordait sur « Ton profil · généré le … » (interligne par défaut serré de react-pdf + écart trop faible). Fix : `marginBottom: 10` + `lineHeight: 1.2` sur le titre, retrait du `marginTop` de la date. Commit `f94919e`. Tout poussé + déployé (CI verte).
+
+### Notes pour future Claude
+- **Prévisualiser un PDF react-pdf sans deviner** (recette fiable, utilisée pour valider le fix titre/date) : un test jetable `// @vitest-environment node` qui appelle `renderToFile(<ResultPdfDocument .../>, "/tmp/x.pdf")`, lancé via `node_modules/.bin/vitest run <fichier>`, puis `pdftoppm -png -r 110 /tmp/x.pdf /tmp/x` → `Read` l'image. Supprimer le test jetable avant commit. Voir ENVIRONMENT (outils de vérif visuelle).
+- **react-pdf espace vertical** : l'interligne par défaut est serré ; pour séparer deux `<Text>` empilés, mettre un `marginBottom` explicite sur le premier (ne pas se fier au seul `lineHeight` hérité). Voir QUIRKS.
+- Pattern réutilisable : **bouton icône-seule-sur-mobile** = `<span className="sr-only md:not-sr-only">label</span>` dans le `<Button>` (garde le nom accessible). Voir CONVENTIONS.
+
 ## 2026-06-17 — Export PDF des résultats (1 clic) — livré
 
 ### Dernière chose faite

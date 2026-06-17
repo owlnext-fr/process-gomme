@@ -22,6 +22,15 @@ L'export PDF (`src/features/results/pdf/*`, `src/components/ExportPdfButton.tsx`
   `--type-1..6` → `pdfColors.ts` en redonne les 6 hex (thème clair). À garder en phase si on
   change une teinte. Idem, dans les primitives SVG de react-pdf, `fontSize` se met dans
   `style={{ fontSize }}` (pas en prop directe — limite des types).
+- **Espacement vertical serré** : l'interligne par défaut de react-pdf est compact ; deux
+  `<Text>` empilés peuvent se chevaucher (vu : titre `process gomme` mordant sur la ligne de
+  date). Mettre un **`marginBottom` explicite** sur l'élément du haut (ne pas se fier au seul
+  `lineHeight` hérité).
+- **Prévisualiser le rendu** (au lieu de deviner) : test jetable `// @vitest-environment node`
+  → `renderToFile(<ResultPdfDocument .../>, "/tmp/x.pdf")`, lancé via
+  `node_modules/.bin/vitest run <fichier>`, puis `pdftoppm -png -r 110 /tmp/x.pdf /tmp/x` →
+  ouvrir l'image. Supprimer le test jetable avant commit. (`renderToBuffer` ne suffit qu'à
+  prouver que ça compile, pas à voir la mise en page.)
 
 **Référence** : `src/features/results/pdf/`, `src/components/ExportPdfButton.tsx`
 
