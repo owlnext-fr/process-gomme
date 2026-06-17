@@ -13,8 +13,8 @@ import { PdfRadar } from "./PdfRadar"
 
 const s = StyleSheet.create({
   page: { padding: 36, fontSize: 10, color: "#0f172a", fontFamily: "Helvetica", lineHeight: 1.4 },
-  h1: { fontSize: 20, fontFamily: "Helvetica-Bold" },
-  sub: { fontSize: 9, color: "#64748b", marginTop: 2, marginBottom: 12 },
+  h1: { fontSize: 20, fontFamily: "Helvetica-Bold", lineHeight: 1.2, marginBottom: 10 },
+  sub: { fontSize: 9, color: "#64748b", marginBottom: 12 },
   banner: { backgroundColor: "#e0e7ff", borderRadius: 6, padding: 10, marginBottom: 16 },
   bannerLabel: { fontSize: 8, color: "#64748b", textTransform: "uppercase", letterSpacing: 1 },
   bannerValue: { fontSize: 13, fontFamily: "Helvetica-Bold", color: "#4338ca", marginTop: 2 },
