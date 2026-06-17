@@ -19,6 +19,9 @@ const s = StyleSheet.create({
   bannerLabel: { fontSize: 8, color: "#64748b", textTransform: "uppercase", letterSpacing: 1 },
   bannerValue: { fontSize: 13, fontFamily: "Helvetica-Bold", color: "#4338ca", marginTop: 2 },
   section: { marginBottom: 14 },
+  visuals: { flexDirection: "row", gap: 16, marginBottom: 14 },
+  visualImmeuble: { flex: 1 },
+  visualRadar: { width: 220, alignItems: "center" },
   blockTitle: { fontSize: 13, fontFamily: "Helvetica-Bold", marginBottom: 4 },
   subTitle: { fontSize: 11, fontFamily: "Helvetica-Bold", marginTop: 8 },
   hint: { fontSize: 8, color: "#6366f1", marginBottom: 3 },
@@ -52,15 +55,16 @@ export function ResultPdfDocument({ result, genere }: { result: DisplayResult; g
           </Text>
         </View>
 
-        <View style={s.section} wrap={false}>
-          <Text style={s.blockTitle}>Ton immeuble</Text>
-          <Text style={s.hint}>{SECTION_HINTS.immeuble}</Text>
-          <PdfImmeuble immeuble={immeuble} socle={socle} phase={phase} />
-        </View>
-
-        <View style={s.section} wrap={false}>
-          <Text style={s.blockTitle}>Ton profil en relief</Text>
-          <PdfRadar socle={socle} />
+        <View style={s.visuals} wrap={false}>
+          <View style={s.visualImmeuble}>
+            <Text style={s.blockTitle}>Ton immeuble</Text>
+            <Text style={s.hint}>{SECTION_HINTS.immeuble}</Text>
+            <PdfImmeuble immeuble={immeuble} socle={socle} phase={phase} />
+          </View>
+          <View style={s.visualRadar}>
+            <Text style={s.blockTitle}>Ton profil en relief</Text>
+            <PdfRadar socle={socle} />
+          </View>
         </View>
 
         <Text style={s.blockTitle}>Synthèse</Text>

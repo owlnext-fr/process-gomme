@@ -40,7 +40,7 @@ export function ExportPdfButton({ result }: { result: DisplayResult }) {
         ) : (
           <Download className="size-4" aria-hidden />
         )}
-        {busy ? "Génération…" : "Exporter en PDF"}
+        <span className="sr-only md:not-sr-only">{busy ? "Génération…" : "Exporter en PDF"}</span>
       </Button>
       <span className="sr-only" aria-live="polite">
         {error ? "Export PDF impossible" : busy ? "Génération du PDF en cours" : ""}

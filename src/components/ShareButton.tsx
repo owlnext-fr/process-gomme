@@ -39,7 +39,7 @@ export function ShareButton({ result }: { result: DisplayResult }) {
         ) : (
           <Share2 className="size-4" aria-hidden />
         )}
-        {MESSAGES[status]}
+        <span className="sr-only md:not-sr-only">{MESSAGES[status]}</span>
       </Button>
       <span className="sr-only" aria-live="polite">
         {status === "idle" ? "" : MESSAGES[status]}

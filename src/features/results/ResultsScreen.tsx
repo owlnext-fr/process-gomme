@@ -33,7 +33,7 @@ export function ResultsScreen({
           {!shared && (
             <Button variant="outline" onClick={onRestart}>
               <RotateCcw className="size-4" aria-hidden />
-              Recommencer
+              <span className="sr-only md:not-sr-only">Recommencer</span>
             </Button>
           )}
         </div>
